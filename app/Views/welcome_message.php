@@ -295,7 +295,7 @@
         <p>Page rendered in {elapsed_time} seconds</p>
 
         <p>Environment: <?= ENVIRONMENT ?></p>
-        @Derechos reservados ¡mi papa!
+
     </div>
 
     <div class="copyrights">

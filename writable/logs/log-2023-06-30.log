@@ -1,3 +1,0 @@
-CRITICAL - 2023-06-30 19:42:40 --> Cannot redeclare App\Controllers\Dashboard::listado()
-in APPPATH/Controllers/Dashboard.php on line 15.
- 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
