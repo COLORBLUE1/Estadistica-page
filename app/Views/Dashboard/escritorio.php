@@ -52,7 +52,7 @@
                     </li>
                 </ul>
             </nav>
-            <h3 class='display-4 relawayStandart text-light shadow-sm'>Ecuaciones diferenciales: variables separables
+            <h3 class='display-4 relawayStandart text-light shadow-sm'>Estadistica
             </h3>
 
         </div>
