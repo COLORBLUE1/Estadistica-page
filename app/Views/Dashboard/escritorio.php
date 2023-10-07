@@ -91,12 +91,22 @@
 <br><br>
 <br><br>
 <footer>
-    <div>
+    <div class="bar">
         <br><br>
         <p class="credits">Abel Sol - Hugo Ledesma - Maria Ortiz<br><b>@Derechos reservados ¡mi papacho!</b></p>
     </div>
 </footer>
 <style>
+
+@keyframes resize {
+  from { width: 0%; opacity: 0;} /* Se puede omitir */
+  to { width: 100% }
+}
+
+.bar {
+  animation: resize auto linear forwards;
+  animation-timeline: scroll(root block);
+}
     .credits {
         text-align: center;
     }
