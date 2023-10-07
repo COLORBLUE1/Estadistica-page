@@ -49,7 +49,7 @@
                     <h2>01</h2>
                     <h3>Teoria</h3>
                     <p> En este apartado podras encontrar diversos conceptos que ayudaran a entender el ecocistema de la estadistica y sus 
-                        tipos.
+                        tipos
                     </p>
                     <a href="carga_historia">Leer mas</a>
                 </div>
