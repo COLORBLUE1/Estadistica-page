@@ -97,16 +97,23 @@
     </div>
 </footer>
 <style>
+    @keyframes resize {
+        from {
+            width: 0%;
+            opacity: 0;
+        }
 
-@keyframes resize {
-  from { width: 0%; opacity: 0;} /* Se puede omitir */
-  to { width: 100% }
-}
+        /* Se puede omitir */
+        to {
+            width: 100%
+        }
+    }
 
-.bar {
-  animation: resize auto linear forwards;
-  animation-timeline: scroll(root block);
-}
+    .bar {
+        animation: resize auto linear forwards;
+        animation-timeline: scroll(root block);
+    }
+
     .credits {
         text-align: center;
     }
