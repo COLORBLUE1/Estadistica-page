@@ -47,12 +47,10 @@
             <div class="card">
                 <div class="content">
                     <h2>01</h2>
-                    <h3>Historia</h3>
-                    <p> En 1666 Sir Isaac Newton (1642-1727), fue el primero en desarrollar métodos matemáticos para
-                        resolver
-                        problemas de esta índole. Inventó su propia versión del cálculo para explicar el movimiento de
-                        los
-                        planetas alrededor del Sol.</p>
+                    <h3>Teoria</h3>
+                    <p> En este apartado podras encontrar diversos conceptos que ayudaran a entender el ecocistema de la estadistica y sus 
+                        tipos.
+                    </p>
                     <a href="carga_historia">Leer mas</a>
                 </div>
             </div>
