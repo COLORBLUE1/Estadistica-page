@@ -10,7 +10,6 @@
     {Examen}
 
 -->
-
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans+Condensed:300|Raleway|Roboto" rel="stylesheet">
@@ -24,7 +23,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
-
 <body style="width: 100%; color:#00fdf9;" class="cuerpa">
     <section>
         <br>
@@ -40,7 +38,6 @@
  text-align:center;
  font-size:11px;">Da click sobre las tarjetas, para ver su contenido</h5>
         <div class="container">
-
             <div class="card">
                 <div class="content">
                     <h2>02</h2>
@@ -72,12 +69,10 @@
                 "max-glare": 1
             });
         </script>
-
 </body>
 <br><br>
 <br><br>
 <footer>
-
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-3 item">
@@ -98,9 +93,12 @@
             </div>
             <div class="col-md-6 item text">
                 <h3>STATISTICAL STUDY</h3>
-                <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                <p>Somos tu mejor obcion si lo que quieres es fortalecer los conocimientos frente a las estadisticas,
+                    las estadisticas son un campo amplio
+                    en el cual puedes aprender muchas cosas que pueden ofreserte
+                    gran fortaleza en e sector empleo.</p>
             </div>
-          
+
             <div class="bar">
                 <br><br>
                 <p class="credits">Abel Sol - Hugo Ledesma - Maria Ortiz<br><b>@Derechos reservados ¡mi papacho!</b></p>
@@ -185,7 +183,6 @@
         font-family: 'Crimson Text', serif;
     }
 
-
     #primary_nav_wrap {
         margin-top: 15px
     }
@@ -197,7 +194,6 @@
         margin: 0;
         padding: 0
     }
-
     #primary_nav_wrap ul a {
 
         display: block;
@@ -209,7 +205,6 @@
         padding: 0 15px;
         font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif
     }
-
     #primary_nav_wrap ul li {
         border-radius: 10px;
         position: relative;
@@ -217,7 +212,6 @@
         margin: 0;
         padding: 0
     }
-
     #primary_nav_wrap ul ul {
         display: none;
         position: absolute;
