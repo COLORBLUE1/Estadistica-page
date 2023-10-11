@@ -80,56 +80,61 @@
         <br><br>
         <br><br>
         <section style="background-color: #333;">
-            <div class="container_2">
 
-                <div class="card_ams" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" alt="Card image cap">
-
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-
+            <div class="card_1" style="width: 18rem;">
+                <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <!--Tarjeta abel-->
+                    <h5 class="card-title">Camilo Sol</h5>
+                    <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
                 </div>
-
-                <br><br>
-                <br><br>
-
-                <div class="card_ams" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" alt="Card image cap">
-
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Un elemento</li>
+                    <li class="list-group-item">Un segundo elemento</ /li>
+                    <li class="list-group-item">Un tercer elemento</ /li>
+                </ul>
+                <div style="" class="card-body">
+                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/facebook.png" alt="facebook" /></a>
+                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/instagram-new--v2.png" alt="instagram-new--v2" /></a>
                 </div>
-
-                <br><br>
-                <br><br>
-                <div class="card_ams" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" alt="Card image cap">
-
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-
-                </div>
-
             </div>
+            <div class="card_2" style="width: 18rem;">
+                <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <!--Tarjeta maria-->
+                    <h5 class="card-title">Maria Ortiz</h5>
+                    <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Un elemento</li>
+                    <li class="list-group-item">Un segundo elemento</ /li>
+                    <li class="list-group-item">Un tercer elemento</ /li>
+                </ul>
+                <div style="" class="card-body">
+                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/facebook.png" alt="facebook" /></a>
+                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/instagram-new--v2.png" alt="instagram-new--v2" /></a>
+                </div>
+            </div>
+            <div class="card_3" style="width: 18rem;">
+                <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <!--Tarjeta Ledesma-->
+                    <h5 class="card-title">Hugo Ledesma</h5>
+                    <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Un elemento</li>
+                    <li class="list-group-item">Un segundo elemento</ /li>
+                    <li class="list-group-item">Un tercer elemento</ /li>
+                </ul>
+                <div style="" class="card-body">
+                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/facebook.png" alt="facebook" /></a>
+                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/instagram-new--v2.png" alt="instagram-new--v2" /></a>
+                </div>
+            </div>
+
+
+
         </section>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.6.1/vanilla-tilt.min.js"></script>
         <script>
@@ -190,6 +195,19 @@
         border-top-right-radius: 5px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+    }
+
+
+
+
+
+    .card_1,
+    .card_2,
+    .card_3 {
+        width: 100%;
+        margin: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
     }
 
     /* Heading */
@@ -391,6 +409,47 @@
         font-family: 'Poppins', sans-serif;
     }
 
+    /* Division */
+    section section div div {
+        border-color: #ffffff;
+        border-style: solid;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        margin-top: 10px;
+        transform: translatex(0px) translatey(0px);
+        margin-bottom: 18px;
+    }
+/* Image */
+section a img{
+ margin-left:20px;
+ margin-right:20px;
+ margin-top:5px;
+ margin-bottom:5px;
+}
+
+
+    /* List Item */
+    section section li {
+        margin-top: 5px;
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;
+        border-bottom-left-radius: 10px !important;
+        border-bottom-right-radius: 10px !important;
+    }
+
+    /* Image */
+    section section div>img {
+        background-color: #e74c3c;
+        margin-top: 30px;
+        margin-bottom: 5px;
+    }
+
+    section section p {
+        text-align: justify;
+    }
+
     body::-webkit-scrollbar {
         width: 10px;
         /* width of the entire scrollbar */
@@ -510,7 +569,7 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
 
-  
+
 
     /* Column 6/12 */
     section div .item {
@@ -526,38 +585,19 @@
     .row .item p {
         text-align: justify;
     }
- 
-.container_2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Permite que los divs se envuelvan en filas en pantallas pequeñas */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
 
-.card_ams {
-    flex: 0 0 calc(33.33% - 20px); /* Divide el espacio en 3 columnas y ajusta el margen */
-    text-align: center;
-    padding: 20px;
-    margin: 10px; /* Espacio entre los divs */
-    box-sizing: border-box; /* Incluye el relleno y el margen en el ancho total */
-}
-
-@media (max-width: 768px) {
-    .box {
-        flex: 0 0 calc(50% - 20px); /* 2 columnas en pantallas más pequeñas */
+    .container_2 {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
-}
 
-@media (max-width: 480px) {
-    .box {
-        flex: 0 0 100%; /* 1 columna en pantallas aún más pequeñas */
-    }
-}
 
-   
+    /* Media queries para dispositivos móviles */
+
+
+
+
     body {
 
         width: 100%;
