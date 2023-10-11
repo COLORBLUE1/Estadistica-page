@@ -1,17 +1,11 @@
 <!--  
-    TArjeta 1
-
-    {Historia 
-    Teorema 
-    Demostracin}
-    
-    Tarjeta 2
+    Tarjeta 1
 
     {3 ejercicios y 1 de PVI
     Video tutorial explicativo}
     
     
-    Tarjeta 3
+    Tarjeta 2
 
     {Examen}
 
@@ -25,7 +19,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OS-DATE</title>
+    <title>STATISTICAL STUDY</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -36,7 +30,7 @@
         <br><br>
         <div class='jumbotron' style="backdrop-filter: blur(10px);
     background-color:rgba(250, 250, 250, 0.2);  text-align:center; Width:90% ">
-            <h3 class='display-4 relawayStandart text-light shadow-sm'>ESTADISTICA
+            <h3 class='display-4 relawayStandart text-light shadow-sm'>Calculadora de operaciones estadisticas
             </h3>
         </div>
         </div>
@@ -44,16 +38,7 @@
  text-align:center;
  font-size:11px;">Da click sobre las tarjetas, para ver su contenido</h5>
         <div class="container">
-            <div class="card">
-                <div class="content">
-                    <h2>01</h2>
-                    <h3>Teoria</h3>
-                    <p> En este apartado podras encontrar diversos conceptos que ayudaran a entender el ecocistema de la estadistica y sus 
-                        tipos.
-                    </p>
-                    <a href="carga_historia">Leer mas</a>
-                </div>
-            </div>
+           
             <div class="card">
                 <div class="content">
                     <h2>02</h2>
@@ -254,8 +239,8 @@
     }
 
     body::-webkit-scrollbar-track {
-        background: #161623;
-        /* color of the tracking area */
+        background: aqua;
+        /* color de fondo pagina principal */
     }
 
     body::-webkit-scrollbar-thumb {
@@ -270,12 +255,11 @@
     }
 
     body {
-
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background: #161623;
+        background: aqua;
     }
 
     body::before {
