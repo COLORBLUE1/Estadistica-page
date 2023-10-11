@@ -30,7 +30,7 @@
         width: 100%;">
         <nav id='menu'>
             <input type='checkbox' />
-            <label>&#8801;<span>Menu</span></label>
+            <label style="color:white">&#8801;<span style="color:white">Menu</span></label>
             <ul>
                 <li><a href='/'>Inicio</a></li>
                 <li><a href='#'>Sobre mi</a></li>
@@ -790,7 +790,7 @@ section a img{
         }
 
         #menu input:checked+label {
-            color: #333;
+            color: white;
             /*color de las tres barritas una vez se clica*/
         }
 
