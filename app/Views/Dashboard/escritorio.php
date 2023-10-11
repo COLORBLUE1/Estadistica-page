@@ -21,6 +21,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STATISTICAL STUDY</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
 <body style="width: 100%; color:#00fdf9;" class="cuerpa">
@@ -38,7 +40,7 @@
  text-align:center;
  font-size:11px;">Da click sobre las tarjetas, para ver su contenido</h5>
         <div class="container">
-           
+
             <div class="card">
                 <div class="content">
                     <h2>02</h2>
@@ -70,14 +72,39 @@
                 "max-glare": 1
             });
         </script>
+
 </body>
 <br><br>
 <br><br>
 <footer>
-    <div class="bar">
-        <br><br>
-        <p class="credits">Abel Sol - Hugo Ledesma - Maria Ortiz<br><b>@Derechos reservados ¡mi papacho!</b></p>
-    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3 item">
+                <h3>Services</h3>
+                <ul>
+                    <li><a target="_blank" href="https://www.instagram.com/camilo_abel1/">Web design</a></li>
+                    <li><a target="_blank" href="#">Development</a></li>
+                    <li><a target="_blank" href="https://www.000webhost.com/">Hosting</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-3 item">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Company</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 item text">
+                <h3>STATISTICAL STUDY</h3>
+                <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+            </div>
+          
+            <div class="bar">
+                <br><br>
+                <p class="credits">Abel Sol - Hugo Ledesma - Maria Ortiz<br><b>@Derechos reservados ¡mi papacho!</b></p>
+            </div>
 </footer>
 <style>
     @keyframes resize {
@@ -259,7 +286,8 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background: aqua;
+        background-image: url("https://images.unsplash.com/photo-1695970921584-bb052e24916f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNTc5fDB8MXxhbGx8NTQ3fHx8fHx8Mnx8MTY5Njk5NzAyMnw&ixlib=rb-4.0.3&q=80&w=2560") !important;
+        background-size: cover !important;
     }
 
     body::before {
@@ -269,8 +297,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(#f00, #f0f);
-        clip-path: circle(10% at right 50%);
+
     }
 
     body::after {
@@ -280,8 +307,7 @@
         left: -80px;
         width: 100%;
         height: 100%;
-        background: linear-gradient(#2196f3, #e91e63);
-        clip-path: circle(10% at 10% 10%);
+
     }
 
     .container {
