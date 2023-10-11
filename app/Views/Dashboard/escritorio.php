@@ -77,6 +77,60 @@
                 </div>
             </div>
         </div>
+        <br><br>
+        <br><br>
+        <section style="background-color: #333;">
+            <div class="container_2">
+
+                <div class="card_ams" style="width: 18rem;">
+                    <img class="card-img-top" src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" alt="Card image cap">
+
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+
+                </div>
+
+                <br><br>
+                <br><br>
+
+                <div class="card_ams" style="width: 18rem;">
+                    <img class="card-img-top" src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" alt="Card image cap">
+
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+
+                </div>
+
+                <br><br>
+                <br><br>
+                <div class="card_ams" style="width: 18rem;">
+                    <img class="card-img-top" src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" alt="Card image cap">
+
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </section>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.6.1/vanilla-tilt.min.js"></script>
         <script>
             VanillaTilt.init(document.querySelectorAll(".card"), {
@@ -128,6 +182,37 @@
             </div>
 </footer>
 <style>
+    /* Division */
+    section section div div div {
+        border-color: #ffffff;
+        border-style: solid;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    /* Heading */
+    section div h5 {
+        color: #ffffff;
+    }
+
+    /* Paragraph */
+    section section p {
+        color: #ffffff;
+    }
+
+    /* Division */
+    section section>div {
+        transform: translatex(185px) translatey(5px);
+        display: inline-block !important;
+        min-height: 794px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
     @keyframes resize {
         from {
             width: 0%;
@@ -425,6 +510,8 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
 
+  
+
     /* Column 6/12 */
     section div .item {
         padding-top: 50px;
@@ -439,10 +526,40 @@
     .row .item p {
         text-align: justify;
     }
+ 
+.container_2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los divs se envuelvan en filas en pantallas pequeñas */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-    /*-----Menu responsive con subcategorias de MBT modificado por Minerva Aurora----*/
+.card_ams {
+    flex: 0 0 calc(33.33% - 20px); /* Divide el espacio en 3 columnas y ajusta el margen */
+    text-align: center;
+    padding: 20px;
+    margin: 10px; /* Espacio entre los divs */
+    box-sizing: border-box; /* Incluye el relleno y el margen en el ancho total */
+}
+
+@media (max-width: 768px) {
+    .box {
+        flex: 0 0 calc(50% - 20px); /* 2 columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        flex: 0 0 100%; /* 1 columna en pantallas aún más pequeñas */
+    }
+}
+
+   
     body {
-        
+
         width: 100%;
         padding-right: 0px;
         padding-left: 0px;
