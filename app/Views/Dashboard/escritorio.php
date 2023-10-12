@@ -80,29 +80,11 @@
         <br><br>
         <br><br>
         <section style="background-color: #333;">
-
-            <div class="card_1" style="width: 18rem;">
-                <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <!--Tarjeta abel-->
-                    <h5 class="card-title">Camilo Sol</h5>
-                    <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Un elemento</li>
-                    <li class="list-group-item">Un segundo elemento</ /li>
-                    <li class="list-group-item">Un tercer elemento</ /li>
-                </ul>
-                <div style="" class="card-body">
-                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/facebook.png" alt="facebook" /></a>
-                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/instagram-new--v2.png" alt="instagram-new--v2" /></a>
-                </div>
-            </div>
             <div class="card_2" style="width: 18rem;">
                 <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <!--Tarjeta maria-->
-                    <h5 class="card-title">Maria Ortiz</h5>
+                    <h5 class="card-title">Camilo Sol.</h5>
                     <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -110,32 +92,11 @@
                     <li class="list-group-item">Un segundo elemento</ /li>
                     <li class="list-group-item">Un tercer elemento</ /li>
                 </ul>
-                <div style="" class="card-body">
-                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/facebook.png" alt="facebook" /></a>
-                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/instagram-new--v2.png" alt="instagram-new--v2" /></a>
-                </div>
+                
             </div>
-            <div class="card_3" style="width: 18rem;">
-                <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <!--Tarjeta Ledesma-->
-                    <h5 class="card-title">Hugo Ledesma</h5>
-                    <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Un elemento</li>
-                    <li class="list-group-item">Un segundo elemento</ /li>
-                    <li class="list-group-item">Un tercer elemento</ /li>
-                </ul>
-                <div style="" class="card-body">
-                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/facebook.png" alt="facebook" /></a>
-                    <a href="#" class="card-link"><img width="50" height="50" src="https://img.icons8.com/clouds/50/instagram-new--v2.png" alt="instagram-new--v2" /></a>
-                </div>
-            </div>
-
-
-
+            
         </section>
+        
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.6.1/vanilla-tilt.min.js"></script>
         <script>
             VanillaTilt.init(document.querySelectorAll(".card"), {
@@ -148,8 +109,6 @@
         <script src="js/desplegable.js" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
         <script src="js/show_search.js" type="text/javascript"></script>
-
-
 </body>
 <br><br>
 <br><br>
@@ -180,7 +139,6 @@
                     en el cual puedes aprender muchas cosas que pueden ofreserte
                     gran fortaleza en e sector empleo.</p>
             </div>
-
             <div class="bar">
                 <br><br>
                 <p class="credits">Abel Sol - Hugo Ledesma - Maria Ortiz<br><b>@Derechos reservados ¡mi papacho!</b></p>
@@ -196,10 +154,6 @@
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
     }
-
-
-
-
 
     .card_1,
     .card_2,
@@ -421,13 +375,14 @@
         transform: translatex(0px) translatey(0px);
         margin-bottom: 18px;
     }
-/* Image */
-section a img{
- margin-left:20px;
- margin-right:20px;
- margin-top:5px;
- margin-bottom:5px;
-}
+
+    /* Image */
+    section a img {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
 
 
     /* List Item */
