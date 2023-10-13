@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans+Condensed:300|Raleway|Roboto" rel="stylesheet">
     <link rel="shortcut icon" href="https://img.icons8.com/arcade/64/graph.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
-<body style="Width:100% " class="cuerpa">
+<body style="Width:100%; background-attachment:fixed;" class="cuerpa">
     <section style="
         width: 100%;">
         <nav id='menu'>
@@ -53,6 +54,7 @@
             <h3 class='display-4 relawayStandart text-light shadow-sm'>S T A T I S T I C A L - S T U D Y
             </h3>
             <br><br>
+
             <br><br>
         </div>
         </div>
@@ -79,8 +81,9 @@
         </div>
         <br><br>
         <br><br>
-        <section style="background-color: #333;">
-            <div class="card_2" style="width: 18rem;">
+        <section style="background-color: #333; width: 650px; height: 750px;  border-top-right-radius:70px; opacity: 80%;
+ border-bottom-right-radius:70px;">
+            <div class="card_2" style="width: 18rem; height: 500px;">
                 <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <!--Tarjeta maria-->
@@ -92,11 +95,26 @@
                     <li class="list-group-item">Un segundo elemento</ /li>
                     <li class="list-group-item">Un tercer elemento</ /li>
                 </ul>
-                
+
             </div>
-            
+
         </section>
-        
+        <br><br>
+        <!-- <section class="section_2" style="background-color: #333; width: 800px;">
+            <div class="card_2" style="width: 18rem;">
+                <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <!--Tarjeta maria-->
+                    <!-- <h5 class="card-title">Camilo Sol.</h5>
+                    <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Un elemento</li>
+                    <li class="list-group-item">Un segundo elemento</ /li>
+                    <li class="list-group-item">Un tercer elemento</ /li>
+                </ul>
+            </div>
+        </section>  -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.6.1/vanilla-tilt.min.js"></script>
         <script>
             VanillaTilt.init(document.querySelectorAll(".card"), {
@@ -109,6 +127,14 @@
         <script src="js/desplegable.js" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
         <script src="js/show_search.js" type="text/javascript"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+            import AOS from 'aos';
+            import 'aos/dist/aos.css'; // You can also use <link> for styles
+            // ..
+            AOS.init();
+        </script>
 </body>
 <br><br>
 <br><br>
@@ -423,11 +449,8 @@
 
     body {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
         background-image: url("https://images.unsplash.com/photo-1695970921584-bb052e24916f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNTc5fDB8MXxhbGx8NTQ3fHx8fHx8Mnx8MTY5Njk5NzAyMnw&ixlib=rb-4.0.3&q=80&w=2560") !important;
-        background-size: cover !important;
+        background-attachment: fixed;
     }
 
     body::before {
@@ -447,7 +470,6 @@
         left: -80px;
         width: 100%;
         height: 100%;
-
     }
 
     .container {
