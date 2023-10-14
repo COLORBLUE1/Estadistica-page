@@ -26,6 +26,14 @@ class Dashboard extends BaseController
     {
         return view("Paginas/ejercicios");
     }
+    public function calculadoras()
+    {
+        return view("Paginas/calculadoras");
+    }
+    public function ejercicios_2()
+    {
+        return view("Paginas/ejercicios_2");
+    }
     public function carga_historia()
     {
         return view("Paginas/carga_historia");

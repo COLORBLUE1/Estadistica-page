@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
-<body style="Width:100%; background-attachment:fixed;" class="cuerpa">
+<body style="background-attachment:fixed;" class="cuerpa">
     <section style="
         width: 100%;">
         <nav id='menu'>
@@ -78,6 +78,14 @@
                     <a href="carga_examenes">Realizar examen</a>
                 </div>
             </div>
+            <div class="card">
+                <div class="content">
+                    <h2>03</h2>
+                    <h3>Calculadoras</h3>
+                    <p>¿Crees poder resolver este examen con eficacion y velosidad?.</p>
+                    <a href="carga_examenes">Realizar examen</a>
+                </div>
+            </div>
         </div>
         <br><br>
         <br><br>
@@ -100,12 +108,12 @@
 
         </section>
         <br><br>
-        <!-- <section class="section_2" style="background-color: #333; width: 800px;">
+       <section class="section_2" style="background-color: #333; width: 800px;">
             <div class="card_2" style="width: 18rem;">
                 <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <!--Tarjeta maria-->
-                    <!-- <h5 class="card-title">Camilo Sol.</h5>
+       <h5 class="card-title">Camilo Sol.</h5>
                     <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -114,7 +122,7 @@
                     <li class="list-group-item">Un tercer elemento</ /li>
                 </ul>
             </div>
-        </section>  -->
+        </section>  
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.6.1/vanilla-tilt.min.js"></script>
         <script>
             VanillaTilt.init(document.querySelectorAll(".card"), {
@@ -139,7 +147,7 @@
 <br><br>
 <br><br>
 <footer style="backdrop-filter: blur(10px);
-    background-color:rgba(250, 250, 250, 0.2);  text-align:center; ">
+    background-color:black;  text-align:center; color:white;">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-3 item">
@@ -151,7 +159,7 @@
                 </ul>
             </div>
             <div class="col-sm-6 col-md-3 item">
-                <h3 style="color:whitesmoke">About</h3>
+                <h3 >About</h3>
                 <ul>
                     <li><a href="#">Company</a></li>
                     <li><a href="#">Team</a></li>
@@ -159,8 +167,8 @@
                 </ul>
             </div>
             <div class="col-md-6 item text">
-                <h3 style="color:whitesmoke">STATISTICAL STUDY</h3>
-                <p style="color:aqua">Somos tu mejor obcion si lo que quieres es fortalecer los conocimientos frente a las estadisticas,
+                <h3>STATISTICAL STUDY</h3>
+                <p>Somos tu mejor obcion si lo que quieres es fortalecer los conocimientos frente a las estadisticas,
                     las estadisticas son un campo amplio
                     en el cual puedes aprender muchas cosas que pueden ofreserte
                     gran fortaleza en e sector empleo.</p>
@@ -448,8 +456,10 @@
     }
 
     body {
+        width: 90%;
         display: flex;
-        background-image: url("https://images.unsplash.com/photo-1695970921584-bb052e24916f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNTc5fDB8MXxhbGx8NTQ3fHx8fHx8Mnx8MTY5Njk5NzAyMnw&ixlib=rb-4.0.3&q=80&w=2560") !important;
+        /*background-color: #ECEE81;*/
+        background-color: #161623;
         background-attachment: fixed;
     }
 
@@ -458,7 +468,7 @@
         position: absolute;
         top: 30%;
         left: 0;
-        width: 100%;
+        width: 90%;
         height: 100%;
 
     }
@@ -468,13 +478,14 @@
         position: absolute;
         top: -100px;
         left: -80px;
-        width: 100%;
+        width: 90%;
         height: 100%;
     }
 
     .container {
         position: relative;
         display: flex;
+        width: 70%;
         justify-content: center;
         align-items: center;
         max-width: 1200px;
@@ -576,7 +587,6 @@
 
 
     body {
-
         width: 100%;
         padding-right: 0px;
         padding-left: 0px;

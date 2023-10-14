@@ -19,6 +19,8 @@ $routes->get('preguntas', 'Dashboard::preguntas');
 $routes->get('indexjs', 'Dashboard::indexjs');
 $routes->get('largo', 'Dashboard::largo');
 $routes->get('ejercicios', 'Dashboard::ejercicios');
+$routes->get('ejercicios_2', 'Dashboard::ejercicios_2');
+$routes->get('calculadoras', 'Dashboard::calculadoras');
 $routes->get('lenguajes_usados', 'Dashboard::lenguajes_usados');
 
 /*IMAGENES*/
