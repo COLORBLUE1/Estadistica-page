@@ -149,8 +149,8 @@
 <footer style="backdrop-filter: blur(10px);
     background-color:black;  text-align:center; color:white;">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-3 item">
+        <div class="row" >
+            <div class="col-sm-6 col-md-3 item" style="text-decoration: none;">
                 <h3 style="color:whitesmoke">Services</h3>
                 <ul>
                     <li><a target="_blank" href="https://www.instagram.com/camilo_abel1/">Web design</a></li>

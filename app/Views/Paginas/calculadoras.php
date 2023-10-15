@@ -48,270 +48,219 @@ ABEL-ESTUVO AQUI.....
             <h3 class='display-4 relawayStandart text-light shadow-sm'>Ecuaciones diferenciales: Examenen</h3>
         </div>
         <!DOCTYPE html>
-<html>
-<head>
-    <title>Formularios Modales</title>
-    <style>
-        *{
-            color:#000;
-        }
-        /* Estilos para el modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
+        <html>
 
-        /* Estilos para el contenido del modal */
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            width: 50%;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
+        <head>
+            <title>Formularios Modales</title>
+            <style>
+                * {
+                    color: #000;
+                }
 
-        /* Estilos para el botón de cerrar */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+                /* Estilos para el modal */
+                .modal {
+                    display: none;
+                    position: fixed;
+                    z-index: 1;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
 
-        /* Estilos para el botón de cerrar cuando se pasa el mouse sobre él */
-        .close:hover {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <h1>Formularios Modales</h1>
-    
-    <!-- Botones para abrir los modales -->
-    <button onclick="openModal(1)">Abrir Formulario 1</button>
-    <button onclick="openModal(2)">Abrir Formulario 2</button>
-    <button onclick="openModal(3)">Abrir Formulario 3</button>
-    <button onclick="openModal(4)">Abrir Formulario 4</button>
-    <button onclick="openModal(5)">Abrir Formulario 5</button>
+                /* Estilos para el contenido del modal */
+                .modal-content {
+                    background-color: #fff;
+                    margin: 15% auto;
+                    padding: 20px;
+                    width: 50%;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                }
 
-    <!-- Modales -->
-    <div id="myModal1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal(1)">&times;</span>
-            <h2>Completa el formulario 1</h2>
-            <form>
-                <!-- Contenido del primer formulario -->
-                <div>
-        <label for="mean">Media poblacional (μ):</label>
-        <input type="number" id="mean" required>
-    </div>
-    <div>
-        <label for="stddev">Desviación estándar poblacional (σ):</label>
-        <input type="number" id="stddev" required>
-    </div>
-    <div>
-        <label for="sample-size">Tamaño de muestra (n):</label>
-        <input type="number" id="sample-size" required>
-    </div>
-    <div>
-        <label for="confidence-level">Nivel de confianza (1-α):</label>
-        <input type="number" id="confidence-level" required>
-    </div>
-    <div>
-        <label for="value_z">Valor de z:</label>
-        <input type="number" id="value-z" required>
-    </div>
-    <button onclick="calculateCI()">Calcular Intervalo de Confianza</button>
-    <div>
-        <p>Límite Inferior (LI): <span id="lower-limit"></span></p>
-        <p>Límite Superior (LS): <span id="upper-limit"></span></p>
-       
-    </div>
-    <!-- <script>
-          function openModal() {
-            document.getElementById('myModal').style.display = 'block';
-        }
+                /* Estilos para el botón de cerrar */
+                .close {
+                    color: #aaa;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                }
 
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-        }
-    
-        function calculateCI() {
-            const mean = parseFloat(document.getElementById('mean').value);
-            const stddev = parseFloat(document.getElementById('stddev').value);
-            const sampleSize = parseFloat(document.getElementById('sample-size').value);
-            const valuez = parseFloat(document.getElementById('value-z').value);
-            const confidenceLevel = parseFloat(document.getElementById('confidence-level').value);
+                /* Estilos para el botón de cerrar cuando se pasa el mouse sobre él */
+                .close:hover {
+                    color: black;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            </style>
+        </head>
 
-            const marginOfError = valuez * (stddev / Math.sqrt(sampleSize));
+        <body>
+            <h1>Formularios Modales</h1>
 
-            const lowerLimit = mean - marginOfError;
-            const upperLimit = mean + marginOfError;
+            <!-- Botones para abrir los modales -->
+            <button onclick="openModal(1)">Abrir Formulario 1</button>
+            <button onclick="openModal(2)">Abrir Formulario 2</button>
+            <button onclick="openModal(3)">Abrir Formulario 3</button>
+            <button onclick="openModal(4)">Abrir Formulario 4</button>
+            <button onclick="openModal(5)">Abrir Formulario 5</button>
 
-            document.getElementById('lower-limit').innerText = `LI: ${lowerLimit}`;
-            document.getElementById('upper-limit').innerText = `LS: ${upperLimit}`;
-            document.getElementById('z-value').innerText = `z: ${z}`;
-        }
+            <!-- Modales -->
+            <div id="myModal1" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal(1)">&times;</span>
+                    <h1>Calculadora de Intervalo de Confianza</h1>
+                    <form>
+                        <!-- Contenido del primer formulario -->
+                        <div>
+                            <label for="mean">Media poblacional (μ):</label>
+                            <input type="number" id="mean" step="0.01" required >
+                            <div class="error" id="mean-error"></div>
+                        </div>
+                        <div>
+                            <label for="stddev">Desviación estándar poblacional (σ):</label>
+                            <input type="number" id="stddev" step="0.01" required>
+                            <div class="error" id="stddev-error"></div>
+                        </div>
+                        <div>
+                            <label for="sample-size">Tamaño de muestra (n):</label>
+                            <input type="number" id="sample-size" required>
+                            <div class="error" id="sample-size-error"></div>
+                        </div>
+                        <div>
+                            <label for="confidence-level">Nivel de confianza (1-α):</label>
+                            <input type="number" id="confidence-level" required>
+                            <div class="error" id="confidence-level-error"></div>
+                        </div>
+                        <div>
+                            <label for="z-value">Valor de z:</label>
+                            <input type="number" id="z-value" step="0.01" required>
+                            <div class="error" id="z-value-error"></div>
+                        </div>
+                        <div>
+                            <p>Límite Inferior (LI): <span id="lower-limit"></span></p>
+                            <p>Límite Superior (LS): <span id="upper-limit"></span></p>
+                        </div>
 
-        function calculateZ(confidenceLevel) {
-            const alpha = 1 - confidenceLevel;
-            // Aquí puedes usar la tabla de distribución Z o una función para calcular Z
-            // Por ejemplo, si estás trabajando con una distribución normal estándar (media=0, desviación estándar=1):
-            const standardNormal = Math.abs((1 - alpha / 2));
-            return standardNormal;
-        }
-    </script> -->
-            </form>
-        </div>
-    </div>
+                        <script>
+                            // Obtén referencias a los elementos
+                            const meanInput = document.getElementById('mean');
+                            const stddevInput = document.getElementById('stddev');
+                            const sampleSizeInput = document.getElementById('sample-size');
+                            const confidenceLevelInput = document.getElementById('confidence-level');
+                            const zValueInput = document.getElementById('z-value');
+                            const lowerLimitSpan = document.getElementById('lower-limit');
+                            const upperLimitSpan = document.getElementById('upper-limit');
 
-    <div id="myModal2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal(2)">&times;</span>
-            <form>
-                <!-- Contenido del segundo formulario -->
-                <h1>Calculadora de Intervalo de Confianza</h1>
-    <div>
-        <label for="mean">Media poblacional (μ):</label>
-        <input type="number" id="mean">
-    </div>
-    <div>
-        <label for="stddev">Desviación estándar poblacional (σ):</label>
-        <input type="number" id="stddev">
-    </div>
-    <div>
-        <label for="sample-size">Tamaño de muestra (n):</label>
-        <input type="number" id="sample-size">
-    </div>
-    <div>
-        <label for="confidence-level">Nivel de confianza (1-α):</label>
-        <input type="number" id="confidence-level">
-    </div>
-    <div>
-        <p>Límite Inferior (LI): <span id="lower-limit"></span></p>
-        <p>Límite Superior (LS): <span id="upper-limit"></span></p>
-    </div>
+                            // Agrega un detector de eventos 'input' a cada input
+                            meanInput.addEventListener('input', validateInputs);
+                            stddevInput.addEventListener('input', validateInputs);
+                            sampleSizeInput.addEventListener('input', validateInputs);
+                            confidenceLevelInput.addEventListener('input', validateInputs);
+                            zValueInput.addEventListener('input', validateInputs);
 
-    <script>
-        // Obtén referencias a los elementos
-        const meanInput = document.getElementById('mean');
-        const stddevInput = document.getElementById('stddev');
-        const sampleSizeInput = document.getElementById('sample-size');
-        const confidenceLevelInput = document.getElementById('confidence-level');
-        const lowerLimitSpan = document.getElementById('lower-limit');
-        const upperLimitSpan = document.getElementById('upper-limit');
+                            function validateInputs() {
+                                validateInput(meanInput, 'mean-error');
+                                validateInput(stddevInput, 'stddev-error');
+                                validateInput(sampleSizeInput, 'sample-size-error');
+                                validateInput(confidenceLevelInput, 'confidence-level-error');
+                                validateInput(zValueInput, 'z-value-error');
 
-   // Agrega un detector de eventos 'input' a cada input
-   meanInput.addEventListener('input', validateInputs);
-        stddevInput.addEventListener('input', validateInputs);
-        sampleSizeInput.addEventListener('input', validateInputs);
-        confidenceLevelInput.addEventListener('input', validateInputs);
+                                if (meanInput.validity.valid && stddevInput.validity.valid && sampleSizeInput.validity.valid && confidenceLevelInput.validity.valid && zValueInput.validity.valid) {
+                                    calculateCI();
+                                } else {
+                                    lowerLimitSpan.innerText = '';
+                                    upperLimitSpan.innerText = '';
+                                }
+                            }
 
-        function validateInputs() {
-            validateInput(meanInput, 'mean-error');
-            validateInput(stddevInput, 'stddev-error');
-            validateInput(sampleSizeInput, 'sample-size-error');
-            validateInput(confidenceLevelInput, 'confidence-level-error');
+                            function validateInput(input, errorId) {
+                                const errorElement = document.getElementById(errorId);
+                                if (input.validity.valueMissing) {
+                                    input.setCustomValidity('Este campo es requerido.');
+                                    errorElement.innerText = 'Este campo es requerido.';
+                                    errorElement.classList.add('error-text');
+                                } else {
+                                    input.setCustomValidity('');
+                                    errorElement.innerText = '';
+                                    errorElement.classList.remove('error-text');
+                                }
+                            }
 
-            if (meanInput.validity.valid && stddevInput.validity.valid && sampleSizeInput.validity.valid && confidenceLevelInput.validity.valid) {
-                calculateCI();
-            } else {
-                lowerLimitSpan.innerText = '';
-                upperLimitSpan.innerText = '';
-            }
-        }
+                            function calculateCI() {
+                                const mean = parseFloat(meanInput.value);
+                                const stddev = parseFloat(stddevInput.value);
+                                const sampleSize = parseFloat(sampleSizeInput.value);
+                                const confidenceLevel = parseFloat(confidenceLevelInput.value);
+                                const z = parseFloat(zValueInput.value);
 
-        function validateInput(input, errorId) {
-            const errorElement = document.getElementById(errorId);
-            if (input.validity.valueMissing) {
-                input.setCustomValidity('Este campo es requerido.');
-                errorElement.innerText = 'Este campo es requerido.';
-            } else {
-                input.setCustomValidity('');
-                errorElement.innerText = '';
-            }
-        }
-        function calculateCI() {
-            const mean = parseFloat(meanInput.value) || 0;
-            const stddev = parseFloat(stddevInput.value) || 0;
-            const sampleSize = parseFloat(sampleSizeInput.value) || 0;
-            const confidenceLevel = parseFloat(confidenceLevelInput.value) || 0;
+                                const marginOfError = z * (stddev / Math.sqrt(sampleSize));
 
-            const z = calculateZ(confidenceLevel);
+                                const lowerLimit = mean - marginOfError;
+                                const upperLimit = mean + marginOfError;
 
-            const marginOfError = z * (stddev / Math.sqrt(sampleSize));
+                                lowerLimitSpan.innerText = `LI: ${lowerLimit}`;
+                                upperLimitSpan.innerText = `LS: ${upperLimit}`;
+                            }
+                        </script>
+                    </form>
+                </div>
+            </div>
 
-            const lowerLimit = mean - marginOfError;
-            const upperLimit = mean + marginOfError;
+            <div id="myModal2" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal(2)">&times;</span>
+                    <form>
+                        <!-- Contenido del segundo formulario -->
 
-            lowerLimitSpan.innerText = `LI: ${lowerLimit}`;
-            upperLimitSpan.innerText = `LS: ${upperLimit}`;
-        }
+                    </form>
+                </div>
+            </div>
 
-        function calculateZ(confidenceLevel) {
-            const alpha = 1 - confidenceLevel;
-            // Aquí puedes usar la tabla de distribución Z o una función para calcular Z
-            // Por ejemplo, si estás trabajando con una distribución normal estándar (media=0, desviación estándar=1):
-            const standardNormal = Math.abs((1 - alpha / 2));
-            return standardNormal;
-        }
-    </script>
-            </form>
-        </div>
-    </div>
+            <div id="myModal3" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal(3)">&times;</span>
+                    <h2>Completa el formulario 3</h2>
+                    <form>
+                        <!-- Contenido del tercer formulario -->
+                    </form>
+                </div>
+            </div>
 
-    <div id="myModal3" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal(3)">&times;</span>
-            <h2>Completa el formulario 3</h2>
-            <form>
-                <!-- Contenido del tercer formulario -->
-            </form>
-        </div>
-    </div>
+            <div id="myModal4" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal(4)">&times;</span>
+                    <h2>Completa el formulario 4</h2>
+                    <form>
+                        <!-- Contenido del cuarto formulario -->
+                    </form>
+                </div>
+            </div>
 
-    <div id="myModal4" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal(4)">&times;</span>
-            <h2>Completa el formulario 4</h2>
-            <form>
-                <!-- Contenido del cuarto formulario -->
-            </form>
-        </div>
-    </div>
+            <div id="myModal5" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal(5)">&times;</span>
+                    <h2>Completa el formulario 5</h2>
+                    <form>
+                        <!-- Contenido del quinto formulario -->
+                    </form>
+                </div>
+            </div>
 
-    <div id="myModal5" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal(5)">&times;</span>
-            <h2>Completa el formulario 5</h2>
-            <form>
-                <!-- Contenido del quinto formulario -->
-            </form>
-        </div>
-    </div>
+            <script>
+                function openModal(modalNumber) {
+                    document.getElementById('myModal' + modalNumber).style.display = 'block';
+                }
 
-    <script>
-        function openModal(modalNumber) {
-            document.getElementById('myModal' + modalNumber).style.display = 'block';
-        }
+                function closeModal(modalNumber) {
+                    document.getElementById('myModal' + modalNumber).style.display = 'none';
+                }
+            </script>
+        </body>
 
-        function closeModal(modalNumber) {
-            document.getElementById('myModal' + modalNumber).style.display = 'none';
-        }
-        
-    </script>
-</body>
-</html>
+        </html>
 
-            </ul>
+        </ul>
     </section>
     <br>
 
@@ -324,11 +273,18 @@ ABEL-ESTUVO AQUI.....
         </div>
     </footer>
     <br>
-    
+
 </body>
 <br><br>
 
 <style>
+    .error-text {
+    width: 19%;
+    background-color: ff0000;
+    border-radius: 5px;
+    color: white;
+text-align: center;
+}
     body::-webkit-scrollbar-track {
         background: #161623;
         /* color of the tracking area */
