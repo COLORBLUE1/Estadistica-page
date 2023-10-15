@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   app:
-    image: colorblue1/estadistica_repos  # Reemplaza con la imagen de tu aplicación de estadísticas
+    image: colorblue1/estadistica_repos:tagname  # Reemplaza con la imagen de tu aplicación de estadísticas
     ports:
       - "80:80"
     depends_on:
