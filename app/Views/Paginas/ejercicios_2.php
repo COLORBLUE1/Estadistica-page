@@ -33,6 +33,15 @@
     </div>
 
     <script>
+        
+        function openModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    
         function calculateCI() {
             const mean = parseFloat(document.getElementById('mean').value);
             const stddev = parseFloat(document.getElementById('stddev').value);

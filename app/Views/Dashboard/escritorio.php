@@ -81,9 +81,9 @@
             <div class="card">
                 <div class="content">
                     <h2>03</h2>
-                    <h3>Calculadoras</h3>
+                    <h3>Herramientas</h3>
                     <p>¿Crees poder resolver este examen con eficacion y velosidad?.</p>
-                    <a href="carga_examenes">Realizar examen</a>
+                    <a href="calculadoras">Ver herramientas</a>
                 </div>
             </div>
         </div>

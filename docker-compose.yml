@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  app:
+    image: colorblue1/estadistica_repos  # Reemplaza con la imagen de tu aplicación de estadísticas
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=localhost
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - DATABASE_NAME=
+    volumes:
+      - ./mysql-data:/var/lib/mysql  # Persistencia de datos de MySQL
+ 
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nombre_de_tu_bd
