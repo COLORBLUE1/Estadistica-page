@@ -39,14 +39,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOOLS</title>
     <link rel="stylesheet" href="styles.css">
-
-
-
-
-
-
 </head>
-
 <body class="cuerpa" style="color:white">
     <div class='jumbotron' style="backdrop-filter: blur(10px);
     background-color:rgba(250, 250, 250, 0.2); position:absolute">

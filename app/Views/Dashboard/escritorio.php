@@ -23,6 +23,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STATISTICAL STUDY</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
@@ -55,7 +59,6 @@
             <h3 class='display-4 relawayStandart text-light shadow-sm'>S T A T I S T I C A L - S T U D Y
             </h3>
             <br><br>
-
             <br><br>
         </div>
         </div>
@@ -108,22 +111,33 @@
             </div>
 
         </section>
-        <br><br>
-        <section class="section_2" style="background-color: #333; width: 800px;">
-            <div class="card_2" style="width: 18rem;">
-                <img data-aos="zoom-in" src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <!--Tarjeta maria-->
-                    <h5 class="card-title">Camilo Sol.</h5>
-                    <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
+        <br>
+        <div class="container mt-4" data-aos="fade-up" data-aos-duration="3000" style="margin-top: 500px;">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicadores de carrusel -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- Contenido de carrusel -->
+                <div class="carousel-inner" style="margin-top: 500px;">
+                    <div class="carousel-item active">
+                        <img src="https://www.sidn.es/images/shutterstock_299892884_2.jpg" alt="Imagen 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.masscience.com/wp-content/uploads/2019/12/chart-4065756_1920-1080x675.jpg" alt="Imagen 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.cognodata.com/wp-content/uploads/2019/07/estadistica-descriptiva-e-inferencial.jpg" alt="Imagen 3">
+                    </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Un elemento</li>
-                    <li class="list-group-item">Un segundo elemento</ /li>
-                    <li class="list-group-item">Un tercer elemento</ /li>
-                </ul>
+                <!-- Controles de carrusel -->
+                <span class="carousel-control-prev-icon"></span>
+                <span class="carousel-control-next-icon"></span>
             </div>
-        </section>
+        </div>
+        <br>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.6.1/vanilla-tilt.min.js"></script>
         <script>
             VanillaTilt.init(document.querySelectorAll(".card"), {
@@ -184,6 +198,26 @@
     AOS.init();
 </script>
 <style>
+        /* Estilos para pantallas pequeñas (menos de 768px de ancho) */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            #myCarousel {
+                margin-top: 10px;
+            }
+
+            .carousel-inner {
+                margin-top: 10px;
+            }
+        }
+    /* Span Tag */
+    section .slide span {
+        display: none;
+    }
+
+
     /* Division */
     section section div div div {
         border-color: #ffffff;
@@ -267,6 +301,11 @@
         animation-timeline: scroll(root block);
     }
 
+    /* Aos animate */
+    section section>.aos-animate {
+        margin-left: 152px;
+    }
+
     .credits {
         text-align: center;
     }
@@ -297,6 +336,16 @@
     /* Rules for using icons as black on a light background. */
     .material-icons.md-dark {
         color: rgba(0, 0, 0, 0.54);
+    }
+
+    /* Section */
+    section section {
+        margin-top: 500px;
+    }
+
+    /* Footer */
+    section footer {
+        margin-top: 300px;
     }
 
     .material-icons.md-dark.md-inactive {
@@ -358,6 +407,32 @@
         float: left;
         margin: 0;
         padding: 0
+    }
+
+    /* Image */
+    .slide .active img {
+        max-width: 800px;
+        min-width: 80px;
+        width: 800px;
+        max-height: 600px;
+        height: 500px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    /* Image */
+    section .mt-4 .slide div div img {
+        max-width: 800px !important;
+        min-width: 80px !important;
+        width: 800px !important;
+        max-height: 600px !important;
+        height: 500px !important;
+        border-top-left-radius: 15px !important;
+        border-top-right-radius: 15px !important;
+        border-bottom-left-radius: 15px !important;
+        border-bottom-right-radius: 15px !important;
     }
 
     #primary_nav_wrap ul ul {
@@ -731,63 +806,68 @@
         transition: all .1s ease-in-out;
     }
 
-    @media screen and (max-width: 800px) {
-        #menu {
-            position: fixed;
-            z-index: 101;
+    @media (max-width: 768px) {
+        h3 {
+            font-size: 1.5rem;
         }
 
-        #menu ul {
-            background: #F1F1F1;
-            /*color del desplegable del menu movil*/
-            position: absolute;
-            top: 100%;
-            right: 0;
-            left: 0;
-            z-index: 3;
-            height: auto;
-            display: none
-        }
+        @media screen and (max-width: 800px) {
+            #menu {
+                position: fixed;
+                z-index: 101;
+            }
 
-        #menu ul.menus {
-            width: 100%;
-            position: static;
-            padding-left: 20px
-        }
+            #menu ul {
+                background: #F1F1F1;
+                /*color del desplegable del menu movil*/
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                z-index: 3;
+                height: auto;
+                display: none
+            }
 
-        #menu li {
-            display: block;
-            float: none;
-            width: auto;
-            font: 11px Arial, sans-serif;
-        }
+            #menu ul.menus {
+                width: 100%;
+                position: static;
+                padding-left: 20px
+            }
 
-        #menu a {
-            display: block;
-            line-height: 40px;
-            padding: 0 14px;
-            /*tamaño y fuente del  menu movil*/
-        }
+            #menu li {
+                display: block;
+                float: none;
+                width: auto;
+                font: 11px Arial, sans-serif;
+            }
 
-        #menu input,
-        #menu label {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block
-        }
+            #menu a {
+                display: block;
+                line-height: 40px;
+                padding: 0 14px;
+                /*tamaño y fuente del  menu movil*/
+            }
 
-        #menu input {
-            z-index: 4
-        }
+            #menu input,
+            #menu label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block
+            }
 
-        #menu input:checked+label {
-            color: white;
-            /*color de las tres barritas una vez se clica*/
-        }
+            #menu input {
+                z-index: 4
+            }
 
-        #menu input:checked~ul {
-            display: block
+            #menu input:checked+label {
+                color: white;
+                /*color de las tres barritas una vez se clica*/
+            }
+
+            #menu input:checked~ul {
+                display: block
+            }
         }
-    }
 </style>
