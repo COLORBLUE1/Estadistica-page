@@ -1,0 +1,673 @@
+       /* Estilos para pantallas pequeñas (menos de 768px de ancho) */
+       @media (max-width: 768px) {
+        .container {
+            padding: 10px;
+        }
+
+        #myCarousel {
+            margin-top: 10px;
+        }
+
+        .carousel-inner {
+            margin-top: 10px;
+        }
+    }
+/* Span Tag */
+section .slide span {
+    display: none;
+}
+
+
+/* Division */
+section section div div div {
+    border-color: #ffffff;
+    border-style: solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.card_1,
+.card_2,
+.card_3 {
+    width: 100%;
+    margin: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Heading */
+section div h5 {
+    color: #ffffff;
+}
+
+/* Paragraph */
+section section p {
+    color: #ffffff;
+}
+
+/* Division */
+section section>div {
+    transform: translatex(185px) translatey(5px);
+    display: inline-block !important;
+    min-height: 794px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+@keyframes resize {
+    from {
+        width: 0%;
+        opacity: 0;
+    }
+
+    /* Se puede omitir */
+    to {
+        width: 100%
+    }
+}
+
+
+.logo {
+    left: 15px;
+    transform: translatex(-342px) translatey(-4px);
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    border-bottom: 2px solid #fff;
+}
+
+.bar {
+    animation: resize auto linear forwards;
+    animation-timeline: scroll(root block);
+}
+
+/* Aos animate */
+section section>.aos-animate {
+    margin-left: 152px;
+}
+
+.credits {
+    text-align: center;
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
+/* Jumbotron */
+section .jumbotron {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+/* Section */
+section section {
+    margin-top: 500px;
+}
+
+/* Footer */
+section footer {
+    margin-top: 300px;
+}
+
+.material-icons.md-dark.md-inactive {
+    color: rgba(0, 0, 0, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.robotoStandart {
+    font-family: 'Roboto', sans-serif;
+}
+
+.relawayStandart {
+    font-family: 'Raleway', sans-serif;
+}
+
+.openSansCondensed {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.crimsonStandart {
+    font-family: 'Crimson Text', serif;
+}
+
+#primary_nav_wrap {
+    margin-top: 15px
+}
+
+#primary_nav_wrap ul {
+    list-style: none;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0
+}
+
+#primary_nav_wrap ul a {
+
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 32px;
+    padding: 0 15px;
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+#primary_nav_wrap ul li {
+    border-radius: 10px;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0
+}
+
+/* Image */
+.slide .active img {
+    max-width: 800px;
+    min-width: 80px;
+    width: 800px;
+    max-height: 600px;
+    height: 500px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* Image */
+section .mt-4 .slide div div img {
+    max-width: 800px !important;
+    min-width: 80px !important;
+    width: 800px !important;
+    max-height: 600px !important;
+    height: 500px !important;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+
+#primary_nav_wrap ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari 9+ */
+    backdrop-filter: blur(10px);
+    /* Chrome and Opera */
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 0
+}
+
+#primary_nav_wrap ul ul li {
+    float: none;
+    width: 200px
+}
+
+#primary_nav_wrap ul ul a {
+    line-height: 120%;
+    padding: 10px 15px
+}
+
+#primary_nav_wrap ul ul ul {
+    top: 0;
+    left: 100%
+}
+
+#primary_nav_wrap ul li:hover>ul {
+    display: block
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Division */
+section section div div {
+    border-color: #ffffff;
+    border-style: solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: 10px;
+    transform: translatex(0px) translatey(0px);
+    margin-bottom: 18px;
+}
+
+/* Image */
+section a img {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+/* List Item */
+section section li {
+    margin-top: 5px;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+/* Image */
+section section div>img {
+    background-color: #e74c3c;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+section section p {
+    text-align: justify;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+    backdrop-filter: blur(10px);
+    /* Chrome and Opera */
+    background-color: rgba(255, 255, 255, 0.3);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid #161623;
+    /* creates padding around scroll thumb */
+}
+
+body {
+    width: 90%;
+    display: flex;
+    /*background-color: #ECEE81;*/
+    background-color: #161623;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 90%;
+    height: 100%;
+
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -80px;
+    width: 90%;
+    height: 100%;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.container .card {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.container .card .content {
+    padding: 20px;
+    text-align: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.container .card:hover .content {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.container .card .content h2 {
+    position: absolute;
+    top: -60px;
+    right: 30px;
+    font-size: 8em;
+    color: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+.container .card .content h3 {
+    font-size: 1.8em;
+    color: #fff;
+    z-index: 1;
+}
+
+.container .card .content p {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 300;
+}
+
+.container .card .content a {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    margin-top: 15px;
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Column 6/12 */
+section div .item {
+    padding-top: 50px;
+}
+
+/* Paragraph */
+.row .bar p {
+    color: #ffffff;
+}
+
+/* Paragraph */
+.row .item p {
+    text-align: justify;
+}
+
+.container_2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+/* Media queries para dispositivos móviles */
+
+
+
+
+body {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#menu {
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    background-color: rgba(250, 250, 250, 0.2);
+    z-index: 101;
+}
+
+#menu ul,
+#menu li {
+    margin: 0 auto;
+    padding: 0 0;
+    list-style: none
+}
+
+#menu ul {
+    height: 45px;
+    width: 1000px;
+    /* ancho del menú, ajustar para centrarlo*/
+}
+
+#menu li {
+    float: left;
+    display: inline;
+    position: relative;
+    font: 11px Arial, sans-serif;
+    /*tamaño y fuente del texto */
+}
+
+#menu a {
+    display: block;
+    line-height: 40px;
+    padding: 0 14px;
+    text-decoration: uppercase;
+    color: white;
+    /*color del texto*/
+    text-transform: uppercase;
+    /*letras mayúsculas*/
+    letter-spacing: 1.5px;
+    /*espacio entre letras*/
+}
+
+#menu li a:hover {
+    color: blueviolet;
+    /*color del texto al pasar el ratón*/
+    text-decoration: none;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -ms-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    background: #E9E9E9;
+    /*color del fondo de la categoria al pasar el ratón*/
+}
+
+#menu input {
+    display: none;
+    margin: 0 0;
+    padding: 0 0;
+    width: 80px;
+    height: 30px;
+    opacity: 0;
+    cursor: pointer
+}
+
+#menu label {
+    font: 25px Arial, sans-serif;
+    font-weight: bold;
+    display: none;
+    width: 35px;
+    height: 35px;
+    line-height: 43px;
+    text-align: center;
+}
+
+#menu label span {
+    font: 12px Arial, sans-serif;
+    /*tamaño y fuente del texto "menu" */
+    position: absolute;
+    left: 35px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 40px;
+    letter-spacing: 0.5px;
+}
+
+#menu ul.menus {
+    height: auto;
+    overflow: hidden;
+    width: 170px;
+    background: #F1F1F1;
+    /*color del fondo del submenu*/
+    position: absolute;
+    z-index: 99;
+    display: none;
+    border: 1px solid #E9E9E9;
+}
+
+#menu ul.menus li {
+    display: block;
+    width: 100%;
+    font: 11px Arial, sans-serif;
+    /*tamaño y fuente del  texto del submenu*/
+    text-transform: uppercase;
+    border-bottom: 1px solid #E9E9E9;
+}
+
+#menu ul.menus li:last-child {
+    border-bottom: none;
+}
+
+#menu ul.menus a {
+    color: #333;
+    /*color del  texto del submenu*/
+    line-height: 35px;
+}
+
+#menu li:hover ul.menus {
+    display: block
+}
+
+#menu ul.menus a:hover {
+    background: #E9E9E9;
+    /*color del  fondo del submenu al pasar el ratón*/
+    color: #000;
+    /*color del  texto del submenu al pasar el ratón*/
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -ms-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    @media screen and (max-width: 800px) {
+        #menu {
+            position: fixed;
+            z-index: 101;
+        }
+
+        #menu ul {
+            background: #F1F1F1;
+            /*color del desplegable del menu movil*/
+            position: absolute;
+            top: 100%;
+            right: 0;
+            left: 0;
+            z-index: 3;
+            height: auto;
+            display: none
+        }
+
+        #menu ul.menus {
+            width: 100%;
+            position: static;
+            padding-left: 20px
+        }
+
+        #menu li {
+            display: block;
+            float: none;
+            width: auto;
+            font: 11px Arial, sans-serif;
+        }
+
+        #menu a {
+            display: block;
+            line-height: 40px;
+            padding: 0 14px;
+            /*tamaño y fuente del  menu movil*/
+        }
+
+        #menu input,
+        #menu label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block
+        }
+
+        #menu input {
+            z-index: 4
+        }
+
+        #menu input:checked+label {
+            color: white;
+            /*color de las tres barritas una vez se clica*/
+        }
+
+        #menu input:checked~ul {
+            display: block
+        }
+    }
+}

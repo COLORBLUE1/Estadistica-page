@@ -32,3 +32,9 @@ $routes->get('img4', 'Dashboard::img4');
 /*VIDEOS*/
 $routes->get('Ejercicio_1', 'Dashboard::Ejercicio_1');
 $routes->get('Ejercicio_2', 'Dashboard::Ejercicio_2');
+
+/*ESTILOS*/
+$routes->get('escritorio', 'public/assets/css/::escritorio.css');
+
+
+/*CODIGO JAVASCRIPT*/
