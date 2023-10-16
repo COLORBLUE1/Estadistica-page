@@ -12,6 +12,7 @@
 -->
 
 <head>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans+Condensed:300|Raleway|Roboto" rel="stylesheet">
     <link rel="shortcut icon" href="https://img.icons8.com/arcade/64/graph.png">
@@ -58,9 +59,9 @@
             <br><br>
         </div>
         </div>
-        <h5 class="instruc" style=" text-align:center; font-size:15px; color:aqua">
+        <h5 data-aos="zoom-in" class="instruc" style=" text-align:center; font-size:15px; color:aqua">
             Da click sobre las tarjetas, para ver su contenido</h5>
-        <div class="container">
+        <div data-aos="zoom-in-right" class="container">
             <div class="card">
                 <div class="content">
                     <h2>01</h2>
@@ -91,9 +92,9 @@
         <br><br>
         <section style="background-color: #333; width: 650px; height: 750px;  border-top-right-radius:70px; opacity: 80%;
  border-bottom-right-radius:70px;">
-            <div class="card_2" style="width: 18rem; height: 500px;">
+            <div class="card_2" style="width: 18rem; height: 500px;" data-aos="zoom-in">
                 <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="card-body" data-aos="zoom-out-right">
                     <!--Tarjeta maria-->
                     <h5 class="card-title">Camilo Sol.</h5>
                     <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
@@ -108,12 +109,12 @@
 
         </section>
         <br><br>
-       <section class="section_2" style="background-color: #333; width: 800px;">
+        <section class="section_2" style="background-color: #333; width: 800px;">
             <div class="card_2" style="width: 18rem;">
-                <img src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
+                <img data-aos="zoom-in" src="https://www.goinn.com.co/Goinn/assets/img/HOMBRE1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <!--Tarjeta maria-->
-       <h5 class="card-title">Camilo Sol.</h5>
+                    <h5 class="card-title">Camilo Sol.</h5>
                     <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -122,7 +123,7 @@
                     <li class="list-group-item">Un tercer elemento</ /li>
                 </ul>
             </div>
-        </section>  
+        </section>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.6.1/vanilla-tilt.min.js"></script>
         <script>
             VanillaTilt.init(document.querySelectorAll(".card"), {
@@ -149,7 +150,7 @@
 <footer style="backdrop-filter: blur(10px);
     background-color:black;  text-align:center; color:white;">
     <div class="container">
-        <div class="row" >
+        <div class="row">
             <div class="col-sm-6 col-md-3 item" style="text-decoration: none;">
                 <h3 style="color:whitesmoke">Services</h3>
                 <ul>
@@ -159,7 +160,7 @@
                 </ul>
             </div>
             <div class="col-sm-6 col-md-3 item">
-                <h3 >About</h3>
+                <h3>About</h3>
                 <ul>
                     <li><a href="#">Company</a></li>
                     <li><a href="#">Team</a></li>
@@ -175,9 +176,13 @@
             </div>
             <div class="bar">
                 <br><br>
-                <p class="credits">Abel Sol - Hugo Ledesma - Maria Ortiz<br><b>@Derechos reservados ¡mi papacho!</b></p>
+                <p>Abel Sol - Hugo Ledesma - Maria Ortiz<br><b>@Derechos reservados ¡mi papacho!</b></p>
             </div>
 </footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 <style>
     /* Division */
     section section div div div {
