@@ -99,10 +99,4 @@ class Dashboard extends BaseController
         return view("Recursos/Ejercicio_2.mp4");
     }
 
-    /*RUTAS ESTILOS*/
-
-    public function escritorio()
-    {
-        return view("css/escritorio.css");
-    }
 }
