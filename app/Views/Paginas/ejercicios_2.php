@@ -13,9 +13,7 @@
         <h3 class='display-4 relawayStandart text-light shadow-sm'>HERAMIENTAS</h3>
     </div>
     <section>
-        <div data-aos="zoom-out-up" class="buttons" style="margin-top:30% !important;  display: flex;
-        justify-content: center;
-        align-items: center;">
+        <div data-aos="zoom-out-up" class="buttons" style="margin-top:30% !important;">
             <!-- Botones para abrir los modales -->
             <button type="button" class="btn btn-success" onclick="openModal(1)">Calcular intervalo de confianza (Z)</button>
             <button type="button" class="btn btn-success" onclick="openModal(2)">Calcular intervalo de confianza (t de Student)</button>
@@ -337,7 +335,9 @@
      </section>
 <style>
     body {
-      
+        display: flex;
+        justify-content: center;
+        align-items: center;
         min-height: 100vh;
         background: #161623;
     }
@@ -387,3 +387,102 @@
 </style>
 
 </html>
+
+
+
+ <div>
+                        <label for="mean">Media poblacional (μ):</label>
+                        <input type="number" id="mean" step="0.01" required>
+                        <div class="error" id="mean-error"></div>
+                    </div>
+                    <div>
+                        <label for="stddev">Desviación estándar poblacional (σ or s):</label>
+                        <input type="number" id="stddev" step="0.01" required>
+                        <div class="error" id="stddev-error"></div>
+                    </div>
+                    <div>
+                        <label for="sample-size">Tamaño de muestra (n):</label>
+                        <input type="number" id="sample-size" required>
+                        <div class="error" id="sample-size-error"></div>
+                    </div>
+                    <div>
+                        <label for="confidence-level">Nivel de confianza (1-α):</label>
+                        <input type="number" id="confidence-level" required>
+                        <div class="error" id="confidence-level-error"></div>
+                    </div>
+                    <div>
+                        <label for="z-value">Valor de z:</label>
+                        <input type="number" id="z-value" step="0.01" required>
+                        <div class="error" id="z-value-error"></div>
+                    </div>
+                    <br><br>
+                    <div>
+                        <h3>Intervalos de confianza</h3>
+                        <p>Límite Superior (LS): <span id="upper-limit"></span></p>
+                        <p>Límite Inferior (LI): <span id="lower-limit"></span></p>
+                        <h3>Interoretacion corta:</h3>
+                        <span id="interpre"></span>
+                    </div>
+
+                    <script>
+                        // Obtén referencias a los elementos
+                        const meanInput = document.getElementById('mean');
+                        const stddevInput = document.getElementById('stddev');
+                        const sampleSizeInput = document.getElementById('sample-size');
+                        const confidenceLevelInput = document.getElementById('confidence-level');
+                        const zValueInput = document.getElementById('z-value');
+                        const lowerLimitSpan = document.getElementById('lower-limit');
+                        const upperLimitSpan = document.getElementById('upper-limit');
+                        const interpre = document.getElementById('interpre');
+                        // Agrega un detector de eventos 'input' a cada input
+                        meanInput.addEventListener('input', validateInputs);
+                        stddevInput.addEventListener('input', validateInputs);
+                        sampleSizeInput.addEventListener('input', validateInputs);
+                        confidenceLevelInput.addEventListener('input', validateInputs);
+                        zValueInput.addEventListener('input', validateInputs);
+
+                        function validateInputs() {
+                            validateInput(meanInput, 'mean-error');
+                            validateInput(stddevInput, 'stddev-error');
+                            validateInput(sampleSizeInput, 'sample-size-error');
+                            validateInput(confidenceLevelInput, 'confidence-level-error');
+                            validateInput(zValueInput, 'z-value-error');
+
+                            if (meanInput.validity.valid && stddevInput.validity.valid && sampleSizeInput.validity.valid && confidenceLevelInput.validity.valid && zValueInput.validity.valid) {
+                                calculateCI();
+                            } else {
+                                lowerLimitSpan.innerText = '';
+                                upperLimitSpan.innerText = '';
+                            }
+                        }
+
+                        function validateInput(input, errorId) {
+                            const errorElement = document.getElementById(errorId);
+                            if (input.validity.valueMissing) {
+                                input.setCustomValidity('Este campo es requerido.');
+                                errorElement.innerText = 'Este campo es requerido.';
+                                errorElement.classList.add('error-text');
+                            } else {
+                                input.setCustomValidity('');
+                                errorElement.innerText = '';
+                                errorElement.classList.remove('error-text');
+                            }
+                        }
+
+                        function calculateCI() {
+                            const mean = parseFloat(meanInput.value);
+                            const stddev = parseFloat(stddevInput.value);
+                            const sampleSize = parseFloat(sampleSizeInput.value);
+                            const confidenceLevel = parseFloat(confidenceLevelInput.value);
+                            const z = parseFloat(zValueInput.value);
+
+                            const marginOfError = z * (stddev / Math.sqrt(sampleSize));
+
+                            const lowerLimit = mean - marginOfError;
+                            const upperLimit = mean + marginOfError;
+
+                            lowerLimitSpan.innerText = `LI: ${lowerLimit}`;
+                            upperLimitSpan.innerText = `LS: ${upperLimit}`;
+                            var string = "Tenemos una seguridad del " + confidenceLevel + "% " + " para este caso, nuestros intervalos estarian entre \n" + lowerLimit + "  ----------------  " + upperLimit;
+                            interpre.innerText = string;
+                        }
