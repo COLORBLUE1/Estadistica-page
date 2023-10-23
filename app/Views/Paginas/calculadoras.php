@@ -44,12 +44,16 @@
             <br>
             <ul class="content_indice" type=none>
                 <li><a href="#titulo_pb">Probabilidad</a></li>
-                <li><a href="#section2">Sección 2</a></li>
-                <li><a href="#titulo_ic">intervalos de confianza</a></li>
+                <li><a href="#titulo_cv">Clasificación de variables</a></li>
+                <li><a href="#titulo_dn">Distribución normal</a></li>
+                <li><a href="#titulo_va">Variable aleatoria</a></li>
+                <li><a href="#titulo_db">Distribución Binomial</a></li>
+                <li><a href="#titulo_ie">Inferencia estadística</a></li>
+                <li><a href="#titulo_tlc">Teorema Limite Central y Estimación</a></li>
+                <li><a href="#titulo_ic">Intervalos de confianza</a></li>
             </ul>
         </div>
         <br>
-
         <br><br>
         <!-- Modales -->
         <div id="myModal1" class="modal">
@@ -107,7 +111,6 @@
                         <h2>Interoretacion corta:</h2>
                         <span id="interpre"></span>
                     </div>
-
                     <script>
                         // Obtén referencias a los elementos
                         const meanInput = document.getElementById('mean');
@@ -423,8 +426,68 @@
         <br><br>
 
     </section>
+    <br>
+    <!-- SECTION PROBABILIDAD-->
+
+    <section class="PROBABILIDAD">
+        <h1 class="titulos_h1" id="titulo_cv">Clasificación de variables</h1>
+        <br><br>
+
+    </section>
+
 
     <br>
+    <!-- SECTION PROBABILIDAD-->
+
+    <section class="PROBABILIDAD">
+        <h1 class="titulos_h1" id="titulo_dn">Distribución normal</h1>
+        <br><br>
+
+    </section>
+
+
+    <br>
+    <!-- SECTION PROBABILIDAD-->
+
+    <section class="PROBABILIDAD">
+        <h1 class="titulos_h1" id="titulo_va">Variable aleatoria</h1>
+        <br><br>
+
+    </section>
+
+    <br>
+    <!-- SECTION PROBABILIDAD-->
+
+    <section class="PROBABILIDAD">
+        <h1 class="titulos_h1" id="titulo_db">Distribución Binomial</h1>
+        <br><br>
+
+    </section>
+
+
+
+    <br>
+    <!-- SECTION PROBABILIDAD-->
+
+    <section class="PROBABILIDAD">
+        <h1 class="titulos_h1" id="titulo_ie">Inferencia estadística</h1>
+        <br><br>
+
+    </section>
+
+
+    <br>
+    <!-- SECTION PROBABILIDAD-->
+
+    <section class="PROBABILIDAD">
+        <h1 class="titulos_h1" id="titulo_tlc">Teorema Limite Central y Estimación</h1>
+        <br><br>
+
+    </section>
+
+
+    <br>
+
     <section class="intervalo_sect">
         <h1 id="titulo_ic" class="titulos_h1">Intervalos de confianza</h1>
         <br><br>
@@ -501,8 +564,29 @@
 
 
     <br><br>
+
+
+    <!-- Scroll de contenido-->
+    <script>
+        const sections = document.querySelectorAll('h2');
+
+        sections.forEach((section) => {
+            const link = document.createElement('a');
+            link.href = `#${section.id}`;
+            link.textContent = section.textContent;
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                document.querySelector(link.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+            tableOfContents.appendChild(link);
+        });
+    </script>
+
+    <!-- Scroll hacia arriba-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type='text/javascript'>
+    <script>
         $(document).ready(function() {
             $(window).scroll(function() {
                 if ($(this).scrollTop() > 100) {
@@ -520,6 +604,10 @@
         });
     </script>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         .intervalo_sect {
             background-color: #1e1e31;
             margin-top: 200px;
