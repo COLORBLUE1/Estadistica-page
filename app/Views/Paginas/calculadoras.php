@@ -9,27 +9,19 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!--
-            
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-░░░░░░░░░░░░░▄▄▄▄▄▄▄░░░░░░░░░
-░░░░░░░░░▄▀▀▀░░░░░░░▀▄░░░░░░░
-░░░░░░░▄▀░░░░░░░░░░░░▀▄░░░░░░
-░░░░░░▄▀░░░░░░░░░░▄▀▀▄▀▄░░░░░
-░░░░▄▀░░░░░░░░░░▄▀░░██▄▀▄░░░░
-░░░▄▀░░▄▀▀▀▄░░░░█░░░▀▀░█▀▄░░░
-░░░█░░█▄▄░░░█░░░▀▄░░░░░▐░█░░░
-░░▐▌░░█▀▀░░▄▀░░░░░▀▄▄▄▄▀░░█░░
-░░▐▌░░█░░░▄▀░░░░░░░░░░░░░░█░░
-░░▐▌░░░▀▀▀░░░░░░░░░░░░░░░░▐▌░
-░░▐▌░░░░░░░░░░░░░░░▄░░░░░░▐▌░
-░░▐▌░░░░░░░░░▄░░░░░█░░░░░░▐▌░
-░░░█░░░░░░░░░▀█▄░░▄█░░░░░░▐▌░
-░░░▐▌░░░░░░░░░░▀▀▀▀░░░░░░░▐▌░
-░░░░█░░░░░░░░░░░░░░░░░░░░░█░░
-░░░░▐▌▀▄░░░░░░░░░░░░░░░░░▐▌░░
-░░░░░█░░▀░░░░░░░░░░░░░░░░▀░░░
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
--->
+
+    Temas de la pagina orden:
+
+            Probabilidad
+            Clasificación de variables
+            Distribución normal
+            Variable aleatoria
+            Distribución Binomial
+            inferencia estadística
+            Teorema Limite Central y Estimación
+            intervalos de confianza
+ 
+    -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,18 +31,26 @@
 
 <body>
     <div data-aos="fade-up" data-aos-anchor-placement="top-center" class="title" style="text-align: center;  margin-top:100px; ">
-        <h3 class='display-4 relawayStandart text-light shadow-sm'> H E R A M I E N T A S </h3>
+        <h3 class='display-4 relawayStandart text-light shadow-sm'> Estadistica 2</h3>
     </div>
     <section class="cont_inicial">
-        <p data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400" data-aos-offset="0" class="intro">Bienvenido a nuestra plataforma de herramientas de cálculo y teoría! Aquí encontrarás una colección de herramientas útiles para realizar una amplia variedad de cálculos en diversas áreas, así como una sólida base teórica para comprender los principios subyacentes. Ya sea que seas un estudiante, un profesional, o simplemente alguien interesado en explorar conceptos matemáticos y científicos, nuestra plataforma está diseñada para ayudarte a resolver problemas, realizar análisis y aprender más sobre los fundamentos que respaldan estas herramientas.</p>
-        <br><br>
-        <h4>Calculadoras</h4>
-        <div data-aos="zoom-in-left" class="buttons">
-            <!-- Botones para abrir los modales -->
-            <button type="button" class="btn btn-success" onclick="openModal(1)">Calcular intervalo de confianza (Z)</button>
-            <button type="button" class="btn btn-success" onclick="openModal(2)">Calcular intervalo de confianza (t de Student)</button>
-            <button type="button" class="btn btn-success" onclick="openModal(3)">Calcular intervalo de confianza proporciona</button>
+        <p data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400" data-aos-offset="0" class="intro">Bienvenido a nuestra plataforma de herramientas de cálculo y teoría! Aquí encontrarás una colección de herramientas útiles para realizar una amplia variedad de cálculos en diversas áreas, así como una sólida base teórica para comprender los principios subyacentes. Ya sea que seas un estudiante, un profesional, o simplemente alguien interesado en explorar
+            conceptos matemáticos y científicos, nuestra plataforma está diseñada para ayudarte a resolver
+            problemas, realizar análisis y aprender más sobre los fundamentos que respaldan estas herramientas.</p>
+        <br>
+        <br>
+        <div class="content_indice">
+            <h1>Tabla de Contenido</h1>
+            <br>
+            <ul class="content_indice" type=none>
+                <li><a href="#titulo_pb">Probabilidad</a></li>
+                <li><a href="#section2">Sección 2</a></li>
+                <li><a href="#titulo_ic">intervalos de confianza</a></li>
+            </ul>
         </div>
+        <br>
+
+        <br><br>
         <!-- Modales -->
         <div id="myModal1" class="modal">
             <div class="modal-content">
@@ -100,7 +100,7 @@
                     </div>
                     <br><br>
                     <div>
-                    <img class="modal-content" id="modalImage" src="http://drive.google.com/uc?export=view&id=" alt="Imagen">
+                        <img class="modal-content" id="modalImage" src="http://drive.google.com/uc?export=view&id=" alt="Imagen">
                         <h2>Intervalos de confianza</h2>
                         <p>Intervalo Superior (LS): <span id="upper-limit"></span></p>
                         <p>Intervalo Inferior (LI): <span id="lower-limit"></span></p>
@@ -112,7 +112,7 @@
                         // Obtén referencias a los elementos
                         const meanInput = document.getElementById('mean');
                         const stddevInput = document.getElementById('stddev');
-                        const sampleSizeInput = document.getElementById('sample-size');
+                        const sam pleSizeInput = document.getElementById('sample-size');
                         const confidenceLevelInput = document.getElementById('confidence-level');
                         const zValueInput = document.getElementById('z-value');
                         const lowLimitSpan = document.getElementById('lower-limit');
@@ -298,7 +298,7 @@
                 <div id="myModal3" class="modal">
                     <div class="modal-content">
                         <span class="close" onclick="closeModal(3)">&times;</span>
-                         <h1>Calculadora de Intervalo de Confianza Proporcional (Z)</h1>
+                        <h1>Calculadora de Intervalo de Confianza Proporcional (Z)</h1>
                         <form>
                             <!-- Contenido del tercer formulario -->
                             <div>
@@ -324,7 +324,7 @@
                             </div>
 
                             <div class="salida">
-                           
+
                                 <h2>Intervalos de confianza</h2>
                                 <br>
                                 <p>Intervalo Inferior (LI): <span id="z-lower-limit"></span></p>
@@ -415,70 +415,239 @@
                     }
                 </script>
     </section>
-    <!-- Primer metodo espacio-->
-    <div data-aos="zoom-in">
-        <h3>Intervalo de confianza (Z)</h3>
-        <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando conoces la desviación estándar
-            poblacional (σ) y tu muestra sigue una distribución normal.<br>
-            <br>Fórmula: El intervalo de confianza (Z) se calcula como:<br> <br>LI = X̄ - Z * (σ / √n)<br><br>LS = X̄ + Z * (σ / √n)<br>
-            <br>
-            Cuándo usarlo: Debes usar el intervalo de confianza (Z) cuando tengas una muestra grande o conocias la desviación estándar poblacional y la distribución de la muestra es normal.
-        </p>
-        <p class="inter_z"> Detalles:<br>
-            <br>(X̄) es la media muestral.<br>
-            <br>(Z) es el valor crítico de la distribución normal estándar. <br>Este valor se obtiene de tablas de la distribución Z o utilizando software estadístico.<br>
-            <br>(σ) es la desviación estándar poblacional conocida.<br>
-            <br>(n) es el tamaño de la muestra.<br>
-        </p>
-        <br>
-    </div>
+
+    <!-- SECTION PROBABILIDAD-->
+
+    <section class="PROBABILIDAD">
+        <h1 class="titulos_h1" id="titulo_pb">Probabilidad</h1>
+        <br><br>
+
+    </section>
+
     <br>
-    <hr>
-    <br>
-
-    <!-- Segundo metodo espacio-->
-
-    <div data-aos="zoom-in-right">
-        <h3>Intervalo de confianza (Z)</h3>
-        <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando no conoces la desviación estándar poblacional (σ) y tu muestra sigue una distribución normal. En su lugar, utilizas la desviación estándar de la muestra (s) para estimar la poblacional.<br>
-            <br>Fórmula: El intervalo de confianza (t) se calcula como:<br> <br>LI = X̄ - t * (s / √n)<br><br>LS = X̄ + t * (s / √n)<br>
+    <section class="intervalo_sect">
+        <h1 id="titulo_ic" class="titulos_h1">Intervalos de confianza</h1>
+        <br><br>
+        <!-- Primer metodo espacio-->
+        <div data-aos="zoom-in">
+            <h3>Intervalo de confianza (Z)</h3>
+            <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando conoces la desviación estándar
+                poblacional (σ) y tu muestra sigue una distribución normal.<br>
+                <br>Fórmula: El intervalo de confianza (Z) se calcula como:<br> <br>LI = X̄ - Z * (σ / √n)<br><br>LS = X̄ + Z * (σ / √n)<br>
+                <br>
+                Cuándo usarlo: Debes usar el intervalo de confianza (Z) cuando tengas una muestra grande o conocias la desviación estándar poblacional y la distribución de la muestra es normal.
+            </p>
+            <p class="inter_z"> Detalles:<br>
+                <br>(X̄) es la media muestral.<br>
+                <br>(Z) es el valor crítico de la distribución normal estándar. <br>Este valor se obtiene de tablas de la distribución Z o utilizando software estadístico.<br>
+                <br>(σ) es la desviación estándar poblacional conocida.<br>
+                <br>(n) es el tamaño de la muestra.<br>
+            </p>
             <br>
-            Cuándo usarlo: Debes usar el intervalo de confianza (t) cuando no conozcas la desviación estándar poblacional y la distribución de la muestra sea normal.
-        </p>
-        <p class="inter_z"> Detalles:<br>
-            <br>(X̄) es la media muestral.<br>
-            <br>(t) es el valor crítico de la distribución t de Student. Este valor depende del nivel de confianza y los grados de libertad, y se obtiene de tablas de la distribución t o utilizando software estadístico.<br>
-            <br>(s) es la desviación estándar de la muestra.<br>
-            <br>(n) es el tamaño de la muestra.<br>
-        </p>
+            <div data-aos="zoom-in-left" class="buttons">
+                <!-- Botones para abrir los modales -->
+                <button type="button" class="btn btn-success" onclick="openModal(1)">Calcular intervalo de confianza (Z)</button>
+            </div>
+        </div>
         <br>
-    </div>
-    <br>
-    <hr><br>
+        <hr>
+        <br>
 
-    <!-- Tercer metodo espacio-->
-    <div data-aos="zoom-in-left">
-        <h3>Intervalo de Confianza Proporcional (Z)</h3>
-        <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza para estimar la proporción de una población cuando tienes una muestra grande y conoces la desviación estándar poblacional.<br>
-            <br>Fórmula: El intervalo de confianza proporcional (Z) se calcula como:<br> <br>LI = p - Z * √((p(1-p) / n))<br><br>LS = p + Z * √((p(1-p) / n))<br>
+        <!-- Segundo metodo espacio-->
+
+        <div data-aos="zoom-in-right">
+            <h3>Intervalo de confianza (t)</h3>
+            <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando no conoces la desviación estándar poblacional (σ) y tu muestra sigue una distribución normal. En su lugar, utilizas la desviación estándar de la muestra (s) para estimar la poblacional.<br>
+                <br>Fórmula: El intervalo de confianza (t) se calcula como:<br> <br>LI = X̄ - t * (s / √n)<br><br>LS = X̄ + t * (s / √n)<br>
+                <br>
+                Cuándo usarlo: Debes usar el intervalo de confianza (t) cuando no conozcas la desviación estándar poblacional y la distribución de la muestra sea normal.
+            </p>
+            <p class="inter_z"> Detalles:<br>
+                <br>(X̄) es la media muestral.<br>
+                <br>(t) es el valor crítico de la distribución t de Student. Este valor depende del nivel de confianza y los grados de libertad, y se obtiene de tablas de la distribución t o utilizando software estadístico.<br>
+                <br>(s) es la desviación estándar de la muestra.<br>
+                <br>(n) es el tamaño de la muestra.<br>
+            </p>
             <br>
-            Cuándo usarlo: Debes usar el intervalo de confianza proporcional (Z) cuando quieras estimar la proporción de una población y tengas una muestra grande conociendo la desviación estándar poblacional.
-        </p>
-
-        <p class="inter_z"> Detalles:<br>
-            <br>(P) es la proporción de la población de interés (por ejemplo, la proporción de personas que cumplen con cierta condición en la población).<br>
-            <br>(Z) es el valor crítico de la distribución normal estándar, obtenido de tablas de la distribución Z o software estadístico.<br>
-            <br>(n) es el tamaño de la muestra.<br>
-        </p>
+            <div data-aos="zoom-in-left" class="buttons">
+                <!-- Botones para abrir los modales -->
+                <button type="button" class="btn btn-success" onclick="openModal(2)">Calcular intervalo de confianza (t de Student)</button>
+            </div>
+        </div>
         <br>
-    </div>
+        <hr><br>
+
+        <!-- Tercer metodo espacio-->
+        <div data-aos="zoom-in-left">
+            <h3>Intervalo de Confianza Proporcional (Z)</h3>
+            <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza para estimar la proporción de una población cuando tienes una muestra grande y conoces la desviación estándar poblacional.<br>
+                <br>Fórmula: El intervalo de confianza proporcional (Z) se calcula como:<br> <br>LI = p - Z * √((p(1-p) / n))<br><br>LS = p + Z * √((p(1-p) / n))<br>
+                <br>
+                Cuándo usarlo: Debes usar el intervalo de confianza proporcional (Z) cuando quieras estimar la proporción de una población y tengas una muestra grande conociendo la desviación estándar poblacional.
+            </p>
+
+            <p class="inter_z"> Detalles:<br>
+                <br>(P) es la proporción de la población de interés (por ejemplo, la proporción de personas que cumplen con cierta condición en la población).<br>
+                <br>(Z) es el valor crítico de la distribución normal estándar, obtenido de tablas de la distribución Z o software estadístico.<br>
+                <br>(n) es el tamaño de la muestra.<br>
+            </p>
+            <div data-aos="zoom-in-left" class="buttons">
+                <!-- Botones para abrir los modales -->
+                <button type="button" class="btn btn-success" onclick="openModal(3)">Calcular intervalo de confianza proporciona</button>
+            </div>
+            <br>
+        </div>
+    </section>
+
+
     <br><br>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#scroll').fadeIn();
+                } else {
+                    $('#scroll').fadeOut();
+                }
+            });
+            $('#scroll').click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+        });
+    </script>
+    <style>
+        .intervalo_sect {
+            background-color: #1e1e31;
+            margin-top: 200px;
+            padding-top: 200px;
+        }
+
+        .titulos_h1 {
+            margin-top: 100px;
+            text-align: center;
+            color: #ffffff;
+            text-transform: uppercase;
+            word-spacing: 20px;
+            letter-spacing: 10px;
+        }
+
+
+        /* BackToTop button css */
+        #scroll {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            text-indent: -9999px;
+            display: none;
+            -webkit-border-radius: 60px;
+            -moz-border-radius: 60px;
+            border-radius: 60px
+        }
+
+        #scroll span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -8px;
+            margin-top: -12px;
+            height: 0;
+            width: 0;
+            border: 8px solid transparent;
+            border-bottom-color: #ffffff
+        }
+
+        #scroll:hover {
+            background-color: #e74c3c;
+            opacity: 1;
+            filter: "alpha(opacity=100)";
+            -ms-filter: "alpha(opacity=100)";
+        }
+    </style>
+    </head>
+
+    <body>
+        <!-- BackToTop Button -->
+        <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
+    </body>
+    <script>
+        const tableOfContents = document.getElementById("table-of-contents");
+
+        tableOfContents.addEventListener("click", (event) => {
+            if (event.target.tagName === "A") {
+                event.preventDefault();
+                const targetId = event.target.getAttribute("href").substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+            }
+        });
+
+
+        $(document).ready(function() {
+            irArriba();
+        }); //Hacia arriba
+
+        function irArriba() {
+            $('.ir-arriba').click(function() {
+                $('body,html').animate({
+                    scrollTop: '0px'
+                }, 1000);
+            });
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 0) {
+                    $('.ir-arriba').slideDown(600);
+                } else {
+                    $('.ir-arriba').slideUp(600);
+                }
+            });
+            $('.ir-abajo').click(function() {
+                $('body,html').animate({
+                    scrollTop: '1000px'
+                }, 1000);
+            });
+        }
+    </script>
+    <!-- Boton hacia arriba -->
+    <a class="ir-arriba" javascript:void(0) title="Volver arriba">
+        <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
 
 </html>
 </body>
 <br><br>
 <style>
+    /*Flecha para hacer la pagina hacia arriba*/
+    .ir-arriba {
+        display: none;
+        background-repeat: no-repeat;
+        font-size: 20px;
+        color: black;
+        cursor: pointer;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 2;
+    }
+
+    .content_indice {
+        text-align: center;
+        color: #ffffff !important;
+    }
+
     .salida {
         text-align: center;
     }
