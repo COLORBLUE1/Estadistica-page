@@ -519,6 +519,9 @@
                 </tr>
             </tbody>
         </table>
+        <div class="ejercicios_proba" >
+        <button type="button" class="btn btn-success"><a class="ejercicios_proba" href="#">Ejercicios</a></button>
+        </div>
     </section>
     <br>
     <!-- SECTION PROBABILIDAD-->
@@ -676,6 +679,12 @@
 </body>
 <br><br>
 <style>
+    .ejercicios_proba{
+        color:white;
+        text-decoration: none;
+        text-align: center;
+        margin-top: 100px;
+    }
     .table{
         background-color: #e74c3c;
         width: 550px;
