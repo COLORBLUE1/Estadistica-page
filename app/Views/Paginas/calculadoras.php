@@ -426,14 +426,99 @@
         <h1 class="titulos_h1" id="titulo_pb">Probabilidad</h1>
         <br>
         <h4>
-        HISTORIA: EL PAPEL DE LA PROBABILIDAD EN ESTADÍSTICA
+            HISTORIA: EL PAPEL DE LA PROBABILIDAD EN ESTADÍSTICA
         </h4>
-         <br>
+        <br>
         <p>
             El estudio formal de la teoría de probabilidad se originó en los siglos diecisiete y dieciocho en Francia con Blasie Pascal y Pierre de Fermat, pero se conoce de otros matemáticos motivados por el estudio de los juegos de azar. Pero es en el siglo diecinueve cuando un modelo probabilístico se desarrolló para el comportamiento de las moléculas de un líquido, se llamó movimiento browniano, Robert Brown, botánico inglés fue el primero en observar el fenómeno en 1827. En 1905, Albert Einsten explicó el movimiento browniano bajo la hipótesis de que las partículas se sometían a un bombardeo continuo de moléculas en un medio circundante. Aplicación en el desarrollo del sistema telefónico.
         </p>
+
+        <br>
+        <br>
+        <h4>
+            DEFINICIONES: EXPERIMENTO, EVENTOS Y EL ESPACIO MUESTRAL
+        </h4>
+        <br>
+        <p>
+            Se obtienen datos al observar ya sea eventos no controlados en la naturaleza o situaciones controladas en un laboratorio. Usamos el término experimento para describir cualquiera de los dos métodos de recolección de datos.
+        </p>
+        <br>
+        <h4>
+            Experimento aleatorio
+        </h4>
+        <br>
+        <p>
+            es un proceso donde los resultados no se pueden establecer con certeza, pero si asignarle una medida de la probabilidad de su ocurrencia.
+
+            Tienen las siguientes características:
+
+            .- En tanto que no podemos predecir el resultado con certeza, si es posible describir el conjunto de posibles resultados.
+
+            .- El experimento es tal que se podría repetir en condiciones que permanezcan invariables, ocurriendo los resultados de manera fortuita, y a medida que el número de repeticiones aumenta, surgen ciertos patrones en la frecuencia de ocurrencia de los resultados.
+        </p>
+        <br>
+        <p> Ejemplo:
+            <br>
+
+            <br>
+            Lanzar una moneda:
+
+        </p><br>
+        <div class="img_probabilidad">
+            <img width="320px" height="150px" src="https://www.theworldofcoins.com/images/PN25038-bimetall-antik-950-1.png" atl="monedas" />
+        </div>
         <br>
 
+
+        <p>
+            Lanzar un dado:
+
+        </p><br>
+        <div class="img_probabilidad">
+            <img width="300px" height="250px" src="https://images.vexels.com/media/users/3/150995/isolated/preview/ba38e6111932855459eb091da1372849-icono-de-dados-de-juego.png" atl="monedas" />
+        </div>
+        <br>
+        <h4>
+            Ley de los grandes números:
+        </h4>
+        <br>
+        <p>
+            Al repetir un Experimento Aleatorio un número de veces, la frecuencia relativa de cada suceso presenta una tendencia o estabilización de los resultados a un número fijo, y mientras mayor sea el número de repeticiones el resultado tiende a un patrón. </p>
+        <div class="img_probabilidad">
+            <img width="400px" height="300px" src="https://economipedia.com/wp-content/uploads/Ley-de-los-grandes-n%C3%BAmeros.jpg" atl="monedas" />
+        </div>
+        <br>
+        <br>
+        <h4>
+            Espacio muestral:
+        </h4>
+        <br>
+        <p>
+            Conjunto de todos los posibles resultados diferentes de un experimento aleatorio, se listan todos los eventos simples. Se denota por S o W.
+
+            Este experimento se puede representar en notación de conjuntos como un conjunto que tiene dos eventos simples:
+
+            .- Lanzar una moneda y observar la cara del lado superior
+
+            .- Lanzar un dado y observar el valor que da la cara superior:
+
+            .- Seleccionar una carta de baraja de póker y observar su número y letra
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">A</th>
+                    <th scope="col">B</th>
+                    <th scope="col">C</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>S: {C, S}</td>
+                    <td>S:{1, 2, 3, 4, 5,6}</td>
+                    <td>S: {2,3,4,5,6,7,8,9,10,J,Q,K,A}</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
     <br>
     <!-- SECTION PROBABILIDAD-->
@@ -591,6 +676,18 @@
 </body>
 <br><br>
 <style>
+    .table{
+        background-color: #e74c3c;
+        width: 550px;
+        text-align: center;
+        color:#ffffff;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .img_probabilidad {
+        text-align: center;
+    }
+
     html {
         scroll-behavior: smooth;
     }
@@ -735,7 +832,7 @@
     }
 
     p {
-
+        color: white;
         text-align: center;
         display: block;
         margin-left: auto !important;
