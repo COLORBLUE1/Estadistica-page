@@ -18,14 +18,13 @@
     <link rel="shortcut icon" href="https://img.icons8.com/arcade/64/graph.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="assets/css/escritorio.css">
+    <link rel="stylesheet" href="assets/css/escritorio_all.css">
 
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STATISTICAL STUDY</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -44,13 +43,6 @@
         </div>
     </div>
 
-    <style>
-        /* Body */
-        body {
-            background-color: #2a1f3c;
-            color: white;
-        }
-    </style>
     <section style="width: 100%;">
         <nav id='menu'>
             <input type='checkbox' />
@@ -101,6 +93,8 @@
                 });
             });
         </script>
+
+        
         <style>
             .ventana-emergente {
                 position: fixed;
@@ -282,13 +276,9 @@
             </div>
 </footer>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
-
 <script src="assets/js/escritorio.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<style></style>
+<!-- iniciar libreria AOS -->
 <script>
-
+AOS.init();
 </script>

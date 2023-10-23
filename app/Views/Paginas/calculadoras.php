@@ -399,6 +399,7 @@
                     </div>
                 </div>
                 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                <!-- iniciar libreria AOS -->
                 <script>
                     AOS.init();
                 </script>
@@ -421,15 +422,23 @@
 
     <!-- SECTION PROBABILIDAD-->
 
-    <section class="PROBABILIDAD">
+    <section class="probabilidad">
         <h1 class="titulos_h1" id="titulo_pb">Probabilidad</h1>
-        <br><br>
+        <br>
+        <h4>
+        HISTORIA: EL PAPEL DE LA PROBABILIDAD EN ESTADÍSTICA
+        </h4>
+         <br>
+        <p>
+            El estudio formal de la teoría de probabilidad se originó en los siglos diecisiete y dieciocho en Francia con Blasie Pascal y Pierre de Fermat, pero se conoce de otros matemáticos motivados por el estudio de los juegos de azar. Pero es en el siglo diecinueve cuando un modelo probabilístico se desarrolló para el comportamiento de las moléculas de un líquido, se llamó movimiento browniano, Robert Brown, botánico inglés fue el primero en observar el fenómeno en 1827. En 1905, Albert Einsten explicó el movimiento browniano bajo la hipótesis de que las partículas se sometían a un bombardeo continuo de moléculas en un medio circundante. Aplicación en el desarrollo del sistema telefónico.
+        </p>
+        <br>
 
     </section>
     <br>
     <!-- SECTION PROBABILIDAD-->
 
-    <section class="PROBABILIDAD">
+    <section class="Clasificación_variables">
         <h1 class="titulos_h1" id="titulo_cv">Clasificación de variables</h1>
         <br><br>
 
@@ -439,7 +448,7 @@
     <br>
     <!-- SECTION PROBABILIDAD-->
 
-    <section class="PROBABILIDAD">
+    <section class="Distribución_normal">
         <h1 class="titulos_h1" id="titulo_dn">Distribución normal</h1>
         <br><br>
 
@@ -449,7 +458,7 @@
     <br>
     <!-- SECTION PROBABILIDAD-->
 
-    <section class="PROBABILIDAD">
+    <section class="Variable_aleatoria">
         <h1 class="titulos_h1" id="titulo_va">Variable aleatoria</h1>
         <br><br>
 
@@ -458,7 +467,7 @@
     <br>
     <!-- SECTION PROBABILIDAD-->
 
-    <section class="PROBABILIDAD">
+    <section class="Distribución_Binomial">
         <h1 class="titulos_h1" id="titulo_db">Distribución Binomial</h1>
         <br><br>
 
@@ -469,7 +478,7 @@
     <br>
     <!-- SECTION PROBABILIDAD-->
 
-    <section class="PROBABILIDAD">
+    <section class="Inferencia_estadística">
         <h1 class="titulos_h1" id="titulo_ie">Inferencia estadística</h1>
         <br><br>
 
@@ -479,7 +488,7 @@
     <br>
     <!-- SECTION PROBABILIDAD-->
 
-    <section class="PROBABILIDAD">
+    <section class="tlc">
         <h1 class="titulos_h1" id="titulo_tlc">Teorema Limite Central y Estimación</h1>
         <br><br>
 
@@ -564,148 +573,12 @@
 
 
     <br><br>
-
-
-    <!-- Scroll de contenido-->
-    <script>
-        const sections = document.querySelectorAll('h2');
-
-        sections.forEach((section) => {
-            const link = document.createElement('a');
-            link.href = `#${section.id}`;
-            link.textContent = section.textContent;
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                document.querySelector(link.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-            tableOfContents.appendChild(link);
-        });
-    </script>
-
-    <!-- Scroll hacia arriba-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) {
-                    $('#scroll').fadeIn();
-                } else {
-                    $('#scroll').fadeOut();
-                }
-            });
-            $('#scroll').click(function() {
-                $("html, body").animate({
-                    scrollTop: 0
-                }, 600);
-                return false;
-            });
-        });
-    </script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+    <script src="assets/js/all.js"></script>
 
-        .intervalo_sect {
-            background-color: #1e1e31;
-            margin-top: 200px;
-            padding-top: 200px;
-        }
+    <!-- BackToTop Button -->
+    <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
 
-        .titulos_h1 {
-            margin-top: 100px;
-            text-align: center;
-            color: #ffffff;
-            text-transform: uppercase;
-            word-spacing: 20px;
-            letter-spacing: 10px;
-        }
-
-
-        /* BackToTop button css */
-        #scroll {
-            position: fixed;
-            right: 10px;
-            bottom: 10px;
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            background-color: #3498db;
-            text-indent: -9999px;
-            display: none;
-            -webkit-border-radius: 60px;
-            -moz-border-radius: 60px;
-            border-radius: 60px
-        }
-
-        #scroll span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin-left: -8px;
-            margin-top: -12px;
-            height: 0;
-            width: 0;
-            border: 8px solid transparent;
-            border-bottom-color: #ffffff
-        }
-
-        #scroll:hover {
-            background-color: #e74c3c;
-            opacity: 1;
-            filter: "alpha(opacity=100)";
-            -ms-filter: "alpha(opacity=100)";
-        }
-    </style>
-    </head>
-
-    <body>
-        <!-- BackToTop Button -->
-        <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
-    </body>
-    <script>
-        const tableOfContents = document.getElementById("table-of-contents");
-
-        tableOfContents.addEventListener("click", (event) => {
-            if (event.target.tagName === "A") {
-                event.preventDefault();
-                const targetId = event.target.getAttribute("href").substring(1);
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: "smooth"
-                    });
-                }
-            }
-        });
-
-
-        $(document).ready(function() {
-            irArriba();
-        }); //Hacia arriba
-
-        function irArriba() {
-            $('.ir-arriba').click(function() {
-                $('body,html').animate({
-                    scrollTop: '0px'
-                }, 1000);
-            });
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 0) {
-                    $('.ir-arriba').slideDown(600);
-                } else {
-                    $('.ir-arriba').slideUp(600);
-                }
-            });
-            $('.ir-abajo').click(function() {
-                $('body,html').animate({
-                    scrollTop: '1000px'
-                }, 1000);
-            });
-        }
-    </script>
     <!-- Boton hacia arriba -->
     <a class="ir-arriba" javascript:void(0) title="Volver arriba">
         <span class="fa-stack">
@@ -718,6 +591,103 @@
 </body>
 <br><br>
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .Inferencia_estadística {
+        background-color: #1e1e31;
+        margin-top: 200px;
+        padding-top: 200px;
+    }
+
+    .Distribución_Binomial {
+        background-color: #1e1e31;
+        margin-top: 200px;
+        padding-top: 200px;
+    }
+
+    .Variable_aleatoria {
+        background-color: #1e1e31;
+        margin-top: 200px;
+        padding-top: 200px;
+    }
+
+    .Distribución_normal {
+        background-color: #1e1e31;
+        margin-top: 200px;
+        padding-top: 200px;
+    }
+
+    .Clasificación_variables {
+        background-color: #1e1e31;
+        margin-top: 200px;
+        padding-top: 200px;
+    }
+
+    .tlc {
+        background-color: #1e1e31;
+        margin-top: 200px;
+        padding-top: 200px;
+    }
+
+    .intervalo_sect {
+        background-color: #1e1e31;
+        margin-top: 200px;
+        padding-top: 200px;
+    }
+
+    .probabilidad {
+        background-color: #1e1e31;
+        margin-top: 200px;
+        padding-top: 200px;
+    }
+
+    .titulos_h1 {
+        margin-top: 100px;
+        text-align: center;
+        color: #ffffff;
+        text-transform: uppercase;
+        word-spacing: 20px;
+        letter-spacing: 10px;
+    }
+
+
+    /* BackToTop button css */
+    #scroll {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        background-color: #3498db;
+        text-indent: -9999px;
+        display: none;
+        -webkit-border-radius: 60px;
+        -moz-border-radius: 60px;
+        border-radius: 60px
+    }
+
+    #scroll span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -8px;
+        margin-top: -12px;
+        height: 0;
+        width: 0;
+        border: 8px solid transparent;
+        border-bottom-color: #ffffff
+    }
+
+    #scroll:hover {
+        background-color: #e74c3c;
+        opacity: 1;
+        filter: "alpha(opacity=100)";
+        -ms-filter: "alpha(opacity=100)";
+    }
+
     /*Flecha para hacer la pagina hacia arriba*/
     .ir-arriba {
         display: none;
@@ -904,7 +874,6 @@
 
 
     body {
-
         background: #161623;
     }
 

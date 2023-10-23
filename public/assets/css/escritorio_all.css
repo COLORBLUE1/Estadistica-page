@@ -41,39 +41,44 @@
      /* Body */
      body {
          background-color: #151531;
+         color: white;
      }
-/* BackToTop button css */
-#scroll {
-    position:fixed;
-    right:10px;
-    bottom:10px;
-    cursor:pointer;
-    width:50px;
-    height:50px;
-    background-color:#3498db;
-    text-indent:-9999px;
-    display:none;
-    -webkit-border-radius:60px;
-    -moz-border-radius:60px;
-    border-radius:60px
-}
-#scroll span {
-    position:absolute;
-    top:50%;
-    left:50%;
-    margin-left:-8px;
-    margin-top:-12px;
-    height:0;
-    width:0;
-    border:8px solid transparent;
-    border-bottom-color:#ffffff
-}
-#scroll:hover {
-    background-color:#e74c3c;
-    opacity:1;filter:"alpha(opacity=100)";
-    -ms-filter:"alpha(opacity=100)";
-}
-   
+
+     /* BackToTop button css */
+     #scroll {
+         position: fixed;
+         right: 10px;
+         bottom: 10px;
+         cursor: pointer;
+         width: 50px;
+         height: 50px;
+         background-color: #3498db;
+         text-indent: -9999px;
+         display: none;
+         -webkit-border-radius: 60px;
+         -moz-border-radius: 60px;
+         border-radius: 60px
+     }
+
+     #scroll span {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         margin-left: -8px;
+         margin-top: -12px;
+         height: 0;
+         width: 0;
+         border: 8px solid transparent;
+         border-bottom-color: #ffffff
+     }
+
+     #scroll:hover {
+         background-color: #e74c3c;
+         opacity: 1;
+         filter: "alpha(opacity=100)";
+         -ms-filter: "alpha(opacity=100)";
+     }
+
      /* Heading */
      section div h5 {
          color: #ffffff;
@@ -146,7 +151,9 @@
      .credits {
          text-align: center;
      }
+
      #151531
+
      /* Rules for sizing the icon. */
      .material-icons.md-18 {
          font-size: 18px;
@@ -384,14 +391,15 @@
          transform: translatex(0px) translatey(0px);
      }
 
-     .tarjeta_sol{
-        color:white;
+     .tarjeta_sol {
+         color: white;
      }
+
      /* Aos animate */
      section section .aos-animate .aos-animate {
          color: #000000;
          transform: translatex(0px) translatey(0px);
-       
+
      }
 
      /* List Item */
