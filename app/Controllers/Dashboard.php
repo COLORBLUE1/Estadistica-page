@@ -26,9 +26,9 @@ class Dashboard extends BaseController
     {
         return view("Paginas/ejercicios");
     }
-    public function calculadoras()
+    public function estadistica_2()
     {
-        return view("Paginas/calculadoras");
+        return view("Paginas/estadistica_2");
     }
     public function ejercicios_2()
     {
@@ -45,6 +45,18 @@ class Dashboard extends BaseController
     public function carga_ejercicios()
     {
         return view("Paginas/carga_ejercicios");
+    }
+
+
+    /*Ruta paginas de ejercicios*/
+
+    public function ejercicios_probabilidad()
+    {
+        return view("Paginas/ejercicios_probabilidad");
+    }
+    public function ejercicios_class_variable()
+    {
+        return view("Paginas/ejercicios_class_variable");
     }
     public function carga_examenes()
     {
@@ -98,5 +110,4 @@ class Dashboard extends BaseController
     {
         return view("Recursos/Ejercicio_2.mp4");
     }
-
 }

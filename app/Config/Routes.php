@@ -20,20 +20,6 @@ $routes->get('indexjs', 'Dashboard::indexjs');
 $routes->get('largo', 'Dashboard::largo');
 $routes->get('ejercicios', 'Dashboard::ejercicios');
 $routes->get('ejercicios_2', 'Dashboard::ejercicios_2');
-$routes->get('calculadoras', 'Dashboard::calculadoras');
-$routes->get('lenguajes_usados', 'Dashboard::lenguajes_usados');
-
-/*IMAGENES*/
-$routes->get('img1', 'Dashboard::img1');
-$routes->get('img2', 'Dashboard::img2');
-$routes->get('img3', 'Dashboard::img3');
-$routes->get('img4', 'Dashboard::img4');
-
-/*VIDEOS*/
-$routes->get('Ejercicio_1', 'Dashboard::Ejercicio_1');
-$routes->get('Ejercicio_2', 'Dashboard::Ejercicio_2');
-
-/*ESTILOS*/
-
-
-/*CODIGO JAVASCRIPT*/
+$routes->get('estadistica_2', 'Dashboard::estadistica_2');
+$routes->get('ejercicios_probabilidad', 'Dashboard::ejercicios_probabilidad');
+$routes->get('ejercicios_class_variable', 'Dashboard::ejercicios_class_variable');

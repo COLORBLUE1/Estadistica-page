@@ -17,7 +17,7 @@
         <br>
         <div class='jumbotron' style="backdrop-filter: blur(10px);
     background-color:rgba(250, 250, 250, 0.2);  text-align:center;">
-            <h3 class='display-4 relawayStandart text-light shadow-sm'>EJERCICIOS DE PROBABILIDAD<br></h3>
+            <h3 class='display-4 relawayStandart text-light shadow-sm'>EJERCICIOS DE CLASIFICACIÓN DE VARIABLES<br></h3>
         </div>
         <br>
         <hr style="background-color:white;">
@@ -29,10 +29,9 @@
             <h1 style="text-align:center;">Ejercicios practicos :)</h1>
             <br><br>
             <!--Estructura primera pregunta-->
-            <h6 style="color:white">Escriba el espacio muestral de sacar una bola de cierto color:<br>
-                Se tienen 2 Blancas – 3 Azules - 4 Rojas
+            <h6 style="color:white"> ¿Qué tipo de variable es el tiempo?
             </h6>
-            <h7 style="color:white">Responda usando esta estructura: <b>S:{C, A, S, X, S, A, A, ,S}</b></h7>
+            <h7 style="color:white">Responda usando esta estructura: <b>Cuantitativa, Categórica, Ordinal ETC </b></h7>
             <br><br>
 
             <br>
@@ -46,30 +45,12 @@
             <div id="resultado"></div>
             <!--Estructura segunda pregunta-->
             <br>
-            <h6 style="color:white">Da la respuesta de las siguientes ecuaciones, por metodo de variables separables
+            <h6 style="color:white">¿Cuál es la naturaleza de una variable de género (masculino, femenino)?
             </h6>
-            <h7 style="color:white">Responda usando esta estructura: <b>y=-4/3(e-5)^5+c "Para hacer ^ (pulsas alt-
-                    94)"</b></h7>
+            <h7 style="color:white">Responda usando esta estructura: <b>Cuantitativa, Categórica, Ordinal ETC </b></h7>
+
             <br><br>
-            <div style="font-size:60px; color:aqua;" class="minotacionmatematica2">
-                <math>
-                    <mfrac bevelled="true">
-                        <mfrac>
-                            <msup>
-                                <mi>dy</mi>
-                            </msup>
-                            <msup>
-                                <mi>dx</mi>
-                            </msup>
-                        </mfrac>
-                        <mo>=</mo>
-                        <msup>
-                            <mi>(x+1)</mi>
-                            <mn>2</mn>
-                        </msup>
-                    </mfrac>
-                </math>
-            </div>
+
             <br>
             <input style="backdrop-filter: blur(10px);
     background-color:rgba(250, 250, 250, 0.2);  text-align:center; color:white; height: 30px;
@@ -81,31 +62,12 @@
             <div id="resultado_1"></div>
             <!--Estructura tercera pregunta-->
             <br>
-            <h6 style="color:white">Da la respuesta de las siguientes ecuaciones, por metodo de variables separables
+            <h6 style="color:white"> ¿La temperatura en grados Celsius es una variable cuantitativa o cualitativa?
             </h6>
-            <h7 style="color:white">Responda usando esta estructura: <b>y=-1/45e^-45r+c "Para hacer ^ (pulsas alt-
-                    94)"</b></h7>
+            <h7 style="color:white">Responda usando esta estructura: <b>Cuantitativa, Categórica, Ordinal ETC </b></h7>
+
             <br><br>
-            <div style="font-size:60px; color:aqua;" class="minotacionmatematica2">
-                <math>
-                    <mfrac bevelled="true">
-                        <msup>
-                            <mi>dx+e</mi>
-                            <mn>3x</mn>
-                        </msup>
-                    </mfrac>
-                    <mfrac bevelled="true">
-                        <msup>
-                            <mi>dy</mi>
-                        </msup>
-                    </mfrac>
-                    <mfrac bevelled="true">
-                        <msup>
-                            <mi>=0</mi>
-                        </msup>
-                    </mfrac>
-                </math>
-            </div>
+
             <br>
             <input style="backdrop-filter: blur(10px);
     background-color:rgba(250, 250, 250, 0.2);  text-align:center; color:white; height: 30px;
@@ -116,45 +78,12 @@
             <br />
             <div id="resultado_2"></div>
             <!--Estructura cuarta pregunta pregunta-->
-            <h6 style="color:white">Da la respuesta de la siguiente ecuacion con valor inicial, por metodo de variables
-                separables.
+            <h6 style="color:white">¿Cómo se clasifica la variable "nivel de educación" (primaria, secundaria, universidad)?
             </h6>
-            <h7 style="color:white">Responda usando esta estructura: <b>y=232-63e^34x^22+1212x/121+21e^5x^3+22x</b>
-                "Para hacer ^ (pulsas alt-
-                94)"</h7>
-            <br><br>
-            <div style="font-size:60px; color:aqua;" class="minotacionmatematica2">
-                <math>
-                    <mfrac bevelled="true">
-                        <mi>y</mi>
-                        <mo>'</mo>
-                        <mi>(2x+3)</mi>
-                    </mfrac>
-                    <mfrac bevelled="true">
-                        <mfrac>
-                            <msup>
-                                <mi>(y</mi>
-                                <mo>2</mo>
-                            </msup>
-                            <mi> - 4); </mi>
-                            <mfrac>
-                                <msup>
-                                </msup>
-                            </mfrac>
-                        </mfrac>
-                    </mfrac>
-                </math>
-                <math>
-                    <mfrac bevelled="true">
-                        <mi>y(0)=</mi>
-                    </mfrac>
-                    <mfrac bevelled="true">
-                        <msup>
-                            <mi>-1</mi>
+            <h7 style="color:white">Responda usando esta estructura: <b>Cuantitativa, Categórica, Ordinal ETC </b></h7>
 
-                        </msup>
-                </math>
-            </div>
+            <br><br>
+
 
             <br>
             <input style="backdrop-filter: blur(10px);
@@ -167,7 +96,7 @@
             <div id="resultado_3"></div>
         </body>
         <br><br>
-        <a  style="text-align:center; color:white; text-decoration: none;
+        <a style="text-align:center; color:white; text-decoration: none;
  background-color:#4a0ed6;padding-left:10px;padding-right:10px;padding-top:10px;padding-bottom:10px;
  border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-left-radius:10px;border-bottom-right-radius:10px; filter:blur(0.33px);" href="estadistica_2">Teoria</a>
         <br><br>
@@ -439,13 +368,13 @@
                     if (respuesta.value === "") {
                         resultado.innerHTML = '<h3 style="color:yellow">Debes poner una respuesta 🤨</h3>';
                     } else
-                    if (respuesta.value === "S:{B, B, A, A, A, R, R, R, R}")
+                    if (respuesta.value === "Cuantitativa")
 
                         resultado.innerHTML =
-                        '<h3 style="color:green">Correcto 😁</h3> <br> <h5>SOLUCION<h5><img src="https://www.ecuacionesdiferenciales.jcbmat.com/983874c0.gif">';
+                        '<h3 style="color:green">Correcto 😁</h3> <br> <h5>SOLUCION Y EXPLICACIÓN</h5><br><h6>El tiempo es una variable cuantitativa, ya que se puede medir y expresar en números (por ejemplo, en segundos, minutos o horas) y realizar operaciones matemáticas con él.</h6>';
 
                     else resultado.innerHTML =
-                        '<h3 style="color: red">No es Correcto 😢</h3> <br> <h5>SOLUCION<h5><img src="https://www.ecuacionesdiferenciales.jcbmat.com/983874c0.gif">';
+                        '<h3 style="color: red">No es Correcto 😢</h3> <br> <h5>SOLUCION Y EXPLICACIÓN</h5><br><h6>El tiempo es una variable cuantitativa, ya que se puede medir y expresar en números (por ejemplo, en segundos, minutos o horas) y realizar operaciones matemáticas con él.</h6>';
                 }
                 //Metodo de validacion segunda pregunta
                 function myFunction_1() {
@@ -454,12 +383,12 @@
                     if (respuesta_1.value === "") {
                         resultado_1.innerHTML = '<h3 style="color:yellow">Debes poner una respuesta 🤨</h3>';
                     } else
-                    if (respuesta_1.value === "y=1/2(x+1)^3+c")
+                    if (respuesta_1.value === "Categórica")
 
                         resultado_1.innerHTML =
-                        '<h3 style="color:green">Correcto 😁</h3> <br> <h5>SOLUCION<h5><img src="https://www.ecuacionesdiferenciales.jcbmat.com/98419e80.gif">';
+                        '<h3 style="color:green">Correcto 😁</h3> <br> <h5>SOLUCION Y EXPLICACIÓN</h5><br><h6>La variable de género es categórica, ya que representa categorías discretas y no se puede realizar ningún tipo de operación matemática con ella debido a su naturaleza no numérica.</h6>';
                     else resultado_1.innerHTML =
-                        '<h3 style="color: red">No es Correcto 😢</h3> <br> <h5>SOLUCION<h5><img src="https://www.ecuacionesdiferenciales.jcbmat.com/98419e80.gif">';
+                        '<h3 style="color: red">No es Correcto 😢</h3> <br> <h5>SOLUCION Y EXPLICACIÓN</h5><br><h6>La variable de género es categórica, ya que representa categorías discretas y no se puede realizar ningún tipo de operación matemática con ella debido a su naturaleza no numérica.</h6>';
                 }
                 //Metodo de validacion tercera pregunta
                 function myFunction_2() {
@@ -468,11 +397,11 @@
                     if (respuesta_2.value === "") {
                         resultado_2.innerHTML = '<h3 style="color:yellow">Debes poner una respuesta 🤨</h3>';
                     } else
-                    if (respuesta_2.value === "y=1/3e^-3x+c")
+                    if (respuesta_2.value === "Cuantitativa")
                         resultado_2.innerHTML =
-                        '<h3 style="color:green">Correcto 😁</h3> <br> <h5>SOLUCION<h5><img src="https://www.ecuacionesdiferenciales.jcbmat.com/986834c0.gif">';
+                        '<h3 style="color:green">Correcto 😁</h3> <br> <h5>SOLUCION Y EXPLICACIÓN</h5><br><h6>La temperatura en grados Celsius es una variable cuantitativa, ya que se expresa en números y se puede medir con precisión, lo que permite realizar cálculos matemáticos con ella.</h6>';
                     else resultado_2.innerHTML =
-                        '<h3 style="color: red">No es Correcto 😢</h3> <br> <h5>SOLUCION<h5><img src="https://www.ecuacionesdiferenciales.jcbmat.com/986834c0.gif">';
+                        '<h3 style="color: red">No es Correcto 😢</h3> <br> <h5>SOLUCION Y EXPLICACIÓN</h5><br><h6>La temperatura en grados Celsius es una variable cuantitativa, ya que se expresa en números y se puede medir con precisión, lo que permite realizar cálculos matemáticos con ella.</h6>';
                 }
                 //Metodo de validacion para cuarta pregunta
                 function myFunction_3() {
@@ -481,11 +410,11 @@
                     if (respuesta_3.value === "") {
                         resultado_3.innerHTML = '<h3 style="color:yellow">Debes poner una respuesta 🤨</h3>';
                     } else
-                    if (respuesta_3.value === "y=2-6e^4x^2+12x/1+3e^4x^2+12x")
+                    if (respuesta_3.value === " Ordinal")
                         resultado_3.innerHTML =
-                        '<h3 style="color:green">Correcto 😁</h3> <br> <h5>SOLUCION<h5><img src="https://drive.google.com/uc?export=download&amp;id=1NYaxPut1dhzG0g-c6_nSZf_S9f1jVN8p">';
+                        '<h3 style="color:green">Correcto 😁</h3> <br> <h5>SOLUCION Y EXPLICACIÓN</h5><br><h6>  La variable "nivel de educación" se clasifica como ordinal, ya que los valores tienen un orden jerárquico, pero no se puede determinar la distancia exacta entre las categorías.</h6>';
                     else resultado_3.innerHTML =
-                        '<h3 style="color: red">No es Correcto 😢</h3> <br> <h5>SOLUCION<h5><img src="https://drive.google.com/uc?export=download&amp;id=1NYaxPut1dhzG0g-c6_nSZf_S9f1jVN8p">';
+                        '<h3 style="color: red">No es Correcto 😢</h3> <br> <h5>SOLUCION Y EXPLICACIÓN</h5><br><h6>  La variable "nivel de educación" se clasifica como ordinal, ya que los valores tienen un orden jerárquico, pero no se puede determinar la distancia exacta entre las categorías.</h6>';
                 }
                 //Metodo para limpiar salida pregunta 1
                 function clear_0() {

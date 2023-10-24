@@ -1,5 +1,7 @@
 //Scroll de contenido
 
+
+// Scroll hacia arriba
 $(document).ready(function() {
     $(window).scroll(function() {
         if ($(this).scrollTop() > 100) {
@@ -17,7 +19,7 @@ $(document).ready(function() {
 });
 
 
-// Scroll hacia arriba
+
 
 
 const sections = document.querySelectorAll('h2');
