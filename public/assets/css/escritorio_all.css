@@ -40,7 +40,9 @@
 
      /* Body */
      body {
-         background-color: #151531;
+        background-image:url("https://images.unsplash.com/photo-1695970922375-34520eca9bed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNTc5fDB8MXxhbGx8MTEzMnx8fHx8fDJ8fDE2OTgxMjU3NTR8&ixlib=rb-4.0.3&q=80&w=2560") !important;
+        background-attachment:fixed !important;
+        background-size:cover !important;
          color: white;
      }
 

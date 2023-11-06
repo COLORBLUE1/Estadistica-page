@@ -30,6 +30,7 @@
 </head>
 
 <body>
+
     <div data-aos="fade-up" data-aos-anchor-placement="top-center" class="title" style="text-align: center;  margin-top:100px; ">
         <h3 class='display-4 relawayStandart text-light shadow-sm'> Estadistica 2</h3>
     </div>
@@ -37,8 +38,6 @@
         <p data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400" data-aos-offset="0" class="intro">Bienvenido a nuestra plataforma de herramientas de cálculo y teoría! Aquí encontrarás una colección de herramientas útiles para realizar una amplia variedad de cálculos en diversas áreas, así como una sólida base teórica para comprender los principios subyacentes. Ya sea que seas un estudiante, un profesional, o simplemente alguien interesado en explorar
             conceptos matemáticos y científicos, nuestra plataforma está diseñada para ayudarte a resolver
             problemas, realizar análisis y aprender más sobre los fundamentos que respaldan estas herramientas.</p>
-        <br>
-
         <br>
         <div class="content_indice" id="content_indice">
             <h1>Tabla de Contenido</h1>
@@ -53,387 +52,382 @@
                 <li><a href="#titulo_tlc">Teorema Limite Central y Estimación</a></li>
                 <li><a href="#titulo_ic">Intervalos de confianza</a></li>
             </ul>
-            <br>
-
-            <br>
-
-
-            <br><br>
-            <!-- Modales -->
-            <div id="myModal1" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal(1)">&times;</span>
-                    <form>
-                        <!-- Contenido del primer formulario -->
+        </div>
+        <!-- Modales -->
+        <div id="myModal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal(1)">&times;</span>
+                <form>
+                    <!-- Contenido del primer formulario -->
+                    <br>
+                    <h1>Calculadora de Intervalo de Confianza (Z)</h1>
+                    <div>
                         <br>
-                        <h1>Calculadora de Intervalo de Confianza (Z)</h1>
-                        <div>
-                            <br>
-                            <div class="error-message" id="mean-error"></div>
-                            <br>
-                            <label for="mean">Media poblacional (μ):</label>
-                            <input type="number" id="mean" step="0.01" required>
-                        </div>
+                        <div class="error-message" id="mean-error"></div>
                         <br>
-                        <div>
-                            <br>
-                            <div class="error-message" id="stddev-error"></div>
-                            <br>
-                            <label for="stddev">Desviación estándar poblacional (σ or s):</label>
-                            <input type="number" id="stddev" step="0.01" required>
-                        </div>
-                        <br>
-                        <div>
-                            <br>
-                            <div class="error-message" id="sample-size-error"></div>
-                            <br>
-                            <label for="sample-size">Tamaño de muestra (n):</label>
-                            <input type="number" id="sample-size" required>
-                        </div>
-                        <br>
-                        <div>
-                            <br>
-                            <div class="error-message" id="confidence-level-error"></div>
-                            <br>
-                            <label for="confidence-level">Nivel de confianza (1-α):</label>
-                            <input type="number" id="confidence-level" required>
-                        </div>
-                        <br>
-                        <div>
-                            <br>
-                            <div class="error-message" id="z-value-error"></div>
-                            <br>
-                            <label for="z-value">Valor de z:</label>
-                            <input type="number" id="z-value" step="0.0001" required>
-                        </div>
-                        <br><br>
-                        <div>
-                            <img class="modal-content" id="modalImage" src="http://drive.google.com/uc?export=view&id=" alt="Imagen">
-                            <h2>Intervalos de confianza</h2>
-                            <p>Intervalo Superior (LS): <span id="upper-limit"></span></p>
-                            <p>Intervalo Inferior (LI): <span id="lower-limit"></span></p>
-                            <h2>Interoretacion corta:</h2>
-                            <span id="interpre"></span>
-                        </div>
-                        <script>
-                            // Obtén referencias a los elementos
-                            const meanInput = document.getElementById('mean');
-                            const stddevInput = document.getElementById('stddev');
-                            const sam pleSizeInput = document.getElementById('sample-size');
-                            const confidenceLevelInput = document.getElementById('confidence-level');
-                            const zValueInput = document.getElementById('z-value');
-                            const lowLimitSpan = document.getElementById('lower-limit');
-                            const upLimitSpan = document.getElementById('upper-limit');
-                            const interpre = document.getElementById('interpre');
-                            // Agrega un detector de eventos 'input' a cada input
-                            meanInput.addEventListener('input', validateInputs);
-                            stddevInput.addEventListener('input', validateInputs);
-                            sampleSizeInput.addEventListener('input', validateInputs);
-                            confidenceLevelInput.addEventListener('input', validateInputs);
-                            zValueInput.addEventListener('input', validateInputs);
-
-                            function validateInputs() {
-                                validateInput(meanInput, 'mean-error');
-                                validateInput(stddevInput, 'stddev-error');
-                                validateInput(sampleSizeInput, 'sample-size-error');
-                                validateInput(confidenceLevelInput, 'confidence-level-error');
-                                validateInput(zValueInput, 'z-value-error');
-
-                                if (meanInput.validity.valid && stddevInput.validity.valid && sampleSizeInput.validity.valid && confidenceLevelInput.validity.valid && zValueInput.validity.valid) {
-                                    calculateCI();
-                                } else {
-                                    lowLimitSpan.innerText = '';
-                                    upLimitSpan.innerText = '';
-                                }
-                            }
-
-                            function validateInput(input, errorId) {
-                                const errorElement = document.getElementById(errorId);
-                                if (input.validity.valueMissing) {
-                                    input.setCustomValidity('Este campo es requerido ⬇️. ');
-                                    errorElement.innerText = 'Este campo es requerido ⬇️.';
-                                    errorElement.classList.add('error-text');
-                                } else {
-                                    input.setCustomValidity('');
-                                    errorElement.innerText = '';
-                                    errorElement.classList.remove('error-text');
-                                }
-                            }
-
-                            function calculateCI() {
-                                const mean = parseFloat(meanInput.value);
-                                const stddev = parseFloat(stddevInput.value);
-                                const sampleSize = parseFloat(sampleSizeInput.value);
-                                const confidenceLevel = parseFloat(confidenceLevelInput.value);
-                                const z = parseFloat(zValueInput.value);
-
-                                const marginOfError = z * (stddev / Math.sqrt(sampleSize));
-
-                                const lowLimit = (mean - marginOfError).toFixed(2);
-                                const upLimit = (mean + marginOfError).toFixed(2);
-
-                                lowLimitSpan.innerText = `LI: ${lowLimit}`;
-                                upLimitSpan.innerText = `LS: ${upLimit}`;
-                                var string = "Tenemos una seguridad del " + confidenceLevel + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + lowLimit + "  ;  " + upLimit + "}";
-                                interpre.innerText = string;
-                            }
-                        </script>
-                    </form>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <div id="myModal2" class="modal">
-                        <div class="modal-content">
-                            <span class="close" onclick="closeModal(2)">&times;</span>
-                            <form>
-                                <!-- Contenido del segundo formulario -->
-                                <h1>Calculadora de Intervalo de Confianza (t de Student)</h1>
-                                <div>
-                                    <br>
-                                    <div id="sample-mean-error" class="error-message"></div>
-                                    <br>
-                                    <label for="sample-mean">Media muestral (X̄):</label>
-                                    <input type="number" id="sample-mean" step="0.0001" required>
-                                </div>
-                                <div>
-                                    <br>
-                                    <div id="sample-size-t-error" class="error-message"></div>
-                                    <br>
-                                    <label for="sample-size-t">Tamaño de muestra (n):</label>
-                                    <input type="number" id="sample-size-t" step="0.00001" required>
-                                </div>
-                                <div>
-                                    <br>
-                                    <div id="confidence-level-t-error" class="error-message"></div>
-                                    <br>
-                                    <label for="confidence-level-t">Nivel de confianza (1-α):</label>
-                                    <input type="number" id="confidence-level-t" step="0.000001" required>
-                                </div>
-                                <div>
-                                    <br>
-                                    <div id="sample-standard-deviation-t-error" class="error-message"></div>
-                                    <br>
-                                    <label for="sample-standard-deviation-t">Desviación estándar muestral (s):</label>
-                                    <input type="number" id="sample-standard-deviation-t" step="0.000001" required>
-                                </div>
-                                <div>
-                                    <br>
-                                    <div id="sample-standard-deviation-t-error" class="error-message"></div>
-                                    <br>
-                                    <label for="valor_t">Valor de t (t):</label>
-                                    <input type="number" id="valor_t" step="0.00001" required>
-                                </div>
-                                <div>
-                                    <h2>Intervalos de confianza</h2>
-                                    <br>
-                                    <p>Intervalo Inferior (LI): <span id="t-lower-limit"></span></p>
-                                    <p>Intervalo Superior (LS): <span id="t-upper-limit"></span></p><br>
-                                    <h2>Interoretacion corta:</h2>
-                                    <span id="interpre_t"></span>
-                                </div>
-                                <script>
-                                    const valor_tInput = document.getElementById('valor_t');
-                                    const sampleMeanInput = document.getElementById('sample-mean');
-                                    const sampleSizeTInput = document.getElementById('sample-size-t');
-                                    const confidenceLevelTInput = document.getElementById('confidence-level-t');
-                                    const sampleStandardDeviationTInput = document.getElementById('sample-standard-deviation-t');
-                                    const tLowerLimitSpan = document.getElementById('t-lower-limit');
-                                    const tUpperLimitSpan = document.getElementById('t-upper-limit');
-
-                                    valor_tInput.addEventListener('input', validateInputs);
-                                    sampleMeanInput.addEventListener('input', validateInputs);
-                                    sampleSizeTInput.addEventListener('input', validateInputs);
-                                    confidenceLevelTInput.addEventListener('input', validateInputs);
-                                    sampleStandardDeviationTInput.addEventListener('input', validateInputs);
-
-                                    function validateInputs() {
-                                        validateInput(valor_tInput, 'sample-mean-error');
-                                        validateInput(sampleMeanInput, 'sample-mean-error');
-                                        validateInput(sampleSizeTInput, 'sample-size-t-error');
-                                        validateInput(confidenceLevelTInput, 'confidence-level-t-error');
-                                        validateInput(sampleStandardDeviationTInput, 'sample-standard-deviation-t-error');
-
-                                        if (valor_tInput.validity.valid && sampleMeanInput.validity.valid && sampleSizeTInput.validity.valid && confidenceLevelTInput.validity.valid && sampleStandardDeviationTInput.validity.valid) {
-                                            calculateTInterval();
-                                        } else {
-                                            tLowerLimitSpan.innerText = '';
-                                            tUpperLimitSpan.innerText = '';
-                                        }
-                                    }
-
-                                    function validateInput(input, errorId) {
-                                        const errorElement = document.getElementById(errorId);
-                                        if (input.validity.valueMissing) {
-                                            input.setCustomValidity('Este campo es requerido ⬇️.');
-                                            errorElement.innerText = 'Este campo es requerido ⬇️.';
-                                        } else {
-                                            input.setCustomValidity('');
-                                            errorElement.innerText = '';
-                                        }
-                                    }
-
-                                    function calculateTInterval() {
-
-                                        const sampleMean = parseFloat(sampleMeanInput.value);
-                                        const sampleSize = parseFloat(sampleSizeTInput.value);
-                                        const confidenceLevel = parseFloat(confidenceLevelTInput.value);
-                                        const sampleStandardDeviation = parseFloat(sampleStandardDeviationTInput.value);
-                                        const valor_t = parseFloat(valor_tInput.value);
-
-                                        const marginOfError = valor_t * (sampleStandardDeviation / Math.sqrt(sampleSize));
-
-                                        const tlowerLimit = (sampleMean - marginOfError).toFixed(2);
-                                        const tupperLimit = (sampleMean + marginOfError).toFixed(2);
-
-                                        tLowerLimitSpan.innerText = `LI: ${tlowerLimit}`;
-                                        tUpperLimitSpan.innerText = `LS: ${tupperLimit}`;
-
-                                        var string_t = "Tenemos una seguridad del " + confidenceLevel + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + tlowerLimit + " ; " + tupperLimit + "}";
-                                        interpre_t.innerText = string_t;
-
-                                    }
-
-                                    function calculateTCriticalValue(confidenceLevel, degreesOfFreedom) {
-                                        // Aquí deberías implementar la obtención del valor crítico de t, ya sea desde una tabla de distribución t o una función en tu entorno de desarrollo.
-                                        return 0; // Reemplaza esto con el valor crítico de t adecuado.
-                                    }
-                                </script>
-                            </form>
-                        </div>
+                        <label for="mean">Media poblacional (μ):</label>
+                        <input type="number" id="mean" step="0.01" required>
                     </div>
-                    <div id="myModal3" class="modal">
-                        <div class="modal-content">
-                            <span class="close" onclick="closeModal(3)">&times;</span>
-                            <h1>Calculadora de Intervalo de Confianza Proporcional (Z)</h1>
-                            <form>
-                                <!-- Contenido del tercer formulario -->
-                                <div>
-                                    <br>
-                                    <div id="population-proportion-error" class="error-message"></div>
-                                    <br>
-                                    <label for="population-proportion">Proporción poblacional (p):</label>
-                                    <input type="number" id="population-proportion" required>
-                                </div>
-                                <div>
-                                    <br>
-                                    <div id="sample-size-z-error" class="error-message"></div>
-                                    <br>
-                                    <label for="sample-size-z">Tamaño de muestra (n):</label>
-                                    <input type="number" id="sample-size-z" required>
-                                </div>
-                                <div>
-                                    <br>
-                                    <div id="confidence-level-z-error" class="error-message"></div>
-                                    <br>
-                                    <label for="confidence-level-z">Nivel de confianza (1-α):</label>
-                                    <input type="number" id="confidence-level-z" required>
-                                </div>
-
-                                <div class="salida">
-
-                                    <h2>Intervalos de confianza</h2>
-                                    <br>
-                                    <p>Intervalo Inferior (LI): <span id="z-lower-limit"></span></p>
-                                    <p>Intervalo Superior (LS): <span id="z-upper-limit"></span></p>
-                                    <br>
-                                    <h2>Interoretacion corta:</h2>
-                                    <span id="interpre_p"></span>
-                                </div>
-                                <script>
-                                    const populationProportionInput = document.getElementById('population-proportion');
-                                    const sampleSizeZInput = document.getElementById('sample-size-z');
-                                    const confidenceLevelZInput = document.getElementById('confidence-level-z');
-                                    const zLowerLimitSpan = document.getElementById('z-lower-limit');
-                                    const zUpperLimitSpan = document.getElementById('z-upper-limit');
-
-                                    populationProportionInput.addEventListener('input', validateInputs);
-                                    sampleSizeZInput.addEventListener('input', validateInputs);
-                                    confidenceLevelZInput.addEventListener('input', validateInputs);
-
-                                    function validateInputs() {
-                                        validateInput(populationProportionInput, 'population-proportion-error');
-                                        validateInput(sampleSizeZInput, 'sample-size-z-error');
-                                        validateInput(confidenceLevelZInput, 'confidence-level-z-error');
-
-                                        if (populationProportionInput.validity.valid && sampleSizeZInput.validity.valid && confidenceLevelZInput.validity.valid) {
-                                            calculateZInterval();
-                                        } else {
-                                            zLowerLimitSpan.innerText = '';
-                                            zUpperLimitSpan.innerText = '';
-                                        }
-                                    }
-
-                                    function validateInput(input, errorId) {
-                                        const errorElement = document.getElementById(errorId);
-                                        if (input.validity.valueMissing) {
-                                            input.setCustomValidity('Este campo es requerido ⬇️.');
-                                            errorElement.innerText = 'Este campo es requerido ⬇️.';
-                                        } else {
-                                            input.setCustomValidity('');
-                                            errorElement.innerText = '';
-                                        }
-                                    }
-
-                                    function calculateZInterval() {
-                                        const populationProportion = parseFloat(populationProportionInput.value);
-                                        const sampleSizeZ = parseFloat(sampleSizeZInput.value);
-                                        const confidenceLevelZ = parseFloat(confidenceLevelZInput.value);
-
-                                        const zValue = calculateZCriticalValue(confidenceLevelZ);
-
-                                        const marginOfError = zValue * Math.sqrt((populationProportion * (1 - populationProportion)) / sampleSizeZ);
-
-                                        const lowerLimit = (populationProportion - marginOfError).toFixed(2);
-                                        const upperLimit = (populationProportion + marginOfError).toFixed(2);
-
-                                        zLowerLimitSpan.innerText = `LI: ${lowerLimit}`;
-                                        zUpperLimitSpan.innerText = `LS: ${upperLimit}`;
-
-                                        var string_t = "Tenemos una seguridad del " + confidenceLevelZ + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + lowerLimit + "  ;  " + upperLimit + "}";
-                                        interpre_p.innerText = string_t;
-                                    }
-
-                                    function calculateZCriticalValue(confidenceLevel) {
-                                        // Aquí deberías implementar la obtención del valor crítico de Z, ya sea desde una tabla de distribución Z o una función en tu entorno de desarrollo.
-                                        return 0; // Reemplaza esto con el valor crítico de Z adecuado.
-                                    }
-                                </script>
-                            </form>
-                        </div>
+                    <br>
+                    <div>
+                        <br>
+                        <div class="error-message" id="stddev-error"></div>
+                        <br>
+                        <label for="stddev">Desviación estándar poblacional (σ or s):</label>
+                        <input type="number" id="stddev" step="0.01" required>
                     </div>
-                    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-                    <!-- iniciar libreria AOS -->
+                    <br>
+                    <div>
+                        <br>
+                        <div class="error-message" id="sample-size-error"></div>
+                        <br>
+                        <label for="sample-size">Tamaño de muestra (n):</label>
+                        <input type="number" id="sample-size" required>
+                    </div>
+                    <br>
+                    <div>
+                        <br>
+                        <div class="error-message" id="confidence-level-error"></div>
+                        <br>
+                        <label for="confidence-level">Nivel de confianza (1-α):</label>
+                        <input type="number" id="confidence-level" required>
+                    </div>
+                    <br>
+                    <div>
+                        <br>
+                        <div class="error-message" id="z-value-error"></div>
+                        <br>
+                        <label for="z-value">Valor de z:</label>
+                        <input type="number" id="z-value" step="0.0001" required>
+                    </div>
+                    <br><br>
+                    <div>
+                        <img class="modal-content" id="modalImage" src="http://drive.google.com/uc?export=view&id=" alt="Imagen">
+                        <h2>Intervalos de confianza</h2>
+                        <p>Intervalo Superior (LS): <span id="upper-limit"></span></p>
+                        <p>Intervalo Inferior (LI): <span id="lower-limit"></span></p>
+                        <h2>Interoretacion corta:</h2>
+                        <span id="interpre"></span>
+                    </div>
                     <script>
-                        AOS.init();
-                    </script>
-                    <script>
-                        function openModal(modalNumber) {
-                            document.getElementById('myModal' + modalNumber).style.display = 'block';
+                        // Obtén referencias a los elementos
+                        const meanInput = document.getElementById('mean');
+                        const stddevInput = document.getElementById('stddev');
+                        const sampleSizeInput = document.getElementById('sample-size');
+                        const confidenceLevelInput = document.getElementById('confidence-level');
+                        const zValueInput = document.getElementById('z-value');
+                        const lowLimitSpan = document.getElementById('lower-limit');
+                        const upLimitSpan = document.getElementById('upper-limit');
+                        const interpre = document.getElementById('interpre');
+                        // Agrega un detector de eventos 'input' a cada input
+                        meanInput.addEventListener('input', validateInputs);
+                        stddevInput.addEventListener('input', validateInputs);
+                        sampleSizeInput.addEventListener('input', validateInputs);
+                        confidenceLevelInput.addEventListener('input', validateInputs);
+                        zValueInput.addEventListener('input', validateInputs);
 
-                            // Cambiar la URL de la imagen a la que desees mostrar en el modal.
-                            const imageUrl = 'https://i.blogs.es/ceda9c/dalle/450_1000.jpg';
+                        function validateInputs() {
+                            validateInput(meanInput, 'mean-error');
+                            validateInput(stddevInput, 'stddev-error');
+                            validateInput(sampleSizeInput, 'sample-size-error');
+                            validateInput(confidenceLevelInput, 'confidence-level-error');
+                            validateInput(zValueInput, 'z-value-error');
 
-                            modal.style.display = 'block';
-                            modalImage.src = imageUrl;
-                        }
-
-                        function closeModal(modalNumber) {
-                            document.getElementById('myModal' + modalNumber).style.display = 'none';
-                        }
-                    </script>
-                    <script>
-                        window.addEventListener('scroll', function() {
-                            var div = document.getElementById('content_indice');
-                            var scrollPosition = window.scrollY;
-
-                            if (scrollPosition > 1000) {
-                                div.style.display = 'block'; /* Mostrar el div al hacer scroll */
+                            if (meanInput.validity.valid && stddevInput.validity.valid && sampleSizeInput.validity.valid && confidenceLevelInput.validity.valid && zValueInput.validity.valid) {
+                                calculateCI();
                             } else {
-                                div.style.display = 'none'; /* Ocultar el div al volver arriba */
+                                lowLimitSpan.innerText = '';
+                                upLimitSpan.innerText = '';
                             }
-                        });
+                        }
+
+                        function validateInput(input, errorId) {
+                            const errorElement = document.getElementById(errorId);
+                            if (input.validity.valueMissing) {
+                                input.setCustomValidity('Este campo es requerido ⬇️. ');
+                                errorElement.innerText = 'Este campo es requerido ⬇️.';
+                                errorElement.classList.add('error-text');
+                            } else {
+                                input.setCustomValidity('');
+                                errorElement.innerText = '';
+                                errorElement.classList.remove('error-text');
+                            }
+                        }
+
+                        function calculateCI() {
+                            const mean = parseFloat(meanInput.value);
+                            const stddev = parseFloat(stddevInput.value);
+                            const sampleSize = parseFloat(sampleSizeInput.value);
+                            const confidenceLevel = parseFloat(confidenceLevelInput.value);
+                            const z = parseFloat(zValueInput.value);
+
+                            const marginOfError = z * (stddev / Math.sqrt(sampleSize));
+
+                            const lowLimit = (mean - marginOfError).toFixed(2);
+                            const upLimit = (mean + marginOfError).toFixed(2);
+
+                            lowLimitSpan.innerText = `LI: ${lowLimit}`;
+                            upLimitSpan.innerText = `LS: ${upLimit}`;
+                            var string = "Tenemos una seguridad del " + confidenceLevel + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + lowLimit + "  ;  " + upLimit + "}";
+                            interpre.innerText = string;
+                        }
                     </script>
+                </form>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div id="myModal2" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal(2)">&times;</span>
+                        <form>
+                            <!-- Contenido del segundo formulario -->
+                            <h1>Calculadora de Intervalo de Confianza (t de Student)</h1>
+                            <div>
+                                <br>
+                                <div id="sample-mean-error" class="error-message"></div>
+                                <br>
+                                <label for="sample-mean">Media muestral (X̄):</label>
+                                <input type="number" id="sample-mean" step="0.0001" required>
+                            </div>
+                            <div>
+                                <br>
+                                <div id="sample-size-t-error" class="error-message"></div>
+                                <br>
+                                <label for="sample-size-t">Tamaño de muestra (n):</label>
+                                <input type="number" id="sample-size-t" step="0.00001" required>
+                            </div>
+                            <div>
+                                <br>
+                                <div id="confidence-level-t-error" class="error-message"></div>
+                                <br>
+                                <label for="confidence-level-t">Nivel de confianza (1-α):</label>
+                                <input type="number" id="confidence-level-t" step="0.000001" required>
+                            </div>
+                            <div>
+                                <br>
+                                <div id="sample-standard-deviation-t-error" class="error-message"></div>
+                                <br>
+                                <label for="sample-standard-deviation-t">Desviación estándar muestral (s):</label>
+                                <input type="number" id="sample-standard-deviation-t" step="0.000001" required>
+                            </div>
+                            <div>
+                                <br>
+                                <div id="sample-standard-deviation-t-error" class="error-message"></div>
+                                <br>
+                                <label for="valor_t">Valor de t (t):</label>
+                                <input type="number" id="valor_t" step="0.00001" required>
+                            </div>
+                            <div>
+                                <h2>Intervalos de confianza</h2>
+                                <br>
+                                <p>Intervalo Inferior (LI): <span id="t-lower-limit"></span></p>
+                                <p>Intervalo Superior (LS): <span id="t-upper-limit"></span></p><br>
+                                <h2>Interoretacion corta:</h2>
+                                <span id="interpre_t"></span>
+                            </div>
+                            <script>
+                                const valor_tInput = document.getElementById('valor_t');
+                                const sampleMeanInput = document.getElementById('sample-mean');
+                                const sampleSizeTInput = document.getElementById('sample-size-t');
+                                const confidenceLevelTInput = document.getElementById('confidence-level-t');
+                                const sampleStandardDeviationTInput = document.getElementById('sample-standard-deviation-t');
+                                const tLowerLimitSpan = document.getElementById('t-lower-limit');
+                                const tUpperLimitSpan = document.getElementById('t-upper-limit');
+
+                                valor_tInput.addEventListener('input', validateInputs);
+                                sampleMeanInput.addEventListener('input', validateInputs);
+                                sampleSizeTInput.addEventListener('input', validateInputs);
+                                confidenceLevelTInput.addEventListener('input', validateInputs);
+                                sampleStandardDeviationTInput.addEventListener('input', validateInputs);
+
+                                function validateInputs() {
+                                    validateInput(valor_tInput, 'sample-mean-error');
+                                    validateInput(sampleMeanInput, 'sample-mean-error');
+                                    validateInput(sampleSizeTInput, 'sample-size-t-error');
+                                    validateInput(confidenceLevelTInput, 'confidence-level-t-error');
+                                    validateInput(sampleStandardDeviationTInput, 'sample-standard-deviation-t-error');
+
+                                    if (valor_tInput.validity.valid && sampleMeanInput.validity.valid && sampleSizeTInput.validity.valid && confidenceLevelTInput.validity.valid && sampleStandardDeviationTInput.validity.valid) {
+                                        calculateTInterval();
+                                    } else {
+                                        tLowerLimitSpan.innerText = '';
+                                        tUpperLimitSpan.innerText = '';
+                                    }
+                                }
+
+                                function validateInput(input, errorId) {
+                                    const errorElement = document.getElementById(errorId);
+                                    if (input.validity.valueMissing) {
+                                        input.setCustomValidity('Este campo es requerido ⬇️.');
+                                        errorElement.innerText = 'Este campo es requerido ⬇️.';
+                                    } else {
+                                        input.setCustomValidity('');
+                                        errorElement.innerText = '';
+                                    }
+                                }
+
+                                function calculateTInterval() {
+
+                                    const sampleMean = parseFloat(sampleMeanInput.value);
+                                    const sampleSize = parseFloat(sampleSizeTInput.value);
+                                    const confidenceLevel = parseFloat(confidenceLevelTInput.value);
+                                    const sampleStandardDeviation = parseFloat(sampleStandardDeviationTInput.value);
+                                    const valor_t = parseFloat(valor_tInput.value);
+
+                                    const marginOfError = valor_t * (sampleStandardDeviation / Math.sqrt(sampleSize));
+
+                                    const tlowerLimit = (sampleMean - marginOfError).toFixed(2);
+                                    const tupperLimit = (sampleMean + marginOfError).toFixed(2);
+
+                                    tLowerLimitSpan.innerText = `LI: ${tlowerLimit}`;
+                                    tUpperLimitSpan.innerText = `LS: ${tupperLimit}`;
+
+                                    var string_t = "Tenemos una seguridad del " + confidenceLevel + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + tlowerLimit + " ; " + tupperLimit + "}";
+                                    interpre_t.innerText = string_t;
+
+                                }
+
+                                function calculateTCriticalValue(confidenceLevel, degreesOfFreedom) {
+                                    // Aquí deberías implementar la obtención del valor crítico de t, ya sea desde una tabla de distribución t o una función en tu entorno de desarrollo.
+                                    return 0; // Reemplaza esto con el valor crítico de t adecuado.
+                                }
+                            </script>
+                        </form>
+                    </div>
+                </div>
+                <div id="myModal3" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal(3)">&times;</span>
+                        <h1>Calculadora de Intervalo de Confianza Proporcional (Z)</h1>
+                        <form>
+                            <!-- Contenido del tercer formulario -->
+                            <div>
+                                <br>
+                                <div id="population-proportion-error" class="error-message"></div>
+                                <br>
+                                <label for="population-proportion">Proporción poblacional (p):</label>
+                                <input type="number" id="population-proportion" required>
+                            </div>
+                            <div>
+                                <br>
+                                <div id="sample-size-z-error" class="error-message"></div>
+                                <br>
+                                <label for="sample-size-z">Tamaño de muestra (n):</label>
+                                <input type="number" id="sample-size-z" required>
+                            </div>
+                            <div>
+                                <br>
+                                <div id="confidence-level-z-error" class="error-message"></div>
+                                <br>
+                                <label for="confidence-level-z">Nivel de confianza (1-α):</label>
+                                <input type="number" id="confidence-level-z" required>
+                            </div>
+
+                            <div class="salida">
+
+                                <h2>Intervalos de confianza</h2>
+                                <br>
+                                <p>Intervalo Inferior (LI): <span id="z-lower-limit"></span></p>
+                                <p>Intervalo Superior (LS): <span id="z-upper-limit"></span></p>
+                                <br>
+                                <h2>Interoretacion corta:</h2>
+                                <span id="interpre_p"></span>
+                            </div>
+                            <script>
+                                const populationProportionInput = document.getElementById('population-proportion');
+                                const sampleSizeZInput = document.getElementById('sample-size-z');
+                                const confidenceLevelZInput = document.getElementById('confidence-level-z');
+                                const zLowerLimitSpan = document.getElementById('z-lower-limit');
+                                const zUpperLimitSpan = document.getElementById('z-upper-limit');
+
+                                populationProportionInput.addEventListener('input', validateInputs);
+                                sampleSizeZInput.addEventListener('input', validateInputs);
+                                confidenceLevelZInput.addEventListener('input', validateInputs);
+
+                                function validateInputs() {
+                                    validateInput(populationProportionInput, 'population-proportion-error');
+                                    validateInput(sampleSizeZInput, 'sample-size-z-error');
+                                    validateInput(confidenceLevelZInput, 'confidence-level-z-error');
+
+                                    if (populationProportionInput.validity.valid && sampleSizeZInput.validity.valid && confidenceLevelZInput.validity.valid) {
+                                        calculateZInterval();
+                                    } else {
+                                        zLowerLimitSpan.innerText = '';
+                                        zUpperLimitSpan.innerText = '';
+                                    }
+                                }
+
+                                function validateInput(input, errorId) {
+                                    const errorElement = document.getElementById(errorId);
+                                    if (input.validity.valueMissing) {
+                                        input.setCustomValidity('Este campo es requerido ⬇️.');
+                                        errorElement.innerText = 'Este campo es requerido ⬇️.';
+                                    } else {
+                                        input.setCustomValidity('');
+                                        errorElement.innerText = '';
+                                    }
+                                }
+
+                                function calculateZInterval() {
+                                    const populationProportion = parseFloat(populationProportionInput.value);
+                                    const sampleSizeZ = parseFloat(sampleSizeZInput.value);
+                                    const confidenceLevelZ = parseFloat(confidenceLevelZInput.value);
+
+                                    const zValue = calculateZCriticalValue(confidenceLevelZ);
+
+                                    const marginOfError = zValue * Math.sqrt((populationProportion * (1 - populationProportion)) / sampleSizeZ);
+
+                                    const lowerLimit = (populationProportion - marginOfError).toFixed(2);
+                                    const upperLimit = (populationProportion + marginOfError).toFixed(2);
+
+                                    zLowerLimitSpan.innerText = `LI: ${lowerLimit}`;
+                                    zUpperLimitSpan.innerText = `LS: ${upperLimit}`;
+
+                                    var string_t = "Tenemos una seguridad del " + confidenceLevelZ + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + lowerLimit + "  ;  " + upperLimit + "}";
+                                    interpre_p.innerText = string_t;
+                                }
+
+                                function calculateZCriticalValue(confidenceLevel) {
+                                    // Aquí deberías implementar la obtención del valor crítico de Z, ya sea desde una tabla de distribución Z o una función en tu entorno de desarrollo.
+                                    return 0; // Reemplaza esto con el valor crítico de Z adecuado.
+                                }
+                            </script>
+                        </form>
+                    </div>
+                </div>
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                <!-- iniciar libreria AOS -->
+                <script>
+                    AOS.init();
+                </script>
+                <script>
+                    function openModal(modalNumber) {
+                        document.getElementById('myModal' + modalNumber).style.display = 'block';
+
+                        // Cambiar la URL de la imagen a la que desees mostrar en el modal.
+                        const imageUrl = 'https://i.blogs.es/ceda9c/dalle/450_1000.jpg';
+
+                        modal.style.display = 'block';
+                        modalImage.src = imageUrl;
+                    }
+
+                    function closeModal(modalNumber) {
+                        document.getElementById('myModal' + modalNumber).style.display = 'none';
+                    }
+                </script>
+                <script>
+                    window.addEventListener('scroll', function() {
+                        var div_cont = document.getElementById('content_indice');
+                        var scrollPosition = window.scrollY;
+
+                        if (scrollPosition > 1000) {
+                            div_cont.style.display = 'block'; /* Mostrar el div al hacer scroll */
+                        } else {
+                            div_cont.style.display = 'none'; /* Ocultar el div al volver arriba */
+                        }
+                    });
+                </script>
     </section>
 
     <!-- SECTION PROBABILIDAD-->
@@ -719,68 +713,92 @@
         <h4>TERMINOLOGÍA ESTADÍSTICA</h4>
         <br>
         <p>
-            <br> <h5>-Población:</h5> <p>Es un conjunto de datos o elementos (personas, animales, cosas, etc.)que tienen una
+            <br>
+        <h5>-Población:</h5>
+        <p>Es un conjunto de datos o elementos (personas, animales, cosas, etc.)que tienen una
             propiedad o característica en común, la cual es observable en un lugar y un momento dado; y los
             cuales son objetivo de nuestro estudio, de la cual se desean sacar conclusiones. Cuando se estudia
-            toda la población se denomina CENSO. (Se representa el Tamaño de Población: N).</p> 
-            
-            <br> <h5>-Muestra:</h5> <p>Es el subconjunto de datos seleccionados de una población, la cual debe ser aleatoria y
+            toda la población se denomina CENSO. (Se representa el Tamaño de Población: N).</p>
+
+        <br>
+        <h5>-Muestra:</h5>
+        <p>Es el subconjunto de datos seleccionados de una población, la cual debe ser aleatoria y
             lo más representativa posible. Existen diversos métodos para calcular el tamaño de la muestra y
             metodologías para la selección de los elementos que la compondrán. Se considera que cada
             elemento de la población tiene la misma oportunidad de formar parte de la muestra. Las
             conclusiones basadas en una muestra aleatoria y representativa son confiables. (Se representa
             como Tamaño de muestra: n)</p>
 
-            <br> <h5>A-tributo:</h5><p> Es una característica o fenómeno que se pueden describir cualitativamente, o sea
+        <br>
+        <h5>A-tributo:</h5>
+        <p> Es una característica o fenómeno que se pueden describir cualitativamente, o sea
             mediante palabras, por ejemplo: ciudad donde vive, género, variedad de árbol.</p>
 
-            <br> <h5>-Variable:</h5> <p>Es una característica o fenómeno que se pueden describir cuantitativamente, es decir
+        <br>
+        <h5>-Variable:</h5>
+        <p>Es una característica o fenómeno que se pueden describir cuantitativamente, es decir
             mediante números, por ejemplo, edad, estatura, diámetro de una varilla, contenido en gramos de
             un producto, resistencia de un material, ingreso familiar, y que puede variar entre los diferentes
             individuos de una población.</p>
 
-            <br> <h5>-Dato:</h5> <p>Es un valor particular de la variable. </p>
-            
-            <br> <h5>-Constante:</h5><p> Valor de una característica que permanece constante en todos los individuos. </p>
-            
-            <br> <h5>-Parámetro:</h5> <p>Constante numérica que actúa como indicador de una característica de la población,
-            resumen la información de la población. Se simboliza por letras griegas.</p>
-            
+        <br>
+        <h5>-Dato:</h5>
+        <p>Es un valor particular de la variable. </p>
 
-            <br>  <h5>-Estadístico, estimador:</h5> <p>Medida que describe numéricamente una característica de la muestra.
+        <br>
+        <h5>-Constante:</h5>
+        <p> Valor de una característica que permanece constante en todos los individuos. </p>
+
+        <br>
+        <h5>-Parámetro:</h5>
+        <p>Constante numérica que actúa como indicador de una característica de la población,
+            resumen la información de la población. Se simboliza por letras griegas.</p>
+
+
+        <br>
+        <h5>-Estadístico, estimador:</h5>
+        <p>Medida que describe numéricamente una característica de la muestra.
             Se simboliza por letras latinas. </p>
-            
-            <br> <h5>-Unidad Experimental o Unidad de Observación:</h5> <p>Individuo y objeto en que se mide una variable
+
+        <br>
+        <h5>-Unidad Experimental o Unidad de Observación:</h5>
+        <p>Individuo y objeto en que se mide una variable
             y se denomina simple. También puede estar constituida por varios elementos, individuos u objetos
             y se denomina compleja.
             Se debe definir en la investigación la unidad de medición y el valor de precisión así: Longitud
             (Km, Metros, centímetros, milímetros, etc.), Peso (Kilogramos, libras etc.), Tiempo (años, meses,
             días, horas, minutos etc.) </p>
-            
-            <br> <h5>-Fuentes de Información:</h5>
-            <br>
-            a) <h5>Primaria:</h5><p> Es el productor (persona o entidad) que origina la información: Por ejemplo, Dane,
+
+        <br>
+        <h5>-Fuentes de Información:</h5>
+        <br>
+        a) <h5>Primaria:</h5>
+        <p> Es el productor (persona o entidad) que origina la información: Por ejemplo, Dane,
             SENA, Grupos de Investigación</p>
-            <br>
-            b) <h5>Secundaria:</h5> <p>Cuando se trabaja o resume información que originalmente ha sido recopilada por
+        <br>
+        b) <h5>Secundaria:</h5>
+        <p>Cuando se trabaja o resume información que originalmente ha sido recopilada por
             otros que son los productores del dato. Boletines UNESCO, Bases de datos del DANE.</p>
-            <br>
-            <h5>La estadística se divide en dos ramas:</h5>
-            <br>
-            <h5>Estadística Descriptiva:</h5> <p>Conjunto de métodos y técnicas para explorar, recolectar, organización y
+        <br>
+        <h5>La estadística se divide en dos ramas:</h5>
+        <br>
+        <h5>Estadística Descriptiva:</h5>
+        <p>Conjunto de métodos y técnicas para explorar, recolectar, organización y
             resumir de la información en tablas, gráficos e indicadores; se usa para descripción de una población
             o muestra por medio de indicadores y la representación gráfica. Poder emitir conclusiones y
             recomendaciones.</p>
-            <br>
-            <h5>Estadística Inferencial:</h5> <p>Metodología para la generalización de los resultados de la información parcial
+        <br>
+        <h5>Estadística Inferencial:</h5>
+        <p>Metodología para la generalización de los resultados de la información parcial
             obtenida en una muestra a toda la población de interés usando la metodología de la estadística
             descriptiva.</p>
         </p>
         <br>
-<h4>VARIABLES: CLASIFICACIÓN </h4>
-<h5>Variable:</h5> <p>Característica observable que varía entre los diferentes sujetos de la población 
-Dato: Valor que toma la variable</p>
-<div class="ejercicios_button">
+        <h4>VARIABLES: CLASIFICACIÓN </h4>
+        <h5>Variable:</h5>
+        <p>Característica observable que varía entre los diferentes sujetos de la población
+            Dato: Valor que toma la variable</p>
+        <div class="ejercicios_button">
             <button type="button" class="btn btn-success"><a class="ejercicios_button" href="ejercicios_class_variable">Ejercicios</a></button>
         </div>
     </section>
@@ -791,7 +809,30 @@ Dato: Valor que toma la variable</p>
 
     <section class="Distribución_normal">
         <h1 class="titulos_h1" id="titulo_dn">Distribución normal</h1>
-        <br><br>
+        <br>
+        <p>
+            La distribución normal es la distribución continua que se utiliza más comúnmente para modelar un gran número
+            de fenómenos aleatorios presentan una distribución de frecuencia con forma de campana. <br>
+            Por ejemplo: Tiempos de reacción, medidas económicas, estatura, largo, mediciones de inteligencia, indicadores,
+            medidas en procesos productivos, etc <br><br>
+            La función de probabilidad se llama también función de densidad<br>
+
+            𝑓(𝑥) = ∫ 1
+            −
+            𝜎√2𝜋
+            {− (𝑥−𝜇)2
+            𝑒
+            2𝜎2
+            }
+        </p>
+        <br>
+        <p>
+            Donde los símbolos e y  son la constantes matemáticas (2.7183 y 3.1416);  y  son los parámetros de media
+            poblacional y desviación estándar, respectivamente.
+            Los parámetros son:
+            �
+            �[𝑥] = 𝜇 ; 𝑉𝑎𝑟[𝑥]= 𝜎2
+        </p>
 
     </section>
 
@@ -837,20 +878,28 @@ Dato: Valor que toma la variable</p>
 
 
     <br>
-
+    <!-- SECTION INTERVALO DE CONFIANZA-->
     <section class="intervalo_sect">
         <h1 id="titulo_ic" class="titulos_h1">Intervalos de confianza</h1>
         <br><br>
         <!-- Primer metodo espacio-->
-        <div data-aos="zoom-in">
-            <h3>Intervalo de confianza (Z)</h3>
+
+        <br>
+        <div data-aos="zoom-in-left" class="buttons">
+            <!-- Botones para abrir los modales -->
+            <button type="button" class="btn btn-success" onclick="openModal(1)">¿Porque medio debo calcular?</button>
+        </div>
+        </br>
+
+        <div>
+            <h3 data-aos="zoom-in">Intervalo de confianza (Z)</h3>
             <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando conoces la desviación estándar
                 poblacional (σ) y tu muestra sigue una distribución normal.<br>
                 <br>Fórmula: El intervalo de confianza (Z) se calcula como:<br> <br>LI = X̄ - Z * (σ / √n)<br><br>LS = X̄ + Z * (σ / √n)<br>
                 <br>
                 Cuándo usarlo: Debes usar el intervalo de confianza (Z) cuando tengas una muestra grande o conocias la desviación estándar poblacional y la distribución de la muestra es normal.
             </p>
-            <p class="inter_z"> Detalles:<br>
+            <p class="inter_z" data-aos="zoom-in-left"> Detalles:<br>
                 <br>(X̄) es la media muestral.<br>
                 <br>(Z) es el valor crítico de la distribución normal estándar. <br>Este valor se obtiene de tablas de la distribución Z o utilizando software estadístico.<br>
                 <br>(σ) es la desviación estándar poblacional conocida.<br>
@@ -867,10 +916,9 @@ Dato: Valor que toma la variable</p>
         <br>
 
         <!-- Segundo metodo espacio-->
-
-        <div data-aos="zoom-in-right">
-            <h3>Intervalo de confianza (t)</h3>
-            <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando no conoces la desviación estándar poblacional (σ) y tu muestra sigue una distribución normal. En su lugar, utilizas la desviación estándar de la muestra (s) para estimar la poblacional.<br>
+        <div>
+            <h3 data-aos="zoom-in-right">Intervalo de confianza (t)</h3>
+            <p class="inter_z" data-aos="zoom-in-left">Explicación: Este tipo de intervalo de confianza se utiliza cuando no conoces la desviación estándar poblacional (σ) y tu muestra sigue una distribución normal. En su lugar, utilizas la desviación estándar de la muestra (s) para estimar la poblacional.<br>
                 <br>Fórmula: El intervalo de confianza (t) se calcula como:<br> <br>LI = X̄ - t * (s / √n)<br><br>LS = X̄ + t * (s / √n)<br>
                 <br>
                 Cuándo usarlo: Debes usar el intervalo de confianza (t) cuando no conozcas la desviación estándar poblacional y la distribución de la muestra sea normal.
@@ -891,9 +939,9 @@ Dato: Valor que toma la variable</p>
         <hr><br>
 
         <!-- Tercer metodo espacio-->
-        <div data-aos="zoom-in-left">
-            <h3>Intervalo de Confianza Proporcional (Z)</h3>
-            <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza para estimar la proporción de una población cuando tienes una muestra grande y conoces la desviación estándar poblacional.<br>
+        <div>
+            <h3 data-aos="zoom-in-left">Intervalo de Confianza Proporcional (Z)</h3>
+            <p class="inter_z" data-aos="zoom-in-left">Explicación: Este tipo de intervalo de confianza se utiliza para estimar la proporción de una población cuando tienes una muestra grande y conoces la desviación estándar poblacional.<br>
                 <br>Fórmula: El intervalo de confianza proporcional (Z) se calcula como:<br> <br>LI = p - Z * √((p(1-p) / n))<br><br>LS = p + Z * √((p(1-p) / n))<br>
                 <br>
                 Cuándo usarlo: Debes usar el intervalo de confianza proporcional (Z) cuando quieras estimar la proporción de una población y tengas una muestra grande conociendo la desviación estándar poblacional.
@@ -912,7 +960,6 @@ Dato: Valor que toma la variable</p>
         </div>
     </section>
 
-
     <br><br>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="assets/js/all.js"></script>
@@ -927,9 +974,11 @@ Dato: Valor que toma la variable</p>
             <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
         </span>
     </a>
+</body>
+</main>
 
 </html>
-</body>
+
 <br>
 <br>
 <style>
@@ -1064,24 +1113,13 @@ Dato: Valor que toma la variable</p>
     }
 
     .content_indice {
-        background-color: #fff;
+        background-color: #2c2c49;
         position: fixed;
         top: 0;
-        left: 0;
+        border-radius: 0px 5px 5px 0px;
+      
+        height: 100%;
         width: 200px;
-        color: #ffffff !important;
-        opacity: 0.1;
-        /* Opacidad inicial */
-        transition: opacity 0.3s;
-        /* Transición suave */
-
-        display: none;
-        /* Ocultar el div inicialmente */
-    }
-
-    .content_indice:hover {
-        opacity: 1;
-        /* Opacidad al pasar el mouse */
     }
 
     .salida {
@@ -1090,6 +1128,11 @@ Dato: Valor que toma la variable</p>
 
     h2 {
         color: #000;
+        text-align: center;
+    }
+
+    h1 {
+        color: #ffffff;
         text-align: center;
     }
 
@@ -1218,7 +1261,6 @@ Dato: Valor que toma la variable</p>
         color: #000;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
     }
 
     /* Estilos para el contenido del modal */
@@ -1256,7 +1298,9 @@ Dato: Valor que toma la variable</p>
     }
 
     body {
-        background: #161623;
+        background-image: url("https://images.unsplash.com/photo-1695970922375-34520eca9bed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNTc5fDB8MXxhbGx8MTEzMnx8fHx8fDJ8fDE2OTgxMjU3NTR8&ixlib=rb-4.0.3&q=80&w=2560") !important;
+        background-attachment: fixed !important;
+        background-size: cover !important;
     }
 
     .btn {
