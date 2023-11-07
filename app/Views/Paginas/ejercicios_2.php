@@ -222,10 +222,9 @@
             NO_NORMALoption_desv_estandar.addEventListener("change", function() {
                 if (NO_NORMALoption_desv_estandar.value === "si") {
                     no_normaltamaño_n.style.display = "block";
-                    result.innerHTML = "";
+                   
                 } else {
                     no_normaltamaño_n.style.display = "block";
-                    result.innerHTML = "";
                 }
 
                 if (option_tamaño_n.value === "empty") {
