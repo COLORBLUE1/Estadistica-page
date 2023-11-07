@@ -175,6 +175,9 @@
 
                 if (stdDeviationSelect.value === "empty") {
                     tamaño_n.style.display = "none";
+                    no_normaltamaño_n.style.display = "none";
+                    no_normalDesv_estandar.style.display = "none";
+                    Desv_estandar.style.display = "none";
                     result.innerHTML = "";
                 }
             });
@@ -227,7 +230,7 @@
                     no_normaltamaño_n.style.display = "block";
                 }
 
-                if (option_tamaño_n.value === "empty") {
+                if (NO_NORMALoption_desv_estandar.value === "empty") {
                     no_normaltamaño_n.style.display = "none";
                     result.innerHTML = "";
                 }
@@ -236,13 +239,11 @@
             /* IF (¿Tamaño de poblacio (n) es mayor a 30 (n >30)?) NO NORMAL*/
             NO_NORMALoption_tamaño_n.addEventListener("change", function() {
                 if (NO_NORMALoption_tamaño_n.value === "si") {
-
                     result.innerHTML = "Te sugerimos calcular por el valor de (Z)";
                 } else {
                     result.innerHTML = "No disponible para calcular";
                 }
-
-                if (option_tamaño_n.value === "empty") {
+                if (NO_NORMALoption_tamaño_n.value === "empty") {
                     no_normaltamaño_n.style.display = "none";
                     result.innerHTML = "";
                 }
