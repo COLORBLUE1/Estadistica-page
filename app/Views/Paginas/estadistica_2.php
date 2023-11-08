@@ -225,8 +225,74 @@
                                 <p>Intervalo Superior (LS): <span id="t-upper-limit"></span></p><br>
                                 <h2>Interoretacion corta:</h2>
                                 <span id="interpre_t"></span>
+                            </div </form>
+                    </div>
+                </div>
+                <div id="myModal3" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal(3)">&times;</span>
+                        <h1>Calculadora de Intervalo de Confianza Proporcional (Z)</h1>
+                        <form>
+                            <!-- Contenido del tercer formulario -->
+                            <div>
+                                <br>
+                                <div id="population-proportion-error" class="error-message"></div>
+                                <br>
+                                <label for="population-proportion">Proporción poblacional (p):</label>
+                                <input type="number" id="population-proportion" required>
+                            </div>
+                            <div>
+                                <br>
+                                <div id="sample-size-z-error" class="error-message"></div>
+                                <br>
+                                <label for="sample-size-z">Tamaño de muestra (n):</label>
+                                <input type="number" id="sample-size-z" required>
+                            </div>
+                            <div>
+                                <br>
+                                <div id="confidence-level-z-error" class="error-message"></div>
+                                <br>
+                                <label for="confidence-level-z">Nivel de confianza (1-α):</label>
+                                <input type="number" id="confidence-level-z" required>
+                            </div>
+
+                            <div class="salida">
+
+                                <h2>Intervalos de confianza</h2>
+                                <br>
+                                <p>Intervalo Inferior (LI): <span id="z-lower-limit"></span></p>
+                                <p>Intervalo Superior (LS): <span id="z-upper-limit"></span></p>
+                                <br>
+                                <h2>Interoretacion corta:</h2>
+                                <span id="interpre_p"></span>
                             </div>
                             <script>
+                                function openModal(modalNumber) {
+                                    document.getElementById('myModal' + modalNumber).style.display = 'block';
+
+                                    // Cambiar la URL de la imagen a la que desees mostrar en el modal.
+                                    const imageUrl = 'https://i.blogs.es/ceda9c/dalle/450_1000.jpg';
+
+                                    modal.style.display = 'block';
+                                    modalImage.src = imageUrl;
+                                }
+
+                                function closeModal(modalNumber) {
+                                    document.getElementById('myModal' + modalNumber).style.display = 'none';
+                                }
+                            </script>
+                            <script>
+                                window.addEventListener('scroll', function() {
+                                    var div_cont = document.getElementById('content_indice');
+                                    var scrollPosition = window.scrollY;
+
+                                    if (scrollPosition > 1000) {
+                                        div_cont.style.display = 'block'; /* Mostrar el div al hacer scroll */
+                                    } else {
+                                        div_cont.style.display = 'none'; /* Ocultar el div al volver arriba */
+                                    }
+                                });
+
                                 const valor_tInput = document.getElementById('valor_t');
                                 const sampleMeanInput = document.getElementById('sample-mean');
                                 const sampleSizeTInput = document.getElementById('sample-size-t');
@@ -292,49 +358,8 @@
                                     // Aquí deberías implementar la obtención del valor crítico de t, ya sea desde una tabla de distribución t o una función en tu entorno de desarrollo.
                                     return 0; // Reemplaza esto con el valor crítico de t adecuado.
                                 }
-                            </script>
-                        </form>
-                    </div>
-                </div>
-                <div id="myModal3" class="modal">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeModal(3)">&times;</span>
-                        <h1>Calculadora de Intervalo de Confianza Proporcional (Z)</h1>
-                        <form>
-                            <!-- Contenido del tercer formulario -->
-                            <div>
-                                <br>
-                                <div id="population-proportion-error" class="error-message"></div>
-                                <br>
-                                <label for="population-proportion">Proporción poblacional (p):</label>
-                                <input type="number" id="population-proportion" required>
-                            </div>
-                            <div>
-                                <br>
-                                <div id="sample-size-z-error" class="error-message"></div>
-                                <br>
-                                <label for="sample-size-z">Tamaño de muestra (n):</label>
-                                <input type="number" id="sample-size-z" required>
-                            </div>
-                            <div>
-                                <br>
-                                <div id="confidence-level-z-error" class="error-message"></div>
-                                <br>
-                                <label for="confidence-level-z">Nivel de confianza (1-α):</label>
-                                <input type="number" id="confidence-level-z" required>
-                            </div>
 
-                            <div class="salida">
 
-                                <h2>Intervalos de confianza</h2>
-                                <br>
-                                <p>Intervalo Inferior (LI): <span id="z-lower-limit"></span></p>
-                                <p>Intervalo Superior (LS): <span id="z-upper-limit"></span></p>
-                                <br>
-                                <h2>Interoretacion corta:</h2>
-                                <span id="interpre_p"></span>
-                            </div>
-                            <script>
                                 const populationProportionInput = document.getElementById('population-proportion');
                                 const sampleSizeZInput = document.getElementById('sample-size-z');
                                 const confidenceLevelZInput = document.getElementById('confidence-level-z');
@@ -392,6 +417,158 @@
                                     // Aquí deberías implementar la obtención del valor crítico de Z, ya sea desde una tabla de distribución Z o una función en tu entorno de desarrollo.
                                     return 0; // Reemplaza esto con el valor crítico de Z adecuado.
                                 }
+
+
+
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    const openModalButton = document.getElementById("openModal");
+                                    const closeModalButton = document.getElementById("closeModal");
+                                    const modal = document.getElementById("modal");
+
+
+                                    /*Variables de opciones*/
+                                    const stdDeviationSelect = document.getElementById("stdDeviationSelect");
+                                    const option_desv_estandar = document.getElementById("option_desv_estandar");
+                                    const option_tamaño_n = document.getElementById("option_tamaño_n");
+                                    const tamaño_n = document.getElementById("tamaño_n");
+                                    const Desv_estandar = document.getElementById("Desv_estandar");
+
+                                    /*No normal variables*/
+                                    const NO_NORMALoption_desv_estandar = document.getElementById("NO_NORMALoption_desv_estandar");
+                                    const no_normalDesv_estandar = document.getElementById("no_normalDesv_estandar");
+                                    const NO_NORMALoption_tamaño_n = document.getElementById("NO_NORMALoption_tamaño_n");
+                                    const no_normaltamaño_n = document.getElementById("no_normaltamaño_n");
+
+
+
+                                    const calculateButton = document.getElementById("calculateButton");
+                                    const result = document.getElementById("result");
+
+                                    openModalButton.addEventListener("click", function() {
+                                        modal.style.display = "block";
+                                    });
+
+                                    closeModalButton.addEventListener("click", function() {
+                                        modal.style.display = "none";
+                                    });
+
+                                    /*opciones normal*/
+                                    /* IF (¿SE DISTIBUYE NORMAL?)*/
+                                    stdDeviationSelect.addEventListener("change", function() {
+                                        if (stdDeviationSelect.value === "si") {
+                                            result.innerHTML = "";
+                                            no_normaltamaño_n.style.display = "none";
+                                            no_normalDesv_estandar.style.display = "none";
+                                            Desv_estandar.style.display = "block";
+                                        } else {
+                                            result.innerHTML = "";
+                                            tamaño_n.style.display = "none";
+                                            Desv_estandar.style.display = "none";
+                                            no_normalDesv_estandar.style.display = "block";
+
+                                        }
+
+                                        if (stdDeviationSelect.value === "empty") {
+                                            no_normaltamaño_n.style.display = "none";
+                                            no_normalDesv_estandar.style.display = "none";
+                                            tamaño_n.style.display = "none";
+                                            Desv_estandar.style.display = "none";
+                                            result.innerHTML = "";
+                                        }
+                                    });
+
+                                    /* IF (¿Conoce el valor de la desviación estándar?)*/
+                                    option_desv_estandar.addEventListener("change", function() {
+                                        if (option_desv_estandar.value === "si") {
+                                            result.innerHTML = "";
+                                            tamaño_n.style.display = "none";
+                                            no_normaltamaño_n.style.display = "none";
+                                            no_normalDesv_estandar.style.display = "none";
+                                            result.innerHTML = "Te sugerimos calcular por el valor de (Z)";
+
+                                        } else {
+                                            tamaño_n.style.display = "block";
+                                            result.innerHTML = "";
+                                        }
+                                        if (option_desv_estandar.value === "empty") {
+                                            tamaño_n.style.display = "none";
+                                            result.innerHTML = "";
+                                        }
+                                    });
+
+
+
+
+                                    /* IF (¿Tamaño de poblacio (n) es mayor a 30 (n >30)?)*/
+                                    option_tamaño_n.addEventListener("change", function() {
+                                        if (option_tamaño_n.value === "si") {
+                                            result.innerHTML = "";
+                                            no_normaltamaño_n.style.display = "none";
+                                            no_normalDesv_estandar.style.display = "none";
+                                            tamaño_n.style.display = "block";
+                                            result.innerHTML = "Te sugerimos calcular por el valor de (Z)";
+                                        } else {
+                                            result.innerHTML = "";
+                                            no_normaltamaño_n.style.display = "none";
+                                            no_normalDesv_estandar.style.display = "none";
+                                            tamaño_n.style.display = "block";
+                                            result.innerHTML = "Te sugerimos calcular por el valor de (t)";
+                                        }
+
+                                        if (option_tamaño_n.value === "empty") {
+                                            tamaño_n.style.display = "none";
+                                            result.innerHTML = "";
+                                        }
+
+                                    });
+
+
+                                    /*opciones no normal*/
+
+                                    /* IF (¿Conoce el valor de la desviación estándar? NO NORMAL)*/
+                                    NO_NORMALoption_desv_estandar.addEventListener("change", function() {
+                                        if (NO_NORMALoption_desv_estandar.value === "si") {
+                                            no_normaltamaño_n.style.display = "block";
+                                            tamaño_n.style.display = "none";
+                                            Desv_estandar.style.display = "none";
+                                        } else {
+                                            no_normaltamaño_n.style.display = "block";
+                                            tamaño_n.style.display = "none";
+                                            Desv_estandar.style.display = "none";
+                                        }
+
+                                        if (NO_NORMALoption_desv_estandar.value === "empty") {
+                                            no_normaltamaño_n.style.display = "none";
+                                            result.innerHTML = "";
+                                        }
+                                    });
+
+                                    /* IF (¿Tamaño de poblacio (n) es mayor a 30 (n >30)?) NO NORMAL*/
+                                    NO_NORMALoption_tamaño_n.addEventListener("change", function() {
+                                        if (NO_NORMALoption_tamaño_n.value === "si") {
+                                            tamaño_n.style.display = "none";
+                                            Desv_estandar.style.display = "none";
+                                            result.innerHTML = "Te sugerimos calcular por el valor de (Z)";
+
+                                        } else {
+                                            tamaño_n.style.display = "none";
+                                            Desv_estandar.style.display = "none";
+                                            result.innerHTML = "No disponible para calcular";
+                                        }
+                                        if (NO_NORMALoption_tamaño_n.value === "empty") {
+
+                                            result.innerHTML = "";
+                                        }
+
+                                    });
+
+
+                                    calculateButton.addEventListener("click", function() {
+                                        // Aquí debes implementar el cálculo del intervalo de confianza según la selección y el valor de desviación estándar ingresado.
+                                        // Luego, muestra el resultado en el elemento 'result'.
+                                        result.innerHTML = "Aquí se mostrará el resultado del cálculo.";
+                                    });
+                                });
                             </script>
                         </form>
                     </div>
@@ -401,33 +578,7 @@
                 <script>
                     AOS.init();
                 </script>
-                <script>
-                    function openModal(modalNumber) {
-                        document.getElementById('myModal' + modalNumber).style.display = 'block';
 
-                        // Cambiar la URL de la imagen a la que desees mostrar en el modal.
-                        const imageUrl = 'https://i.blogs.es/ceda9c/dalle/450_1000.jpg';
-
-                        modal.style.display = 'block';
-                        modalImage.src = imageUrl;
-                    }
-
-                    function closeModal(modalNumber) {
-                        document.getElementById('myModal' + modalNumber).style.display = 'none';
-                    }
-                </script>
-                <script>
-                    window.addEventListener('scroll', function() {
-                        var div_cont = document.getElementById('content_indice');
-                        var scrollPosition = window.scrollY;
-
-                        if (scrollPosition > 1000) {
-                            div_cont.style.display = 'block'; /* Mostrar el div al hacer scroll */
-                        } else {
-                            div_cont.style.display = 'none'; /* Ocultar el div al volver arriba */
-                        }
-                    });
-                </script>
     </section>
 
     <!-- SECTION PROBABILIDAD-->
@@ -885,12 +1036,82 @@
         <!-- Primer metodo espacio-->
 
         <br>
-        <div data-aos="zoom-in-left" class="buttons">
+        <div data-aos="zoom-in-left" class="buttons" id="openModal">
             <!-- Botones para abrir los modales -->
-            <button type="button" class="btn btn-success" onclick="openModal(1)">¿Porque medio debo calcular?</button>
+            <button type="button" class="btn btn-success">¿Porque medio debo calcular?</button>
         </div>
         </br>
 
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h2>¿Por que metodo calcular? <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBElEQVR4nJ3SSyuFURQG4KeIGOi4HAOZ+gV0TBgpM7llpiQZ+BEmMjkuITEyIJcxZ2LiiLkfpV3702fb3wlv7dr7Xetde623RTVGMIVpDPkDVtFGC0c4xhNesNhJ2Iu7KMj9OIhT3MTcH7jFesKF9hsJt4HrVLwc2y1jAm94j/cyzrBQJtqoJUmj+IinnhknePLl9qM8+tFXEWsVXk1m2g/owjku0Z2JHxT+NNDMJAT+AieYycSb0WT1ihFmsYddzGXiYTeGi8drxsROBWrR+G/bd+j3BcJYKwknJaoKbOMhFRcYw35scRzz2MEmBqLz9+ipKhCwhK3SO+zCFZ6x1kn4L3wCiS0qJ/vqw/4AAAAASUVORK5CYII=" title="Nombre de la imagen" alt="Nombre de la imagen" />
+                </h2>
+                <p>¡Hola! te ayudaremos a que conozcas el metodo por el cual calcular tu intervalo de confianza<br>para ello te realizaremos una serie de preguntas que nos permitan definir el mejor metodo para tu objetivo </p>
+                <form id="confidenceIntervalForm">
+
+
+
+                    <label>¿Se distribuye normal?</label>
+                    <select id="stdDeviationSelect">
+                        <option value="empty">...</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                    </select>
+
+                    <br>
+
+                    <!--¿Se distribuye normal? (si - no)-->
+                    <div id="Desv_estandar">
+                        <label>¿Conoce el valor de la desviación estándar?</label>
+                        <select id="option_desv_estandar">
+                            <option value="empty">...</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <br>
+
+
+                    <!--(NORMAL) ¿Tamaño de poblacio (n) es mayor a 30 (n >30)? (si - no)-->
+                    <div id="tamaño_n">
+                        <label>¿Tamaño de poblacio (n) es mayor a 30 (n >30)?</label>
+                        <select id="option_tamaño_n">
+                            <option value="empty">...</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <br>
+
+
+                    <!-- NO NORMAL -->
+                    <!--NO NORMAL ¿Se distribuye normal? (si - no)-->
+                    <div id="no_normalDesv_estandar">
+                        <label>¿Conoce el valor de la desviación estándar.?</label>
+                        <select id="NO_NORMALoption_desv_estandar">
+                            <option value="empty">...</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <br>
+                    <!--(NO NORMAL) ¿Tamaño de poblacio (n) es mayor a 30 (n >30)? (si - no)-->
+                    <div id="no_normaltamaño_n">
+                        <label>¿Tamaño de poblacio (n) es mayor a 30 (n >30).?</label>
+                        <select id="NO_NORMALoption_tamaño_n">
+                            <option value="empty">...</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <br>
+                    <div id="result_tittle">👇👇👇👇👇👇👇</div>
+                    <div id="result"></div>
+                </form>
+            </div>
+        </div>
         <div>
             <h3 data-aos="zoom-in">Intervalo de confianza (Z)</h3>
             <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando conoces la desviación estándar
@@ -982,6 +1203,14 @@
 <br>
 <br>
 <style>
+    #desviación_estándarsi-no,
+    #tamaño_n,
+    #Desv_estandar,
+    #no_normaltamaño_n,
+    #no_normalDesv_estandar {
+        display: none;
+    }
+
     .ejercicios_button {
         color: white;
         text-decoration: none;
@@ -1117,7 +1346,7 @@
         position: fixed;
         top: 0;
         border-radius: 0px 5px 5px 0px;
-      
+
         height: 100%;
         width: 200px;
     }
