@@ -662,7 +662,6 @@
 
     </section>
 
-
     <br>
     <!-- SECTION INTERVALO DE CONFIANZA-->
     <section class="intervalo_sect">
@@ -683,11 +682,11 @@
                 <h2>¿Por que metodo calcular? <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBElEQVR4nJ3SSyuFURQG4KeIGOi4HAOZ+gV0TBgpM7llpiQZ+BEmMjkuITEyIJcxZ2LiiLkfpV3702fb3wlv7dr7Xetde623RTVGMIVpDPkDVtFGC0c4xhNesNhJ2Iu7KMj9OIhT3MTcH7jFesKF9hsJt4HrVLwc2y1jAm94j/cyzrBQJtqoJUmj+IinnhknePLl9qM8+tFXEWsVXk1m2g/owjku0Z2JHxT+NNDMJAT+AieYycSb0WT1ihFmsYddzGXiYTeGi8drxsROBWrR+G/bd+j3BcJYKwknJaoKbOMhFRcYw35scRzz2MEmBqLz9+ipKhCwhK3SO+zCFZ6x1kn4L3wCiS0qJ/vqw/4AAAAASUVORK5CYII=" title="Nombre de la imagen" alt="Nombre de la imagen" />
                 </h2>
                 <p>¡Hola! te ayudaremos a que conozcas el metodo por el cual calcular tu intervalo de confianza<br>para ello te realizaremos una serie de preguntas que nos permitan definir el mejor metodo para tu objetivo </p>
-         
-                <div data-aos="zoom-in-left">
-             <button type="button" class="btn btn-secondary" id="clean">Limpiar</button>
-        </div>
-             
+
+                <div>
+                    <button type="button" class="btn btn-secondary" id="clean">Limpiar</button>
+                </div>
+
                 <form id="confidenceIntervalForm">
                     <label>¿Se distribuye normal?</label>
                     <select id="stdDeviationSelect">
@@ -719,7 +718,7 @@
                             <option value="no">No</option>
                         </select>
                     </div>
-                    <br>
+                  
 
                     <!-- NO NORMAL -->
                     <!--NO NORMAL ¿Se distribuye normal? (si - no)-->
@@ -731,7 +730,7 @@
                             <option value="no">No</option>
                         </select>
                     </div>
-                    <br>
+                   
                     <!--(NO NORMAL) ¿Tamaño de poblacio (n) es mayor a 30 (n >30)? (si - no)-->
                     <div id="no_normaltamaño_n">
                         <label>¿Tamaño de poblacio (n) es mayor a 30 (n >30).?</label>
@@ -741,12 +740,30 @@
                             <option value="no">No</option>
                         </select>
                     </div>
-                    <br>
-                    <div id="result_nulo" class="button"></div>
-                    <div id="result_z" class="button" onclick="openModal(1)"></div>
-                    <div id="result_t" class="button" onclick="openModal(2)"></div>
-                </form>
+                  
+                    <div class="buttons">
+                        <!-- Botones para abrir los modales -->
+                        <button type="button" class="btn btn-success" id="openModalBtn_result_nulo">
+                            <h3 id="result_nulo" class="button"></h3>
+                        </button>
+                    </div>
+
+                    <div class="buttons">
+                      
+                        <button type="button" class="btn btn-success" id="openModalBtn_result_z">
+                            <h3 id="result_z" class="button"></h3>
+                        </button>
+                    </div>
+                    <div class="buttons">
+                      
+                        <button type="button" class="btn btn-success" id="openModalBtn_result_t">
+                            <h3 id="result_t" class="button"></h3>
+                        </button>
+                    </div>
+
             </div>
+            </form>
+        </div>
         </div>
 
         <h3 data-aos="zoom-in">Intervalo de confianza (Z)</h3>
@@ -765,8 +782,36 @@
         <br>
         <div data-aos="zoom-in-left" class="buttons">
             <!-- Botones para abrir los modales -->
-            <button type="button" class="btn btn-success" onclick="openModal(1)">Calcular intervalo de confianza (Z)</button>
+            <button type="button" class="btn btn-success" id="openModalBtn">Calcular intervalo de confianza (Z)</button>
         </div>
+
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
+                <h2>Este es un modal</h2>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="muestra">Tamaño de muestra</label>
+                        <input type="number" id="muestra" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="media">Media muestral</label>
+                        <input type="number" id="media" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="desviacion">Desviación estándar</label>
+                        <input type="number" id="desviacion" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nivel">Nivel de confianza (%)</label>
+                        <input type="number" id="nivel" required>
+                    </div>
+                    <div class="result">
+                        <p id="resultado"></p>
+                    </div>
+                </div>
+            </div>
         </div>
         <br>
         <hr>
@@ -788,8 +833,7 @@
             </p>
             <br>
             <div data-aos="zoom-in-left" class="buttons">
-                <!-- Botones para abrir los modales -->
-                <button type="button" class="btn btn-success" onclick="openModal(2)">Calcular intervalo de confianza (t de Student)</button>
+                <button type="button" class="btn btn-success" id="openModal">Calcular intervalo de confianza (t de Student)</button>
             </div>
         </div>
         <br>
@@ -811,7 +855,7 @@
             </p>
             <div data-aos="zoom-in-left" class="buttons">
                 <!-- Botones para abrir los modales -->
-                <button type="button" class="btn btn-success" onclick="openModal(3)">Calcular intervalo de confianza proporciona</button>
+                <button type="button" class="btn btn-success" onclick="CalopenModal(3)">Calcular intervalo de confianza proporciona</button>
             </div>
             <br>
         </div>
@@ -833,4 +877,5 @@
     </a>
 </body>
 </main>
+
 </html>

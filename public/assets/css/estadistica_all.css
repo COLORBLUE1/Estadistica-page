@@ -5,9 +5,10 @@
 #no_normaltamaño_n,
 #no_normalDesv_estandar,  #result_nulo,
 #result_t,
-#result_z, #clean {
+#result_z, #clean, #openModalBtn_result_t, #openModalBtn_result_z, #openModalBtn_result_nulo{
     display: none;
 }
+
 
 .ejercicios_button {
     color: white;
@@ -58,7 +59,7 @@ html {
 #result_z,
 #result_t,
 #result_nulo {
-    background-color: #04AA6D;
+    
     color: white;
     padding: 15px 32px;
     text-align: center;
@@ -66,7 +67,7 @@ html {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    width: 100%;
+    width: auto;
     padding-bottom: 5px;
     padding-left: 5px;
     padding-top: 5px;
@@ -367,7 +368,6 @@ body {
 
 .btn {
     border: none;
-    background: #580078;
     color: #fff;
     padding: 10px 20px;
     border-radius: 50px;

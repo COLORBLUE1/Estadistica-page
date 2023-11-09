@@ -1,148 +1,5 @@
-window.addEventListener('scroll', function() {
-    var div_cont = document.getElementById('content_indice');
-    var scrollPosition = window.scrollY;
 
-    if (scrollPosition > 1000) {
-        div_cont.style.display = 'block'; /* Mostrar el div al hacer scroll */
-    } else {
-        div_cont.style.display = 'none'; /* Ocultar el div al volver arriba */
-    }
-});
-
-const valor_tInput = document.getElementById('valor_t');
-const sampleMeanInput = document.getElementById('sample-mean');
-const sampleSizeTInput = document.getElementById('sample-size-t');
-const confidenceLevelTInput = document.getElementById('confidence-level-t');
-const sampleStandardDeviationTInput = document.getElementById('sample-standard-deviation-t');
-const tLowerLimitSpan = document.getElementById('t-lower-limit');
-const tUpperLimitSpan = document.getElementById('t-upper-limit');
-
-valor_tInput.addEventListener('input', validateInputs);
-sampleMeanInput.addEventListener('input', validateInputs);
-sampleSizeTInput.addEventListener('input', validateInputs);
-confidenceLevelTInput.addEventListener('input', validateInputs);
-sampleStandardDeviationTInput.addEventListener('input', validateInputs);
-
-function validateInputs() {
-    validateInput(valor_tInput, 'sample-mean-error');
-    validateInput(sampleMeanInput, 'sample-mean-error');
-    validateInput(sampleSizeTInput, 'sample-size-t-error');
-    validateInput(confidenceLevelTInput, 'confidence-level-t-error');
-    validateInput(sampleStandardDeviationTInput, 'sample-standard-deviation-t-error');
-
-    if (valor_tInput.validity.valid && sampleMeanInput.validity.valid && sampleSizeTInput.validity.valid && confidenceLevelTInput.validity.valid && sampleStandardDeviationTInput.validity.valid) {
-        calculateTInterval();
-    } else {
-        tLowerLimitSpan.innerText = '';
-        tUpperLimitSpan.innerText = '';
-    }
-}
-
-function validateInput(input, errorId) {
-    const errorElement = document.getElementById(errorId);
-    if (input.validity.valueMissing) {
-        input.setCustomValidity('Este campo es requerido ⬇️.');
-        errorElement.innerText = 'Este campo es requerido ⬇️.';
-    } else {
-        input.setCustomValidity('');
-        errorElement.innerText = '';
-    }
-}
-
-function calculateTInterval() {
-
-    const sampleMean = parseFloat(sampleMeanInput.value);
-    const sampleSize = parseFloat(sampleSizeTInput.value);
-    const confidenceLevel = parseFloat(confidenceLevelTInput.value);
-    const sampleStandardDeviation = parseFloat(sampleStandardDeviationTInput.value);
-    
-
-
-    // Para calcular el valor crítico de t, necesitas una función o una tabla de distribución t
-    // Aquí un ejemplo con la librería t-distribution, asegúrate de tenerla instalada.
-    const tDistribution = require('t-distribution');
-    const tCriticalValue = tDistribution.inv(confidenceLevel, degreesOfFreedom);
-
-    const degreesOfFreedom = sampleSize - 1;
-    const valor_t = parseFloat(valor_tInput.value);
-    const marginOfError = tCriticalValue * (sampleStandardDeviation / Math.sqrt(sampleSize));
-
-    const tlowerLimit = (sampleMean - marginOfError).toFixed(2);
-    const tupperLimit = (sampleMean + marginOfError).toFixed(2);
-
-    tLowerLimitSpan.innerText = `LI: ${tlowerLimit}`;
-    tUpperLimitSpan.innerText = `LS: ${tupperLimit}`;
-
-    var string_t = "Tenemos una seguridad del " + confidenceLevel + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + tlowerLimit + " ; " + tupperLimit + "}";
-    interpre_t.innerText = string_t;
-
-}
-
-function calculateTCriticalValue(confidenceLevel, degreesOfFreedom) {
-    // Aquí deberías implementar la obtención del valor crítico de t, ya sea desde una tabla de distribución t o una función en tu entorno de desarrollo.
-    return 0; // Reemplaza esto con el valor crítico de t adecuado.
-}
-
-
-const populationProportionInput = document.getElementById('population-proportion');
-const sampleSizeZInput = document.getElementById('sample-size-z');
-const confidenceLevelZInput = document.getElementById('confidence-level-z');
-const zLowerLimitSpan = document.getElementById('z-lower-limit');
-const zUpperLimitSpan = document.getElementById('z-upper-limit');
-
-populationProportionInput.addEventListener('input', validateInputs);
-sampleSizeZInput.addEventListener('input', validateInputs);
-confidenceLevelZInput.addEventListener('input', validateInputs);
-
-function validateInputs() {
-    validateInput(populationProportionInput, 'population-proportion-error');
-    validateInput(sampleSizeZInput, 'sample-size-z-error');
-    validateInput(confidenceLevelZInput, 'confidence-level-z-error');
-
-    if (populationProportionInput.validity.valid && sampleSizeZInput.validity.valid && confidenceLevelZInput.validity.valid) {
-        calculateZInterval();
-    } else {
-        zLowerLimitSpan.innerText = '';
-        zUpperLimitSpan.innerText = '';
-    }
-}
-
-function validateInput(input, errorId) {
-    const errorElement = document.getElementById(errorId);
-    if (input.validity.valueMissing) {
-        input.setCustomValidity('Este campo es requerido ⬇️.');
-        errorElement.innerText = 'Este campo es requerido ⬇️.';
-    } else {
-        input.setCustomValidity('');
-        errorElement.innerText = '';
-    }
-}
-
-function calculateZInterval() {
-    const populationProportion = parseFloat(populationProportionInput.value);
-    const sampleSizeZ = parseFloat(sampleSizeZInput.value);
-    const confidenceLevelZ = parseFloat(confidenceLevelZInput.value);
-
-    const zValue = calculateZCriticalValue(confidenceLevelZ);
-
-    const marginOfError = zValue * Math.sqrt((populationProportion * (1 - populationProportion)) / sampleSizeZ);
-
-    const lowerLimit = (populationProportion - marginOfError).toFixed(2);
-    const upperLimit = (populationProportion + marginOfError).toFixed(2);
-
-    zLowerLimitSpan.innerText = `LI: ${lowerLimit}`;
-    zUpperLimitSpan.innerText = `LS: ${upperLimit}`;
-
-    var string_t = "Tenemos una seguridad del " + confidenceLevelZ + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + lowerLimit + "  ;  " + upperLimit + "}";
-    interpre_p.innerText = string_t;
-}
-
-function calculateZCriticalValue(confidenceLevel) {
-    // Aquí deberías implementar la obtención del valor crítico de Z, ya sea desde una tabla de distribución Z o una función en tu entorno de desarrollo.
-    return 0; // Reemplaza esto con el valor crítico de Z adecuado.
-}
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const openModalButton = document.getElementById("openModal");
     const closeModalButton = document.getElementById("closeModal");
     const modal = document.getElementById("modal");
@@ -156,55 +13,66 @@ document.addEventListener("DOMContentLoaded", function() {
     const Desv_estandar = document.getElementById("Desv_estandar");
 
     /*No normal variables*/
-    const NO_NORMALoption_desv_estandar = document.getElementById("NO_NORMALoption_desv_estandar");
-    const no_normalDesv_estandar = document.getElementById("no_normalDesv_estandar");
-    const NO_NORMALoption_tamaño_n = document.getElementById("NO_NORMALoption_tamaño_n");
+    const NO_NORMALoption_desv_estandar = document.getElementById(
+        "NO_NORMALoption_desv_estandar"
+    );
+    const no_normalDesv_estandar = document.getElementById(
+        "no_normalDesv_estandar"
+    );
+    const NO_NORMALoption_tamaño_n = document.getElementById(
+        "NO_NORMALoption_tamaño_n"
+    );
     const no_normaltamaño_n = document.getElementById("no_normaltamaño_n");
-
-
 
     const calculateButton = document.getElementById("calculateButton");
     const result_nulo = document.getElementById("result_nulo");
     const result_t = document.getElementById("result_t");
     const result_z = document.getElementById("result_z");
 
-    openModalButton.addEventListener("click", function() {
+    openModalButton.addEventListener("click", function () {
         modal.style.display = "block";
     });
 
-    closeModalButton.addEventListener("click", function() {
+    closeModalButton.addEventListener("click", function () {
         modal.style.display = "none";
     });
 
-    clean.addEventListener("click", function() {
+    clean.addEventListener("click", function () {
         no_normaltamaño_n.style.display = "none";
-            no_normalDesv_estandar.style.display = "none";
-            tamaño_n.style.display = "none";
-            Desv_estandar.style.display = "none";
-            result_t.style.display = "none";
-            result_z.style.display = "none";
-            result_nulo.style.display = "none";
-            result_nulo.innerHTML = "";
-            result_t.innerHTML = "";
-            result_z .innerHTML = "";
-            clean.style.display = "none";
+        no_normalDesv_estandar.style.display = "none";
+        tamaño_n.style.display = "none";
+        Desv_estandar.style.display = "none";
+        result_t.style.display = "none";
+        result_z.style.display = "none";
+        result_nulo.style.display = "none";
+        result_nulo.innerHTML = "";
+        result_t.innerHTML = "";
+        result_z.innerHTML = "";
+        clean.style.display = "none";
+        modal_1.style.display = "none";
+        openModalBtn_result_t.style.display = "none";
+        openModalBtn_result_z.style.display = "none";
+
     });
 
     /*opciones normal*/
     /* IF (¿SE DISTIBUYE NORMAL?)*/
-    stdDeviationSelect.addEventListener("change", function() {
+    stdDeviationSelect.addEventListener("change", function () {
         if (stdDeviationSelect.value === "si") {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
             no_normaltamaño_n.style.display = "none";
             no_normalDesv_estandar.style.display = "none";
             Desv_estandar.style.display = "block";
             clean.style.display = "block";
+            modal_1.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
         } else {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
             tamaño_n.style.display = "none";
             Desv_estandar.style.display = "none";
             result_t.style.display = "none";
@@ -212,6 +80,9 @@ document.addEventListener("DOMContentLoaded", function() {
             result_nulo.style.display = "none";
             no_normalDesv_estandar.style.display = "block";
             clean.style.display = "block";
+            modal_1.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
         }
 
         if (stdDeviationSelect.value === "empty") {
@@ -224,24 +95,31 @@ document.addEventListener("DOMContentLoaded", function() {
             result_nulo.style.display = "none";
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
             clean.style.display = "none";
+            modal_1.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
         }
     });
 
     /* IF (¿Conoce el valor de la desviación estándar?)*/
-    option_desv_estandar.addEventListener("change", function() {
+    option_desv_estandar.addEventListener("change", function () {
         if (option_desv_estandar.value === "si") {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
+            modal_1.style.display = "none";
             tamaño_n.style.display = "none";
             no_normaltamaño_n.style.display = "none";
             no_normalDesv_estandar.style.display = "none";
-            result_t.style.display = "none"
+            result_t.style.display = "none";
             result_nulo.style.display = "none";
             result_z.style.display = "block";
             clean.style.display = "block";
+            openModalBtn_result_z.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "block";
             result_z.innerHTML = "Te sugerimos calcular por el valor de (Z)";
         } else {
             tamaño_n.style.display = "block";
@@ -250,30 +128,33 @@ document.addEventListener("DOMContentLoaded", function() {
             result_nulo.style.display = "none";
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
             clean.style.display = "block";
+            modal_1.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
         }
         if (option_desv_estandar.value === "empty") {
             tamaño_n.style.display = "none";
             result_t.style.display = "none";
             result_z.style.display = "none";
             result_nulo.style.display = "none";
-            clean.style.display = "none";
+            clean.style.display = "block";
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            modal_1.style.display = "none";
+            result_z.innerHTML = "";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
         }
     });
 
-
-
-
     /* IF (¿Tamaño de poblacio (n) es mayor a 30 (n >30)?)*/
-    option_tamaño_n.addEventListener("change", function() {
+    option_tamaño_n.addEventListener("change", function () {
         if (option_tamaño_n.value === "si") {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
             no_normaltamaño_n.style.display = "none";
             no_normalDesv_estandar.style.display = "none";
             tamaño_n.style.display = "block";
@@ -281,11 +162,15 @@ document.addEventListener("DOMContentLoaded", function() {
             clean.style.display = "block";
             result_t.style.display = "none";
             result_nulo.style.display = "none";
+            modal_1.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "block";
             result_z.innerHTML = "Te sugerimos calcular por el valor de (Z)";
         } else {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
             no_normaltamaño_n.style.display = "none";
             no_normalDesv_estandar.style.display = "none";
             result_z.style.display = "none";
@@ -293,27 +178,33 @@ document.addEventListener("DOMContentLoaded", function() {
             tamaño_n.style.display = "block";
             result_t.style.display = "block";
             clean.style.display = "block";
+            modal_1.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_t.style.display = "block";
             result_t.innerHTML = "Te sugerimos calcular por el valor de (t)";
         }
 
         if (option_tamaño_n.value === "empty") {
-             result_t.style.display = "none";
-             result_z.style.display = "none";
-             clean.style.display = "none";
-             result_nulo.style.display = "none";
+            result_t.style.display = "none";
+            result_z.style.display = "none";
+            clean.style.display = "none";
+            result_nulo.style.display = "none";
             tamaño_n.style.display = "none";
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
+            modal_1.style.display = "none";
+            clean.style.display = "block";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
         }
-
     });
-
 
     /*opciones no normal*/
 
     /* IF (¿Conoce el valor de la desviación estándar? NO NORMAL)*/
-    NO_NORMALoption_desv_estandar.addEventListener("change", function() {
+    NO_NORMALoption_desv_estandar.addEventListener("change", function () {
         if (NO_NORMALoption_desv_estandar.value === "si") {
             no_normaltamaño_n.style.display = "block";
             clean.style.display = "block";
@@ -322,6 +213,9 @@ document.addEventListener("DOMContentLoaded", function() {
             result_nulo.style.display = "none";
             tamaño_n.style.display = "none";
             Desv_estandar.style.display = "none";
+            modal_1.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
         } else {
             no_normaltamaño_n.style.display = "block";
             clean.style.display = "block";
@@ -330,131 +224,177 @@ document.addEventListener("DOMContentLoaded", function() {
             result_nulo.style.display = "none";
             tamaño_n.style.display = "none";
             Desv_estandar.style.display = "none";
+            modal_1.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
         }
 
         if (NO_NORMALoption_desv_estandar.value === "empty") {
             result_z.style.display = "none";
-            clean.style.display = "none";
+            clean.style.display = "block";
             result_t.style.display = "none";
             result_nulo.style.display = "none";
             no_normaltamaño_n.style.display = "none";
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
+            modal_1.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
         }
     });
 
     /* IF (¿Tamaño de poblacio (n) es mayor a 30 (n >30)?) NO NORMAL*/
-    NO_NORMALoption_tamaño_n.addEventListener("change", function() {
+    NO_NORMALoption_tamaño_n.addEventListener("change", function () {
         if (NO_NORMALoption_tamaño_n.value === "si") {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = ""; 
+            result_z.innerHTML = "";
             result_t.style.display = "none";
             result_nulo.style.display = "none";
             tamaño_n.style.display = "none";
             Desv_estandar.style.display = "none";
             result_z.style.display = "block";
             clean.style.display = "block";
+            modal_1.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
+            openModalBtn_result_t.style.display = "block";
             result_z.innerHTML = "Te sugerimos calcular por el valor de (Z)";
         } else {
             result_z.style.display = "none";
             result_t.style.display = "none";
             result_nulo.style.display = "none";
-             result_nulo.innerHTML = "";
+            result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
             tamaño_n.style.display = "none";
             Desv_estandar.style.display = "none";
             result_nulo.style.display = "block";
             clean.style.display = "block";
+            modal_1.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
             result_nulo.innerHTML = "No disponible para calcular";
         }
         if (NO_NORMALoption_tamaño_n.value === "empty") {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z.innerHTML = "";
             result_t.style.display = "none";
             clean.style.display = "none";
             result_z.style.display = "none";
             result_nulo.style.display = "none";
+            openModalBtn_result_z.style.display = "none";
+            openModalBtn_result_.style.display = "none";
         }
+    });
 
+    /* CALCULADORAS */
+
+
+
+    /* VALOR Z*/
+
+
+    /* MODAL OPEN Y CLOSE*/
+
+
+
+    const openModalBtn_result_z = document.getElementById("openModalBtn_result_z");
+    const closeModalBtn_result_z = document.getElementById("closeModalBtn_result_z");
+
+    const openModalBtn_result_t = document.getElementById("openModalBtn_result_t");
+    const closeModalBtn_result_t = document.getElementById("closeModalBtn_result_t");
+
+    const openModalBtn_result_p = document.getElementById("openModalBtn_result_p");
+
+    const openModalBtn = document.getElementById("openModalBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const modal_1 = document.getElementById("myModal");
+
+
+    /* OPEN - CLOSE (DEFINICION)*/
+    openModalBtn.addEventListener("click", () => {
+        modal_1.style.display = "block";
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+        modal_1.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal_1.style.display = "none";
+        }
+    });
+
+    /* OPEN - CLOSE (RESULTADO)*/
+
+     /* (Valor Z)*/
+    openModalBtn_result_z.addEventListener("click", () => {
+        modal_1.style.display = "block";
+    });
+
+    closeModalBtn_result_z.addEventListener("click", () => {
+        modal_1.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal_1.style.display = "none";
+        }
+    });
+
+ /*  (t student)*/
+
+    openModalBtn_result_t.addEventListener("click", () => {
+        modal_1.style.display = "block";
+    });
+
+    closeModalBtn_result_t.addEventListener("click", () => {
+        modal_1.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal_1.style.display = "none";
+        }
+    });
+ /* (proporcion)*/
+    openModalBtn_result_p.addEventListener("click", () => {
+        modal_1.style.display = "block";
+    });
+
+    closeModalBtn_result_p.addEventListener("click", () => {
+        modal_1.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal_1.style.display = "none";
+        }
     });
 
 
-/* CALCULADORAS */
+
+    /* CALCULOS VALOR P*/
+    function calcularIntervalo() {
+        const muestra = parseFloat(document.getElementById('muestra').value);
+        const media = parseFloat(document.getElementById('media').value);
+        const desviacion = parseFloat(document.getElementById('desviacion').value);
+        const nivel = parseFloat(document.getElementById('nivel').value);
 
 
-function openModal(modalNumber) {
-    document.getElementById('myModal' + modalNumber).style.display = 'block';
-    modal.style.display = "none";
-}
+        const valorZ = 1.96; // Aproximación para niveles de confianza de 95% y 99%
+        const intervalo = valorZ * (desviacion / Math.sqrt(muestra));
+        const resultado = `Intervalo de confianza: (${media - intervalo}, ${media + intervalo})`;
+        document.getElementById('resultado').textContent = resultado;
+    }
 
-function closeModal(modalNumber) {
-    document.getElementById('myModal' + modalNumber).style.display = 'none';
-}
+    document.getElementById('muestra').addEventListener('input', calcularIntervalo);
+    document.getElementById('media').addEventListener('input', calcularIntervalo);
+    document.getElementById('desviacion').addEventListener('input', calcularIntervalo);
+    document.getElementById('nivel').addEventListener('input', calcularIntervalo);
 
-
- // Obtén referencias a los elementos
- const meanInput = document.getElementById('mean');
- const stddevInput = document.getElementById('stddev');
- const sampleSizeInput = document.getElementById('sample-size');
- const confidenceLevelInput = document.getElementById('confidence-level');
- const zValueInput = document.getElementById('z-value');
- const lowLimitSpan = document.getElementById('lower-limit');
- const upLimitSpan = document.getElementById('upper-limit');
- const interpre = document.getElementById('interpre');
- // Agrega un detector de eventos 'input' a cada input
- meanInput.addEventListener('input', validateInputs);
- stddevInput.addEventListener('input', validateInputs);
- sampleSizeInput.addEventListener('input', validateInputs);
- confidenceLevelInput.addEventListener('input', validateInputs);
- zValueInput.addEventListener('input', validateInputs);
-
- function validateInputs() {
-     validateInput(meanInput, 'mean-error');
-     validateInput(stddevInput, 'stddev-error');
-     validateInput(sampleSizeInput, 'sample-size-error');
-     validateInput(confidenceLevelInput, 'confidence-level-error');
-     validateInput(zValueInput, 'z-value-error');
-
-     if (meanInput.validity.valid && stddevInput.validity.valid && sampleSizeInput.validity.valid && confidenceLevelInput.validity.valid && zValueInput.validity.valid) {
-         calculateCI();
-     } else {
-         lowLimitSpan.innerText = '';
-         upLimitSpan.innerText = '';
-     }
- }
-
- function validateInput(input, errorId) {
-     const errorElement = document.getElementById(errorId);
-     if (input.validity.valueMissing) {
-         input.setCustomValidity('Este campo es requerido ⬇️. ');
-         errorElement.innerText = 'Este campo es requerido ⬇️.';
-         errorElement.classList.add('error-text');
-     } else {
-         input.setCustomValidity('');
-         errorElement.innerText = '';
-         errorElement.classList.remove('error-text');
-     }
- }
-
- function calculateCI() {
-     const mean = parseFloat(meanInput.value);
-     const stddev = parseFloat(stddevInput.value);
-     const sampleSize = parseFloat(sampleSizeInput.value);
-     const confidenceLevel = parseFloat(confidenceLevelInput.value);
-     const z = parseFloat(zValueInput.value);
-
-     const marginOfError = z * (stddev / Math.sqrt(sampleSize));
-
-     const lowLimit = (mean - marginOfError).toFixed(2);
-     const upLimit = (mean + marginOfError).toFixed(2);
-
-     lowLimitSpan.innerText = `LI: ${lowLimit}`;
-     upLimitSpan.innerText = `LS: ${upLimit}`;
-     var string = "Tenemos una seguridad del " + confidenceLevel + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + lowLimit + "  ;  " + upLimit + "}";
-     interpre.innerText = string;
- }
 });
