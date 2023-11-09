@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" href="https://img.icons8.com/arcade/64/graph.png">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/estadistica_all.css">
     <!--
 
     Temas de la pagina orden:
@@ -39,10 +39,10 @@
             conceptos matemáticos y científicos, nuestra plataforma está diseñada para ayudarte a resolver
             problemas, realizar análisis y aprender más sobre los fundamentos que respaldan estas herramientas.</p>
         <br>
-        <div class="content_indice" id="content_indice">
-            <h1>Tabla de Contenido</h1>
+        <div data-aos="fade-right" class="content_indice" id="content_indice">
+            <h1 class="tabla_title">Tabla de Contenido</h1>
             <br>
-            <ul type=none>
+            <ul data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" type=none>
                 <li><a href="#titulo_pb">Probabilidad</a></li>
                 <li><a href="#titulo_cv">Clasificación de variables</a></li>
                 <li><a href="#titulo_dn">Distribución normal</a></li>
@@ -60,7 +60,7 @@
                 <form>
                     <!-- Contenido del primer formulario -->
                     <br>
-                    <h1>Calculadora de Intervalo de Confianza (Z)</h1>
+                    <h1 class="title_modal">Calculadora de Intervalo de Confianza (Z)</h1>
                     <div>
                         <br>
                         <div class="error-message" id="mean-error"></div>
@@ -102,7 +102,6 @@
                     </div>
                     <br><br>
                     <div>
-                        <img class="modal-content" id="modalImage" src="http://drive.google.com/uc?export=view&id=" alt="Imagen">
                         <h2>Intervalos de confianza</h2>
                         <p>Intervalo Superior (LS): <span id="upper-limit"></span></p>
                         <p>Intervalo Inferior (LI): <span id="lower-limit"></span></p>
@@ -110,67 +109,7 @@
                         <span id="interpre"></span>
                     </div>
                     <script>
-                        // Obtén referencias a los elementos
-                        const meanInput = document.getElementById('mean');
-                        const stddevInput = document.getElementById('stddev');
-                        const sampleSizeInput = document.getElementById('sample-size');
-                        const confidenceLevelInput = document.getElementById('confidence-level');
-                        const zValueInput = document.getElementById('z-value');
-                        const lowLimitSpan = document.getElementById('lower-limit');
-                        const upLimitSpan = document.getElementById('upper-limit');
-                        const interpre = document.getElementById('interpre');
-                        // Agrega un detector de eventos 'input' a cada input
-                        meanInput.addEventListener('input', validateInputs);
-                        stddevInput.addEventListener('input', validateInputs);
-                        sampleSizeInput.addEventListener('input', validateInputs);
-                        confidenceLevelInput.addEventListener('input', validateInputs);
-                        zValueInput.addEventListener('input', validateInputs);
 
-                        function validateInputs() {
-                            validateInput(meanInput, 'mean-error');
-                            validateInput(stddevInput, 'stddev-error');
-                            validateInput(sampleSizeInput, 'sample-size-error');
-                            validateInput(confidenceLevelInput, 'confidence-level-error');
-                            validateInput(zValueInput, 'z-value-error');
-
-                            if (meanInput.validity.valid && stddevInput.validity.valid && sampleSizeInput.validity.valid && confidenceLevelInput.validity.valid && zValueInput.validity.valid) {
-                                calculateCI();
-                            } else {
-                                lowLimitSpan.innerText = '';
-                                upLimitSpan.innerText = '';
-                            }
-                        }
-
-                        function validateInput(input, errorId) {
-                            const errorElement = document.getElementById(errorId);
-                            if (input.validity.valueMissing) {
-                                input.setCustomValidity('Este campo es requerido ⬇️. ');
-                                errorElement.innerText = 'Este campo es requerido ⬇️.';
-                                errorElement.classList.add('error-text');
-                            } else {
-                                input.setCustomValidity('');
-                                errorElement.innerText = '';
-                                errorElement.classList.remove('error-text');
-                            }
-                        }
-
-                        function calculateCI() {
-                            const mean = parseFloat(meanInput.value);
-                            const stddev = parseFloat(stddevInput.value);
-                            const sampleSize = parseFloat(sampleSizeInput.value);
-                            const confidenceLevel = parseFloat(confidenceLevelInput.value);
-                            const z = parseFloat(zValueInput.value);
-
-                            const marginOfError = z * (stddev / Math.sqrt(sampleSize));
-
-                            const lowLimit = (mean - marginOfError).toFixed(2);
-                            const upLimit = (mean + marginOfError).toFixed(2);
-
-                            lowLimitSpan.innerText = `LI: ${lowLimit}`;
-                            upLimitSpan.innerText = `LS: ${upLimit}`;
-                            var string = "Tenemos una seguridad del " + confidenceLevel + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + lowLimit + "  ;  " + upLimit + "}";
-                            interpre.innerText = string;
-                        }
                     </script>
                 </form>
             </div>
@@ -182,7 +121,7 @@
                         <span class="close" onclick="closeModal(2)">&times;</span>
                         <form>
                             <!-- Contenido del segundo formulario -->
-                            <h1>Calculadora de Intervalo de Confianza (t de Student)</h1>
+                            <h1 class="title_modal">Calculadora de Intervalo de Confianza (t de Student)</h1>
                             <div>
                                 <br>
                                 <div id="sample-mean-error" class="error-message"></div>
@@ -225,13 +164,13 @@
                                 <p>Intervalo Superior (LS): <span id="t-upper-limit"></span></p><br>
                                 <h2>Interoretacion corta:</h2>
                                 <span id="interpre_t"></span>
-                            </div </form>
+                            </div>
                     </div>
                 </div>
                 <div id="myModal3" class="modal">
                     <div class="modal-content">
                         <span class="close" onclick="closeModal(3)">&times;</span>
-                        <h1>Calculadora de Intervalo de Confianza Proporcional (Z)</h1>
+                        <h1 class="title_modal">Calculadora de Intervalo de Confianza Proporcional (Z)</h1>
                         <form>
                             <!-- Contenido del tercer formulario -->
                             <div>
@@ -266,310 +205,6 @@
                                 <h2>Interoretacion corta:</h2>
                                 <span id="interpre_p"></span>
                             </div>
-                            <script>
-                                function openModal(modalNumber) {
-                                    document.getElementById('myModal' + modalNumber).style.display = 'block';
-
-                                    // Cambiar la URL de la imagen a la que desees mostrar en el modal.
-                                    const imageUrl = 'https://i.blogs.es/ceda9c/dalle/450_1000.jpg';
-
-                                    modal.style.display = 'block';
-                                    modalImage.src = imageUrl;
-                                }
-
-                                function closeModal(modalNumber) {
-                                    document.getElementById('myModal' + modalNumber).style.display = 'none';
-                                }
-                            </script>
-                            <script>
-                                window.addEventListener('scroll', function() {
-                                    var div_cont = document.getElementById('content_indice');
-                                    var scrollPosition = window.scrollY;
-
-                                    if (scrollPosition > 1000) {
-                                        div_cont.style.display = 'block'; /* Mostrar el div al hacer scroll */
-                                    } else {
-                                        div_cont.style.display = 'none'; /* Ocultar el div al volver arriba */
-                                    }
-                                });
-
-                                const valor_tInput = document.getElementById('valor_t');
-                                const sampleMeanInput = document.getElementById('sample-mean');
-                                const sampleSizeTInput = document.getElementById('sample-size-t');
-                                const confidenceLevelTInput = document.getElementById('confidence-level-t');
-                                const sampleStandardDeviationTInput = document.getElementById('sample-standard-deviation-t');
-                                const tLowerLimitSpan = document.getElementById('t-lower-limit');
-                                const tUpperLimitSpan = document.getElementById('t-upper-limit');
-
-                                valor_tInput.addEventListener('input', validateInputs);
-                                sampleMeanInput.addEventListener('input', validateInputs);
-                                sampleSizeTInput.addEventListener('input', validateInputs);
-                                confidenceLevelTInput.addEventListener('input', validateInputs);
-                                sampleStandardDeviationTInput.addEventListener('input', validateInputs);
-
-                                function validateInputs() {
-                                    validateInput(valor_tInput, 'sample-mean-error');
-                                    validateInput(sampleMeanInput, 'sample-mean-error');
-                                    validateInput(sampleSizeTInput, 'sample-size-t-error');
-                                    validateInput(confidenceLevelTInput, 'confidence-level-t-error');
-                                    validateInput(sampleStandardDeviationTInput, 'sample-standard-deviation-t-error');
-
-                                    if (valor_tInput.validity.valid && sampleMeanInput.validity.valid && sampleSizeTInput.validity.valid && confidenceLevelTInput.validity.valid && sampleStandardDeviationTInput.validity.valid) {
-                                        calculateTInterval();
-                                    } else {
-                                        tLowerLimitSpan.innerText = '';
-                                        tUpperLimitSpan.innerText = '';
-                                    }
-                                }
-
-                                function validateInput(input, errorId) {
-                                    const errorElement = document.getElementById(errorId);
-                                    if (input.validity.valueMissing) {
-                                        input.setCustomValidity('Este campo es requerido ⬇️.');
-                                        errorElement.innerText = 'Este campo es requerido ⬇️.';
-                                    } else {
-                                        input.setCustomValidity('');
-                                        errorElement.innerText = '';
-                                    }
-                                }
-
-                                function calculateTInterval() {
-
-                                    const sampleMean = parseFloat(sampleMeanInput.value);
-                                    const sampleSize = parseFloat(sampleSizeTInput.value);
-                                    const confidenceLevel = parseFloat(confidenceLevelTInput.value);
-                                    const sampleStandardDeviation = parseFloat(sampleStandardDeviationTInput.value);
-                                    const valor_t = parseFloat(valor_tInput.value);
-
-                                    const marginOfError = valor_t * (sampleStandardDeviation / Math.sqrt(sampleSize));
-
-                                    const tlowerLimit = (sampleMean - marginOfError).toFixed(2);
-                                    const tupperLimit = (sampleMean + marginOfError).toFixed(2);
-
-                                    tLowerLimitSpan.innerText = `LI: ${tlowerLimit}`;
-                                    tUpperLimitSpan.innerText = `LS: ${tupperLimit}`;
-
-                                    var string_t = "Tenemos una seguridad del " + confidenceLevel + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + tlowerLimit + " ; " + tupperLimit + "}";
-                                    interpre_t.innerText = string_t;
-
-                                }
-
-                                function calculateTCriticalValue(confidenceLevel, degreesOfFreedom) {
-                                    // Aquí deberías implementar la obtención del valor crítico de t, ya sea desde una tabla de distribución t o una función en tu entorno de desarrollo.
-                                    return 0; // Reemplaza esto con el valor crítico de t adecuado.
-                                }
-
-
-                                const populationProportionInput = document.getElementById('population-proportion');
-                                const sampleSizeZInput = document.getElementById('sample-size-z');
-                                const confidenceLevelZInput = document.getElementById('confidence-level-z');
-                                const zLowerLimitSpan = document.getElementById('z-lower-limit');
-                                const zUpperLimitSpan = document.getElementById('z-upper-limit');
-
-                                populationProportionInput.addEventListener('input', validateInputs);
-                                sampleSizeZInput.addEventListener('input', validateInputs);
-                                confidenceLevelZInput.addEventListener('input', validateInputs);
-
-                                function validateInputs() {
-                                    validateInput(populationProportionInput, 'population-proportion-error');
-                                    validateInput(sampleSizeZInput, 'sample-size-z-error');
-                                    validateInput(confidenceLevelZInput, 'confidence-level-z-error');
-
-                                    if (populationProportionInput.validity.valid && sampleSizeZInput.validity.valid && confidenceLevelZInput.validity.valid) {
-                                        calculateZInterval();
-                                    } else {
-                                        zLowerLimitSpan.innerText = '';
-                                        zUpperLimitSpan.innerText = '';
-                                    }
-                                }
-
-                                function validateInput(input, errorId) {
-                                    const errorElement = document.getElementById(errorId);
-                                    if (input.validity.valueMissing) {
-                                        input.setCustomValidity('Este campo es requerido ⬇️.');
-                                        errorElement.innerText = 'Este campo es requerido ⬇️.';
-                                    } else {
-                                        input.setCustomValidity('');
-                                        errorElement.innerText = '';
-                                    }
-                                }
-
-                                function calculateZInterval() {
-                                    const populationProportion = parseFloat(populationProportionInput.value);
-                                    const sampleSizeZ = parseFloat(sampleSizeZInput.value);
-                                    const confidenceLevelZ = parseFloat(confidenceLevelZInput.value);
-
-                                    const zValue = calculateZCriticalValue(confidenceLevelZ);
-
-                                    const marginOfError = zValue * Math.sqrt((populationProportion * (1 - populationProportion)) / sampleSizeZ);
-
-                                    const lowerLimit = (populationProportion - marginOfError).toFixed(2);
-                                    const upperLimit = (populationProportion + marginOfError).toFixed(2);
-
-                                    zLowerLimitSpan.innerText = `LI: ${lowerLimit}`;
-                                    zUpperLimitSpan.innerText = `LS: ${upperLimit}`;
-
-                                    var string_t = "Tenemos una seguridad del " + confidenceLevelZ + "% " + " para este caso, nuestros intervalos estarian entre \n" + "{" + lowerLimit + "  ;  " + upperLimit + "}";
-                                    interpre_p.innerText = string_t;
-                                }
-
-                                function calculateZCriticalValue(confidenceLevel) {
-                                    // Aquí deberías implementar la obtención del valor crítico de Z, ya sea desde una tabla de distribución Z o una función en tu entorno de desarrollo.
-                                    return 0; // Reemplaza esto con el valor crítico de Z adecuado.
-                                }
-
-
-
-                                document.addEventListener("DOMContentLoaded", function() {
-                                    const openModalButton = document.getElementById("openModal");
-                                    const closeModalButton = document.getElementById("closeModal");
-                                    const modal = document.getElementById("modal");
-
-
-                                    /*Variables de opciones*/
-                                    const stdDeviationSelect = document.getElementById("stdDeviationSelect");
-                                    const option_desv_estandar = document.getElementById("option_desv_estandar");
-                                    const option_tamaño_n = document.getElementById("option_tamaño_n");
-                                    const tamaño_n = document.getElementById("tamaño_n");
-                                    const Desv_estandar = document.getElementById("Desv_estandar");
-
-                                    /*No normal variables*/
-                                    const NO_NORMALoption_desv_estandar = document.getElementById("NO_NORMALoption_desv_estandar");
-                                    const no_normalDesv_estandar = document.getElementById("no_normalDesv_estandar");
-                                    const NO_NORMALoption_tamaño_n = document.getElementById("NO_NORMALoption_tamaño_n");
-                                    const no_normaltamaño_n = document.getElementById("no_normaltamaño_n");
-
-
-
-                                    const calculateButton = document.getElementById("calculateButton");
-                                    const result = document.getElementById("result");
-
-                                    openModalButton.addEventListener("click", function() {
-                                        modal.style.display = "block";
-                                    });
-
-                                    closeModalButton.addEventListener("click", function() {
-                                        modal.style.display = "none";
-                                    });
-
-                                    /*opciones normal*/
-                                    /* IF (¿SE DISTIBUYE NORMAL?)*/
-                                    stdDeviationSelect.addEventListener("change", function() {
-                                        if (stdDeviationSelect.value === "si") {
-                                            result.innerHTML = "";
-                                            no_normaltamaño_n.style.display = "none";
-                                            no_normalDesv_estandar.style.display = "none";
-                                            Desv_estandar.style.display = "block";
-                                        } else {
-                                            result.innerHTML = "";
-                                            tamaño_n.style.display = "none";
-                                            Desv_estandar.style.display = "none";
-                                            no_normalDesv_estandar.style.display = "block";
-
-                                        }
-
-                                        if (stdDeviationSelect.value === "empty") {
-                                            no_normaltamaño_n.style.display = "none";
-                                            no_normalDesv_estandar.style.display = "none";
-                                            tamaño_n.style.display = "none";
-                                            Desv_estandar.style.display = "none";
-                                            result.innerHTML = "";
-                                        }
-                                    });
-
-                                    /* IF (¿Conoce el valor de la desviación estándar?)*/
-                                    option_desv_estandar.addEventListener("change", function() {
-                                        if (option_desv_estandar.value === "si") {
-                                            result.innerHTML = "";
-                                            tamaño_n.style.display = "none";
-                                            no_normaltamaño_n.style.display = "none";
-                                            no_normalDesv_estandar.style.display = "none";
-                                            result.innerHTML = "Te sugerimos calcular por el valor de (Z)";
-
-                                        } else {
-                                            tamaño_n.style.display = "block";
-                                            result.innerHTML = "";
-                                        }
-                                        if (option_desv_estandar.value === "empty") {
-                                            tamaño_n.style.display = "none";
-                                            result.innerHTML = "";
-                                        }
-                                    });
-
-
-
-
-                                    /* IF (¿Tamaño de poblacio (n) es mayor a 30 (n >30)?)*/
-                                    option_tamaño_n.addEventListener("change", function() {
-                                        if (option_tamaño_n.value === "si") {
-                                            result.innerHTML = "";
-                                            no_normaltamaño_n.style.display = "none";
-                                            no_normalDesv_estandar.style.display = "none";
-                                            tamaño_n.style.display = "block";
-                                            result.innerHTML = "Te sugerimos calcular por el valor de (Z)";
-                                        } else {
-                                            result.innerHTML = "";
-                                            no_normaltamaño_n.style.display = "none";
-                                            no_normalDesv_estandar.style.display = "none";
-                                            tamaño_n.style.display = "block";
-                                            result.innerHTML = "Te sugerimos calcular por el valor de (t)";
-                                        }
-
-                                        if (option_tamaño_n.value === "empty") {
-                                            tamaño_n.style.display = "none";
-                                            result.innerHTML = "";
-                                        }
-
-                                    });
-
-
-                                    /*opciones no normal*/
-
-                                    /* IF (¿Conoce el valor de la desviación estándar? NO NORMAL)*/
-                                    NO_NORMALoption_desv_estandar.addEventListener("change", function() {
-                                        if (NO_NORMALoption_desv_estandar.value === "si") {
-                                            no_normaltamaño_n.style.display = "block";
-                                            tamaño_n.style.display = "none";
-                                            Desv_estandar.style.display = "none";
-                                        } else {
-                                            no_normaltamaño_n.style.display = "block";
-                                            tamaño_n.style.display = "none";
-                                            Desv_estandar.style.display = "none";
-                                        }
-
-                                        if (NO_NORMALoption_desv_estandar.value === "empty") {
-                                            no_normaltamaño_n.style.display = "none";
-                                            result.innerHTML = "";
-                                        }
-                                    });
-
-                                    /* IF (¿Tamaño de poblacio (n) es mayor a 30 (n >30)?) NO NORMAL*/
-                                    NO_NORMALoption_tamaño_n.addEventListener("change", function() {
-                                        if (NO_NORMALoption_tamaño_n.value === "si") {
-                                            tamaño_n.style.display = "none";
-                                            Desv_estandar.style.display = "none";
-                                            result.innerHTML = "Te sugerimos calcular por el valor de (Z)";
-
-                                        } else {
-                                            tamaño_n.style.display = "none";
-                                            Desv_estandar.style.display = "none";
-                                            result.innerHTML = "No disponible para calcular";
-                                        }
-                                        if (NO_NORMALoption_tamaño_n.value === "empty") {
-
-                                            result.innerHTML = "";
-                                        }
-
-                                    });
-
-
-                                    calculateButton.addEventListener("click", function() {
-                                        // Aquí debes implementar el cálculo del intervalo de confianza según la selección y el valor de desviación estándar ingresado.
-                                        // Luego, muestra el resultado en el elemento 'result'.
-                                        result.innerHTML = "Aquí se mostrará el resultado del cálculo.";
-                                    });
-                                });
-                            </script>
                         </form>
                     </div>
                 </div>
@@ -591,7 +226,7 @@
             HISTORIA: EL PAPEL DE LA PROBABILIDAD EN ESTADÍSTICA
         </h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
             El estudio formal de la teoría de probabilidad se originó en los siglos diecisiete y dieciocho en Francia con Blasie Pascal y Pierre de Fermat, pero se conoce de otros matemáticos motivados por el estudio de los juegos de azar. Pero es en el siglo diecinueve cuando un modelo probabilístico se desarrolló para el comportamiento de las moléculas de un líquido, se llamó movimiento browniano, Robert Brown, botánico inglés fue el primero en observar el fenómeno en 1827. En 1905, Albert Einsten explicó el movimiento browniano bajo la hipótesis de que las partículas se sometían a un bombardeo continuo de moléculas en un medio circundante. Aplicación en el desarrollo del sistema telefónico.
         </p>
 
@@ -601,7 +236,7 @@
             DEFINICIONES: EXPERIMENTO, EVENTOS Y EL ESPACIO MUESTRAL
         </h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
             Se obtienen datos al observar ya sea eventos no controlados en la naturaleza o situaciones controladas en un laboratorio. Usamos el término experimento para describir cualquiera de los dos métodos de recolección de datos.
         </p>
         <br>
@@ -609,7 +244,7 @@
             Experimento aleatorio
         </h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
             es un proceso donde los resultados no se pueden establecer con certeza, pero si asignarle una medida de la probabilidad de su ocurrencia.
 
             Tienen las siguientes características:
@@ -619,7 +254,7 @@
             .- El experimento es tal que se podría repetir en condiciones que permanezcan invariables, ocurriendo los resultados de manera fortuita, y a medida que el número de repeticiones aumenta, surgen ciertos patrones en la frecuencia de ocurrencia de los resultados.
         </p>
         <br>
-        <p> Ejemplo:
+        <p class="p_probabilidad"> Ejemplo:
             <br>
 
             <br>
@@ -632,7 +267,7 @@
         <br>
 
 
-        <p>
+        <p class="p_probabilidad">
             Lanzar un dado:
 
         </p><br>
@@ -644,7 +279,7 @@
             Ley de los grandes números:
         </h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
             Al repetir un Experimento Aleatorio un número de veces, la frecuencia relativa de cada suceso presenta una tendencia o estabilización de los resultados a un número fijo, y mientras mayor sea el número de repeticiones el resultado tiende a un patrón. </p>
         <div class="img_probabilidad">
             <img width="400px" height="300px" src="https://economipedia.com/wp-content/uploads/Ley-de-los-grandes-n%C3%BAmeros.jpg" atl="monedas" />
@@ -655,7 +290,7 @@
             Espacio muestral:
         </h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
             Conjunto de todos los posibles resultados diferentes de un experimento aleatorio, se listan todos los eventos simples. Se denota por S o W.
 
             Este experimento se puede representar en notación de conjuntos como un conjunto que tiene dos eventos simples:
@@ -687,14 +322,14 @@
         </h4>
 
         <br>
-        <p>
+        <p class="p_probabilidad">
             Se asocia a un experimento aleatorio y presenta una o varias respuestas u observaciones después de realizar el experimento,<br> puede ser un subconjunto del espacio muestral. Normalmente se representa con letras mayúsculas. A, B , C….
         </p>
         <h5>
             Evento simple es el resultado que se observa en una sola repetición del experimento. <br>No se puede descomponer en resultados más simples.
         </h5>
         <br>
-        <p>
+        <p class="p_probabilidad">
             Cabe señalar que, si este experimento se realiza una sola vez, podemos observar uno y sólo uno de los valores. Y no se puede descomponer en otro resultado más simple.
 
             Cuando se realiza un experimento, lo que observamos es un resultado llamado evento simple, con frecuencia denotado por la mayúscula E con un subíndice.
@@ -710,14 +345,14 @@
         </div>
         <h5>Requisitos para Probabilidades de un Evento Simple</h5>
         <br>
-        <p>
+        <p class="p_probabilidad">
             - Cada probabilidad debe estar entre 0 y 1<br>
 
             - La suma de las probabilidades de todos los eventos sencillos en S es igual a 1
         </p>
 
         <h5>Evento Compuesto</h5><br>
-        <p>es un conjunto de combinación de varios eventos simples
+        <p class="p_probabilidad">es un conjunto de combinación de varios eventos simples
 
             Podemos deﬁnir los eventos A y B para el experimento de lanzar al aire un dado y observar el número de la cara superior.
 
@@ -745,7 +380,7 @@
             <button type="button" class="btn btn-success"><a class="ejercicios_button" href="ejercicios_probabilidad">Ejercicios</a></button>
         </div>
         <h5>Experimento:</h5><br>
-        <p>
+        <p class="p_probabilidad">
             Lanzar al aire un dado y observar el número de la cara superior.
 
             Espacio muestral S= {1,2,3,4,5,6} (6 OPCIONES)<br><br>
@@ -802,7 +437,7 @@
         </div>
         <h4>CONCEPTOS GENERALES DE PROBABILIDAD</h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
             La probabilidad es un valor numérico, proporción o fracción cuyo valor varía entre 0 y 1 (normalmente expresada en porcentaje para entendimientos de los lectores, pero para los teóricos se presenta en cifras significativas) que representa la oportunidad o posibilidad de que un evento ocurra.
 
             Representa el grado de incertidumbre o posibilidad que suceda un suceso.
@@ -812,24 +447,24 @@
         <br>
         <h4>Fenómenos Determinísticos y Fenómenos Aleatorios:</h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
             Fenómeno proviene de la palabra griega Phenomena, aspecto que se tienen de las cosas ante nuestros sentidos, es decir el contacto que tenemos con las cosas, que se denomina EXPERIENCIA.
         </p>
         <h4>- Fenómeno Determinístico:</h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
             Son los sucesos, situaciones o fenómenos de los cuales se conoce con toda precisión sus resultados. Se denominan previsible, regido por leyes determinadas, o bajo unas condiciones dadas. Ejemplo: Espacio recorrido= velocidad x tiempo </p>
         </p>
         <br>
         <h4>- Fenómeno Aleatorio:</h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
             Son aquellos problemas, situaciones o fenómenos en las cuales no es factible precisar exactamente los resultados posibles, dado que presentan incertidumbre, azar, imprecisión, etc., no siguen unas leyes determinadas. </p>
         <br>
 
         <h4>Tipos de Enfoque de Probabilidades:</h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
 
             Se cuenta además con formas planteadas para identificar al concepto de probabilidad, una se determinó bajo la experimentación y se terminó con la que se estableció con una estructura de teoría.
 
@@ -837,7 +472,7 @@
         </p>
         <h4>Probabilidad Clásica: (A priori):</h4>
         <br>
-        <p>
+        <p class="p_probabilidad">
             Es la definición más antigua y se atribuye al matemático francés Pierre Laplace (1749- 1827); también se conoce con el nombre de probabilidad a priori, pues para calcularla, es necesario conocer, antes de realizar el experimento aleatorio, el espacio muestral y el número de resultados o sucesos elementales que entran a formar parte del suceso.
 
             Si la probabilidad de un evento “A” se define como la frecuencia relativa de “A” en el espacio muestral “Ω” (o S) y se denota como P(A).
@@ -1107,30 +742,32 @@
                     </div>
 
                     <br>
-                    <div id="result_tittle">👇👇👇👇👇👇👇</div>
-                    <div id="result"></div>
+                   
+                    <div id="result_nulo" class="button"></div>
+                    <div id="result_z" class="button" onclick="openModal(1)"></div>
+                    <div id="result_t" class="button" onclick="openModal(2)"></div>
                 </form>
             </div>
         </div>
-        <div>
-            <h3 data-aos="zoom-in">Intervalo de confianza (Z)</h3>
-            <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando conoces la desviación estándar
-                poblacional (σ) y tu muestra sigue una distribución normal.<br>
-                <br>Fórmula: El intervalo de confianza (Z) se calcula como:<br> <br>LI = X̄ - Z * (σ / √n)<br><br>LS = X̄ + Z * (σ / √n)<br>
-                <br>
-                Cuándo usarlo: Debes usar el intervalo de confianza (Z) cuando tengas una muestra grande o conocias la desviación estándar poblacional y la distribución de la muestra es normal.
-            </p>
-            <p class="inter_z" data-aos="zoom-in-left"> Detalles:<br>
-                <br>(X̄) es la media muestral.<br>
-                <br>(Z) es el valor crítico de la distribución normal estándar. <br>Este valor se obtiene de tablas de la distribución Z o utilizando software estadístico.<br>
-                <br>(σ) es la desviación estándar poblacional conocida.<br>
-                <br>(n) es el tamaño de la muestra.<br>
-            </p>
+
+        <h3 data-aos="zoom-in">Intervalo de confianza (Z)</h3>
+        <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando conoces la desviación estándar
+            poblacional (σ) y tu muestra sigue una distribución normal.<br>
+            <br>Fórmula: El intervalo de confianza (Z) se calcula como:<br> <br>LI = X̄ - Z * (σ / √n)<br><br>LS = X̄ + Z * (σ / √n)<br>
             <br>
-            <div data-aos="zoom-in-left" class="buttons">
-                <!-- Botones para abrir los modales -->
-                <button type="button" class="btn btn-success" onclick="openModal(1)">Calcular intervalo de confianza (Z)</button>
-            </div>
+            Cuándo usarlo: Debes usar el intervalo de confianza (Z) cuando tengas una muestra grande o conocias la desviación estándar poblacional y la distribución de la muestra es normal.
+        </p>
+        <p class="inter_z"> Detalles:<br>
+            <br>(X̄) es la media muestral.<br>
+            <br>(Z) es el valor crítico de la distribución normal estándar. <br>Este valor se obtiene de tablas de la distribución Z o utilizando software estadístico.<br>
+            <br>(σ) es la desviación estándar poblacional conocida.<br>
+            <br>(n) es el tamaño de la muestra.<br>
+        </p>
+        <br>
+        <div data-aos="zoom-in-left" class="buttons">
+            <!-- Botones para abrir los modales -->
+            <button type="button" class="btn btn-success" onclick="openModal(1)">Calcular intervalo de confianza (Z)</button>
+        </div>
         </div>
         <br>
         <hr>
@@ -1139,7 +776,7 @@
         <!-- Segundo metodo espacio-->
         <div>
             <h3 data-aos="zoom-in-right">Intervalo de confianza (t)</h3>
-            <p class="inter_z" data-aos="zoom-in-left">Explicación: Este tipo de intervalo de confianza se utiliza cuando no conoces la desviación estándar poblacional (σ) y tu muestra sigue una distribución normal. En su lugar, utilizas la desviación estándar de la muestra (s) para estimar la poblacional.<br>
+            <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando no conoces la desviación estándar poblacional (σ) y tu muestra sigue una distribución normal. En su lugar, utilizas la desviación estándar de la muestra (s) para estimar la poblacional.<br>
                 <br>Fórmula: El intervalo de confianza (t) se calcula como:<br> <br>LI = X̄ - t * (s / √n)<br><br>LS = X̄ + t * (s / √n)<br>
                 <br>
                 Cuándo usarlo: Debes usar el intervalo de confianza (t) cuando no conozcas la desviación estándar poblacional y la distribución de la muestra sea normal.
@@ -1162,7 +799,7 @@
         <!-- Tercer metodo espacio-->
         <div>
             <h3 data-aos="zoom-in-left">Intervalo de Confianza Proporcional (Z)</h3>
-            <p class="inter_z" data-aos="zoom-in-left">Explicación: Este tipo de intervalo de confianza se utiliza para estimar la proporción de una población cuando tienes una muestra grande y conoces la desviación estándar poblacional.<br>
+            <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza para estimar la proporción de una población cuando tienes una muestra grande y conoces la desviación estándar poblacional.<br>
                 <br>Fórmula: El intervalo de confianza proporcional (Z) se calcula como:<br> <br>LI = p - Z * √((p(1-p) / n))<br><br>LS = p + Z * √((p(1-p) / n))<br>
                 <br>
                 Cuándo usarlo: Debes usar el intervalo de confianza proporcional (Z) cuando quieras estimar la proporción de una población y tengas una muestra grande conociendo la desviación estándar poblacional.
@@ -1184,7 +821,7 @@
     <br><br>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="assets/js/all.js"></script>
-
+    <script src="assets/js/intervalo_cal.js"></script>
     <!-- BackToTop Button -->
     <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
 
@@ -1199,346 +836,3 @@
 </main>
 
 </html>
-
-<br>
-<br>
-<style>
-    #desviación_estándarsi-no,
-    #tamaño_n,
-    #Desv_estandar,
-    #no_normaltamaño_n,
-    #no_normalDesv_estandar {
-        display: none;
-    }
-
-    .ejercicios_button {
-        color: white;
-        text-decoration: none;
-        text-align: center;
-        margin-top: 100px;
-    }
-
-    .table {
-        background-color: #e74c3c;
-        width: 550px;
-        text-align: center;
-        color: #ffffff;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .img_probabilidad {
-        text-align: center;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    .Inferencia_estadística {
-        background-color: #1e1e31;
-        margin-top: 200px;
-        padding-top: 200px;
-    }
-
-    .Distribución_Binomial {
-        background-color: #1e1e31;
-        margin-top: 200px;
-        padding-top: 200px;
-    }
-
-    .Variable_aleatoria {
-        background-color: #1e1e31;
-        margin-top: 200px;
-        padding-top: 200px;
-    }
-
-    .Distribución_normal {
-        background-color: #1e1e31;
-        margin-top: 200px;
-        padding-top: 200px;
-    }
-
-    .Clasificación_variables {
-        background-color: #1e1e31;
-        margin-top: 200px;
-        padding-top: 200px;
-    }
-
-    .tlc {
-        background-color: #1e1e31;
-        margin-top: 200px;
-        padding-top: 200px;
-    }
-
-    .intervalo_sect {
-        background-color: #1e1e31;
-        margin-top: 200px;
-        padding-top: 200px;
-    }
-
-    .probabilidad {
-        background-color: #1e1e31;
-        margin-top: 200px;
-        padding-top: 200px;
-    }
-
-    .titulos_h1 {
-        margin-top: 100px;
-        text-align: center;
-        color: #ffffff;
-        text-transform: uppercase;
-        word-spacing: 20px;
-        letter-spacing: 10px;
-    }
-
-
-    /* BackToTop button css */
-    #scroll {
-        position: fixed;
-        right: 10px;
-        bottom: 10px;
-        cursor: pointer;
-        width: 50px;
-        height: 50px;
-        background-color: #3498db;
-        text-indent: -9999px;
-        display: none;
-        -webkit-border-radius: 60px;
-        -moz-border-radius: 60px;
-        border-radius: 60px
-    }
-
-    #scroll span {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: -8px;
-        margin-top: -12px;
-        height: 0;
-        width: 0;
-        border: 8px solid transparent;
-        border-bottom-color: #ffffff
-    }
-
-    #scroll:hover {
-        background-color: #e74c3c;
-        opacity: 1;
-        filter: "alpha(opacity=100)";
-        -ms-filter: "alpha(opacity=100)";
-    }
-
-    /*Flecha para hacer la pagina hacia arriba*/
-    .ir-arriba {
-        display: none;
-        background-repeat: no-repeat;
-        font-size: 20px;
-        color: black;
-        cursor: pointer;
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        z-index: 2;
-    }
-
-    .content_indice {
-        background-color: #2c2c49;
-        position: fixed;
-        top: 0;
-        border-radius: 0px 5px 5px 0px;
-
-        height: 100%;
-        width: 200px;
-    }
-
-    .salida {
-        text-align: center;
-    }
-
-    h2 {
-        color: #000;
-        text-align: center;
-    }
-
-    h1 {
-        color: #ffffff;
-        text-align: center;
-    }
-
-    .buttons {
-        margin-top: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    h4,
-    h5 {
-        text-align: center;
-        margin-top: 150px;
-        color: #fff
-    }
-
-    h3 {
-        text-align: center;
-        color: #fff;
-        margin-top: 100px;
-    }
-
-    p {
-        color: white;
-        text-align: center;
-        display: block;
-        margin-left: auto !important;
-        margin-right: auto;
-    }
-
-    .error-message {
-        color: white;
-        background-color: #ff7c00;
-        width: 230px;
-        border-radius: 10px;
-        text-align: center;
-    }
-
-    input {
-        border-style: solid;
-        border-radius: 12px;
-    }
-
-    label {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    /* Paragraph */
-    .intro {
-        color: #fff;
-        width: 500px;
-        height: 350px;
-        margin-top: 100px;
-        display: flex;
-        align-items: center;
-        left: auto !important;
-        margin-right: auto !important;
-        margin-left: auto !important;
-        text-align: center;
-    }
-
-    .inter_z {
-        color: white;
-        width: 500px;
-        height: 350px;
-        display: flex;
-        align-items: center;
-        left: auto !important;
-        margin-right: auto !important;
-        margin-left: auto !important;
-        text-align: center;
-    }
-
-    .error-text {
-        width: 19%;
-        background-color: ff0000;
-        border-radius: 5px;
-        color: white;
-        text-align: center;
-    }
-
-    .buttons {
-        display: flex;
-        gap: 10px;
-    }
-
-    body::-webkit-scrollbar-track {
-        background: #161623;
-        /* color of the tracking area */
-    }
-
-    /* Horizontal Rule */
-    hr {
-        background-color: #ffffff;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        width: 50%;
-        height: 2px;
-    }
-
-
-    body::-webkit-scrollbar-thumb {
-        backdrop-filter: blur(10px);
-        /* Chrome and Opera */
-        background-color: rgba(255, 255, 255, 0.3);
-        /* color of the scroll thumb */
-        border-radius: 20px;
-        /* roundness of the scroll thumb */
-        border: 3px solid #161623;
-        /* creates padding around scroll thumb */
-    }
-
-    .modal {
-        display: none;
-        position: fixed;
-        background-color: rgba(0, 0, 0, 0.5);
-        /* Fondo semitransparente */
-        z-index: 100;
-        overflow: auto;
-        /* Agrega scroll cuando sea necesario */
-        left: 0;
-        top: 0;
-        color: #000;
-        width: 100%;
-        height: 100%;
-    }
-
-    /* Estilos para el contenido del modal */
-    .modal-content {
-        background-color: #fbfdee;
-        margin: 15% auto;
-        padding: 20px;
-        color: #000;
-        width: 50%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-height: 80%;
-        /* Altura máxima del modal */
-        overflow-y: auto;
-        /* Agrega scroll en el contenido si es necesario */
-    }
-
-    /* Estilos para el botón de cerrar */
-    .close {
-        color: #000;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    /* Estilos para el botón de cerrar cuando se pasa el mouse sobre él */
-    .close:hover {
-        color: red;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    /* Paragraph */
-    section p {
-        width: 500px;
-    }
-
-    body {
-        background-image: url("https://images.unsplash.com/photo-1695970922375-34520eca9bed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNTc5fDB8MXxhbGx8MTEzMnx8fHx8fDJ8fDE2OTgxMjU3NTR8&ixlib=rb-4.0.3&q=80&w=2560") !important;
-        background-attachment: fixed !important;
-        background-size: cover !important;
-    }
-
-    .btn {
-        border: none;
-        background: #580078;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: .5s;
-    }
-</style>
