@@ -683,10 +683,12 @@
                 <h2>¿Por que metodo calcular? <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBElEQVR4nJ3SSyuFURQG4KeIGOi4HAOZ+gV0TBgpM7llpiQZ+BEmMjkuITEyIJcxZ2LiiLkfpV3702fb3wlv7dr7Xetde623RTVGMIVpDPkDVtFGC0c4xhNesNhJ2Iu7KMj9OIhT3MTcH7jFesKF9hsJt4HrVLwc2y1jAm94j/cyzrBQJtqoJUmj+IinnhknePLl9qM8+tFXEWsVXk1m2g/owjku0Z2JHxT+NNDMJAT+AieYycSb0WT1ihFmsYddzGXiYTeGi8drxsROBWrR+G/bd+j3BcJYKwknJaoKbOMhFRcYw35scRzz2MEmBqLz9+ipKhCwhK3SO+zCFZ6x1kn4L3wCiS0qJ/vqw/4AAAAASUVORK5CYII=" title="Nombre de la imagen" alt="Nombre de la imagen" />
                 </h2>
                 <p>¡Hola! te ayudaremos a que conozcas el metodo por el cual calcular tu intervalo de confianza<br>para ello te realizaremos una serie de preguntas que nos permitan definir el mejor metodo para tu objetivo </p>
+         
+                <div data-aos="zoom-in-left">
+             <button type="button" class="btn btn-secondary" id="clean">Limpiar</button>
+        </div>
+             
                 <form id="confidenceIntervalForm">
-
-
-
                     <label>¿Se distribuye normal?</label>
                     <select id="stdDeviationSelect">
                         <option value="empty">...</option>
@@ -719,7 +721,6 @@
                     </div>
                     <br>
 
-
                     <!-- NO NORMAL -->
                     <!--NO NORMAL ¿Se distribuye normal? (si - no)-->
                     <div id="no_normalDesv_estandar">
@@ -740,9 +741,7 @@
                             <option value="no">No</option>
                         </select>
                     </div>
-
                     <br>
-                   
                     <div id="result_nulo" class="button"></div>
                     <div id="result_z" class="button" onclick="openModal(1)"></div>
                     <div id="result_t" class="button" onclick="openModal(2)"></div>
@@ -834,5 +833,4 @@
     </a>
 </body>
 </main>
-
 </html>

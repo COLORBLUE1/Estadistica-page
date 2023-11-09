@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const openModalButton = document.getElementById("openModal");
     const closeModalButton = document.getElementById("closeModal");
     const modal = document.getElementById("modal");
-
+    const clean = document.getElementById("clean");
 
     /*Variables de opciones*/
     const stdDeviationSelect = document.getElementById("stdDeviationSelect");
@@ -176,6 +176,20 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.style.display = "none";
     });
 
+    clean.addEventListener("click", function() {
+        no_normaltamaño_n.style.display = "none";
+            no_normalDesv_estandar.style.display = "none";
+            tamaño_n.style.display = "none";
+            Desv_estandar.style.display = "none";
+            result_t.style.display = "none";
+            result_z.style.display = "none";
+            result_nulo.style.display = "none";
+            result_nulo.innerHTML = "";
+            result_t.innerHTML = "";
+            result_z .innerHTML = "";
+            clean.style.display = "none";
+    });
+
     /*opciones normal*/
     /* IF (¿SE DISTIBUYE NORMAL?)*/
     stdDeviationSelect.addEventListener("change", function() {
@@ -186,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
             no_normaltamaño_n.style.display = "none";
             no_normalDesv_estandar.style.display = "none";
             Desv_estandar.style.display = "block";
+            clean.style.display = "block";
         } else {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
@@ -196,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
             result_z.style.display = "none";
             result_nulo.style.display = "none";
             no_normalDesv_estandar.style.display = "block";
-          
+            clean.style.display = "block";
         }
 
         if (stdDeviationSelect.value === "empty") {
@@ -210,6 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
             result_z .innerHTML = "";
+            clean.style.display = "none";
         }
     });
 
@@ -225,6 +241,7 @@ document.addEventListener("DOMContentLoaded", function() {
             result_t.style.display = "none"
             result_nulo.style.display = "none";
             result_z.style.display = "block";
+            clean.style.display = "block";
             result_z.innerHTML = "Te sugerimos calcular por el valor de (Z)";
         } else {
             tamaño_n.style.display = "block";
@@ -234,12 +251,14 @@ document.addEventListener("DOMContentLoaded", function() {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
             result_z .innerHTML = "";
+            clean.style.display = "block";
         }
         if (option_desv_estandar.value === "empty") {
             tamaño_n.style.display = "none";
             result_t.style.display = "none";
             result_z.style.display = "none";
             result_nulo.style.display = "none";
+            clean.style.display = "none";
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
             result_z .innerHTML = "";
@@ -259,6 +278,7 @@ document.addEventListener("DOMContentLoaded", function() {
             no_normalDesv_estandar.style.display = "none";
             tamaño_n.style.display = "block";
             result_z.style.display = "block";
+            clean.style.display = "block";
             result_t.style.display = "none";
             result_nulo.style.display = "none";
             result_z.innerHTML = "Te sugerimos calcular por el valor de (Z)";
@@ -272,12 +292,14 @@ document.addEventListener("DOMContentLoaded", function() {
             result_nulo.style.display = "none";
             tamaño_n.style.display = "block";
             result_t.style.display = "block";
+            clean.style.display = "block";
             result_t.innerHTML = "Te sugerimos calcular por el valor de (t)";
         }
 
         if (option_tamaño_n.value === "empty") {
              result_t.style.display = "none";
              result_z.style.display = "none";
+             clean.style.display = "none";
              result_nulo.style.display = "none";
             tamaño_n.style.display = "none";
             result_nulo.innerHTML = "";
@@ -294,6 +316,7 @@ document.addEventListener("DOMContentLoaded", function() {
     NO_NORMALoption_desv_estandar.addEventListener("change", function() {
         if (NO_NORMALoption_desv_estandar.value === "si") {
             no_normaltamaño_n.style.display = "block";
+            clean.style.display = "block";
             result_z.style.display = "none";
             result_t.style.display = "none";
             result_nulo.style.display = "none";
@@ -301,6 +324,7 @@ document.addEventListener("DOMContentLoaded", function() {
             Desv_estandar.style.display = "none";
         } else {
             no_normaltamaño_n.style.display = "block";
+            clean.style.display = "block";
             result_z.style.display = "none";
             result_t.style.display = "none";
             result_nulo.style.display = "none";
@@ -310,6 +334,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (NO_NORMALoption_desv_estandar.value === "empty") {
             result_z.style.display = "none";
+            clean.style.display = "none";
             result_t.style.display = "none";
             result_nulo.style.display = "none";
             no_normaltamaño_n.style.display = "none";
@@ -324,12 +349,13 @@ document.addEventListener("DOMContentLoaded", function() {
         if (NO_NORMALoption_tamaño_n.value === "si") {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
-            result_z .innerHTML = "";
+            result_z .innerHTML = ""; 
             result_t.style.display = "none";
             result_nulo.style.display = "none";
             tamaño_n.style.display = "none";
             Desv_estandar.style.display = "none";
             result_z.style.display = "block";
+            clean.style.display = "block";
             result_z.innerHTML = "Te sugerimos calcular por el valor de (Z)";
         } else {
             result_z.style.display = "none";
@@ -341,6 +367,7 @@ document.addEventListener("DOMContentLoaded", function() {
             tamaño_n.style.display = "none";
             Desv_estandar.style.display = "none";
             result_nulo.style.display = "block";
+            clean.style.display = "block";
             result_nulo.innerHTML = "No disponible para calcular";
         }
         if (NO_NORMALoption_tamaño_n.value === "empty") {
@@ -348,6 +375,7 @@ document.addEventListener("DOMContentLoaded", function() {
             result_t.innerHTML = "";
             result_z .innerHTML = "";
             result_t.style.display = "none";
+            clean.style.display = "none";
             result_z.style.display = "none";
             result_nulo.style.display = "none";
         }
