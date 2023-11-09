@@ -1,137 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Intervalo de Confianza</title>
+    <title>Calculadora de intervalo de confianza</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
-           /* Estilos para ocultar el modal por defecto */
-           .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            align-items: center;
-            justify-content: center;
+        body {
+            font-family: sans-serif;
         }
 
-        /* Estilos para el contenido del modal */
-        .modal-content {
-            background-color: #fff;
+        .modal {
+            width: 500px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px #ccc;
         }
 
-        /* Estilos para el botón de cierre del modal */
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+        .modal-header {
+            background-color: #ccc;
+            padding: 10px;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            background-color: #ccc;
+            padding: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border: none;
             cursor: pointer;
         }
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .form-container {
-            display: flex;
-            flex-direction: column;
-            width: 300px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 10px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 5px;
-            box-sizing: border-box;
-        }
-        .result {
-            margin-top: 20px;
-            text-align: center;
-            font-weight: bold;
+
+        p {
+            margin: 0;
         }
     </style>
 </head>
+
 <body>
-  
-
-    <button id="openModalBtn">Abrir Modal</button>
-
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="closeModalBtn">&times;</span>
-        <h2>Este es un modal</h2>
-        <div class="form-container">
-        <div class="form-group">
-            <label for="muestra">Tamaño de muestra</label>
-            <input type="number" id="muestra" required>
-        </div>
-        <div class="form-group">
-            <label for="media">Media muestral</label>
-            <input type="number" id="media" required>
-        </div>
-        <div class="form-group">
-            <label for="desviacion">Desviación estándar</label>
-            <input type="number" id="desviacion" required>
-        </div>
-        <div class="form-group">
-            <label for="nivel">Nivel de confianza (%)</label>
-            <input type="number" id="nivel" required>
-        </div>
-        <div class="result">
-            <p id="resultado"></p>
-        </div>
+<div id="modal">
+    <div class="modal-header">
+      <h2>Calculadora de intervalo de confianza</h2>
     </div>
+    <div class="modal-body">
+      <form action="" onsubmit="calcular()">
+        <input type="text" id="media" placeholder="Media" required>
+        <input type="text" id="desviacion" placeholder="Desviación estándar" required>
+        <input type="text" id="alfa" placeholder="Nivel de confianza" required>
+        <input type="text" id="gradosLibertad" placeholder="Grados de libertad" required>
+        <input type="text" id="poblacion" placeholder="Tamaño de la población" required>
+        <button type="submit">Calcular</button>
+      </form>
     </div>
-</div>
-
-<script>
-    const openModalBtn = document.getElementById("openModalBtn");
-    const closeModalBtn = document.getElementById("closeModalBtn");
-    const modal = document.getElementById("myModal");
-
-    openModalBtn.addEventListener("click", () => {
-        modal.style.display = "block";
-    });
-
-    closeModalBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-
-    window.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-</script>
+    <div class="modal-footer">
+      <button id="cerrar">Cerrar</button>
+      <p id="resultado"></p>
+    </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
-        function calcularIntervalo() {
-            const muestra = parseFloat(document.getElementById('muestra').value);
-            const media = parseFloat(document.getElementById('media').value);
-            const desviacion = parseFloat(document.getElementById('desviacion').value);
-            const nivel = parseFloat(document.getElementById('nivel').value);
+        function calcular() {
+            var media = document.getElementById("media").value;
+            var desviacion = document.getElementById("desviacion").value;
+            var alfa = document.getElementById("alfa").value;
+            var gradosLibertad = document.getElementById("gradosLibertad").value;
+            var poblacion = document.getElementById("poblacion").value;
 
-          
-            const valorZ = 1.96; // Aproximación para niveles de confianza de 95% y 99%
-            const intervalo = valorZ * (desviacion / Math.sqrt(muestra));
-            const resultado = `Intervalo de confianza: (${media - intervalo}, ${media + intervalo})`;
-            document.getElementById('resultado').textContent = resultado;
+            var t = calcularT(alfa, gradosLibertad);
+
+            var intervalo = t * desviacion / Math.sqrt(poblacion);
+
+            var resultado = `
+    Intervalo de confianza: ${media - intervalo} < μ < ${media + intervalo}
+  `;
+
+            document.getElementById("resultado").innerHTML = resultado;
         }
 
-        document.getElementById('muestra').addEventListener('input', calcularIntervalo);
-        document.getElementById('media').addEventListener('input', calcularIntervalo);
-        document.getElementById('desviacion').addEventListener('input', calcularIntervalo);
-        document.getElementById('nivel').addEventListener('input', calcularIntervalo);
+        function calcularT(alfa, gradosLibertad) {
+            var t = 0;
+
+            var tTabla = [
+                [0.001, 3.182],
+                [0.01, 2.776],
+                [0.025, 2.571],
+                [0.05, 2.326],
+                [0.1, 1.960],
+            ];
+
+            for (var i = 0; i < tTabla.length; i++) {
+                if (alfa <= tTabla[i][0]) {
+                    t = tTabla[i][1];
+                    break;
+                }
+            }
+
+            return t;
+        }
+
+        function cerrarModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        document.getElementById("media").addEventListener("change", calcular);
+        document.getElementById("desviacion").addEventListener("change", calcular);
+        document.getElementById("alfa").addEventListener("change", calcular);
+        document.getElementById("gradosLibertad").addEventListener("change", calcular);
+        document.getElementById("poblacion").addEventListener("change", calcular);
     </script>
 </body>
+
 </html>

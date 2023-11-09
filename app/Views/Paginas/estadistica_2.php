@@ -718,7 +718,7 @@
                             <option value="no">No</option>
                         </select>
                     </div>
-                  
+
 
                     <!-- NO NORMAL -->
                     <!--NO NORMAL ¿Se distribuye normal? (si - no)-->
@@ -730,7 +730,7 @@
                             <option value="no">No</option>
                         </select>
                     </div>
-                   
+
                     <!--(NO NORMAL) ¿Tamaño de poblacio (n) es mayor a 30 (n >30)? (si - no)-->
                     <div id="no_normaltamaño_n">
                         <label>¿Tamaño de poblacio (n) es mayor a 30 (n >30).?</label>
@@ -740,7 +740,7 @@
                             <option value="no">No</option>
                         </select>
                     </div>
-                  
+
                     <div class="buttons">
                         <!-- Botones para abrir los modales -->
                         <button type="button" class="btn btn-success" id="openModalBtn_result_nulo">
@@ -749,22 +749,21 @@
                     </div>
 
                     <div class="buttons">
-                      
+
                         <button type="button" class="btn btn-success" id="openModalBtn_result_z">
                             <h3 id="result_z" class="button"></h3>
                         </button>
                     </div>
                     <div class="buttons">
-                      
+
                         <button type="button" class="btn btn-success" id="openModalBtn_result_t">
                             <h3 id="result_t" class="button"></h3>
                         </button>
                     </div>
-
+                </form>
             </div>
-            </form>
         </div>
-        </div>
+
 
         <h3 data-aos="zoom-in">Intervalo de confianza (Z)</h3>
         <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando conoces la desviación estándar
@@ -833,11 +832,42 @@
             </p>
             <br>
             <div data-aos="zoom-in-left" class="buttons">
-                <button type="button" class="btn btn-success" id="openModal">Calcular intervalo de confianza (t de Student)</button>
+                <button type="button" class="btn btn-success" id="openModalBtn_t">Calcular intervalo de confianza (t de Student)</button>
             </div>
         </div>
+ <div id="myModal_t" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModalBtn">&times;</span>
+                    <h2>Este es un modal</h2>
+                    <form action="" onsubmit="calcular()">
+                        <input type="text" id="media" placeholder="Media" required>
+                        <input type="text" id="desviacion" placeholder="Desviación estándar" required>
+                        <input type="text" id="alfa" placeholder="Nivel de confianza" required>
+                        <input type="text" id="gradosLibertad" placeholder="Grados de libertad" required>
+                        <input type="text" id="poblacion" placeholder="Tamaño de la población" required>
+                     
+                    </form>
+                    <div class="result">
+                        <p id="resultado"></p>
+                        <div class="modal-body">
+
+</div>
+<div class="modal-footer">
+   
+    <p id="resultado"></p>
+</div>
+                    </div>
+                </div>
+            </div>
+
+
+       
+        
+
+        
         <br>
-        <hr><br>
+        <hr>
+        <br>
 
         <!-- Tercer metodo espacio-->
         <div>
