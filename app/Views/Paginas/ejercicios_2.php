@@ -4,125 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de intervalo de confianza</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>T-Student Modal</title>
     <style>
-        body {
-            font-family: sans-serif;
-        }
-
-        .modal {
-            width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px #ccc;
-        }
-
-        .modal-header {
-            background-color: #ccc;
-            padding: 10px;
-        }
-
-        .modal-body {
-            padding: 20px;
-        }
-
-        .modal-footer {
-            background-color: #ccc;
-            padding: 20px;
-        }
-
-        input {
+        /* Estilos para ocultar el modal por defecto */
+        .modal_t {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
         }
 
-        button {
-            background-color: #000;
-            color: #fff;
-            padding: 10px;
-            border: none;
+        /* Estilos para el contenido del modal */
+        .modal-content_t {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Estilos para el botón de cierre del modal */
+        .close_t {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             cursor: pointer;
-        }
-
-        p {
-            margin: 0;
         }
     </style>
 </head>
 
 <body>
-<div id="modal">
-    <div class="modal-header">
-      <h2>Calculadora de intervalo de confianza</h2>
+    <button onclick="openModal()">Abrir Calculadora</button>
+
+    <div id="myModal_t" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Calculadora de Intervalo de Confianza</h2>
+            <form oninput="calculateInterval()">
+                <label for="sampleMean_t">Media de la muestra:</label>
+                <input type="number" step="any" id="sampleMean_t" required>
+
+                <label for="sampleSize_t">Tamaño de la muestra:</label>
+                <input type="number" id="sampleSize_t" required>
+
+                <label for="confidenceLevel_t">Nivel de confianza (%):</label>
+                <input type="number" step="any" id="confidenceLevel_t" required>
+
+                <label for="result_t">Intervalo de Confianza:</label>
+                <input type="text" id="result_t" readonly>
+
+                <button type="submit">Calcular</button>
+            </form>
+        </div>
     </div>
-    <div class="modal-body">
-      <form action="" onsubmit="calcular()">
-        <input type="text" id="media" placeholder="Media" required>
-        <input type="text" id="desviacion" placeholder="Desviación estándar" required>
-        <input type="text" id="alfa" placeholder="Nivel de confianza" required>
-        <input type="text" id="gradosLibertad" placeholder="Grados de libertad" required>
-        <input type="text" id="poblacion" placeholder="Tamaño de la población" required>
-        <button type="submit">Calcular</button>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button id="cerrar">Cerrar</button>
-      <p id="resultado"></p>
-    </div>
-  </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
     <script>
-        function calcular() {
-            var media = document.getElementById("media").value;
-            var desviacion = document.getElementById("desviacion").value;
-            var alfa = document.getElementById("alfa").value;
-            var gradosLibertad = document.getElementById("gradosLibertad").value;
-            var poblacion = document.getElementById("poblacion").value;
-
-            var t = calcularT(alfa, gradosLibertad);
-
-            var intervalo = t * desviacion / Math.sqrt(poblacion);
-
-            var resultado = `
-    Intervalo de confianza: ${media - intervalo} < μ < ${media + intervalo}
-  `;
-
-            document.getElementById("resultado").innerHTML = resultado;
+        function openModal() {
+            document.getElementById("myModal_t").style.display = "block";
         }
 
-        function calcularT(alfa, gradosLibertad) {
-            var t = 0;
-
-            var tTabla = [
-                [0.001, 3.182],
-                [0.01, 2.776],
-                [0.025, 2.571],
-                [0.05, 2.326],
-                [0.1, 1.960],
-            ];
-
-            for (var i = 0; i < tTabla.length; i++) {
-                if (alfa <= tTabla[i][0]) {
-                    t = tTabla[i][1];
-                    break;
-                }
-            }
-
-            return t;
+        function closeModal() {
+            document.getElementById("myModal_t").style.display = "none";
         }
 
-        function cerrarModal() {
-            document.getElementById("modal").style.display = "none";
+        function calculateInterval() {
+            const sampleMean = parseFloat(document.getElementById("sampleMean_t").value);
+            const sampleSize = parseInt(document.getElementById("sampleSize_t").value);
+            const confidenceLevel = parseFloat(document.getElementById("confidenceLevel_t").value);
+
+            // Cálculo del valor t-student
+            const degreesOfFreedom = sampleSize - 1;
+            const tValue = getTValue(degreesOfFreedom, confidenceLevel);
+
+            // Cálculo del intervalo de confianza
+            const marginOfError = 33 * (44 / Math.sqrt(sampleSize));
+            const lowerBound = sampleMean - marginOfError;
+            const upperBound = sampleMean + marginOfError;
+
+            document.getElementById("result_t").value = lowerBound.toFixed(2) + " - " + upperBound.toFixed(2);
         }
 
-        document.getElementById("media").addEventListener("change", calcular);
-        document.getElementById("desviacion").addEventListener("change", calcular);
-        document.getElementById("alfa").addEventListener("change", calcular);
-        document.getElementById("gradosLibertad").addEventListener("change", calcular);
-        document.getElementById("poblacion").addEventListener("change", calcular);
+        function getTValue(degreesOfFreedom, confidenceLevel) {
+            // Cálculo del valor t-student utilizando una tabla o una fórmula específica
+            // Puedes implementar la lógica para obtener el valor t-student aquí
+            // y devolver el valor correspondiente
+        }
+
+        function getStandardDeviation() {
+            // Cálculo de la desviación estándar utilizando los datos de la muestra
+            // Puedes implementar la lógica para obtener la desviación estándar aquí
+            // y devolver el valor correspondiente
+        }
     </script>
 </body>
 

@@ -741,25 +741,17 @@
                         </select>
                     </div>
 
-                    <div class="buttons">
-                        <!-- Botones para abrir los modales -->
-                        <button type="button" class="btn btn-success" id="openModalBtn_result_nulo">
-                            <h3 id="result_nulo" class="button"></h3>
-                        </button>
-                    </div>
 
-                    <div class="buttons">
-
-                        <button type="button" class="btn btn-success" id="openModalBtn_result_z">
-                            <h3 id="result_z" class="button"></h3>
-                        </button>
-                    </div>
-                    <div class="buttons">
-
-                        <button type="button" class="btn btn-success" id="openModalBtn_result_t">
-                            <h3 id="result_t" class="button"></h3>
-                        </button>
-                    </div>
+                    <!-- Botones para abrir los modales -->
+                    <button type="button" class="btn btn-success" id="openModalBtn_result_nulo">
+                        <h3 id="result_nulo" class="button"></h3>
+                    </button>
+                    <button type="button" class="btn btn-success" id="openModalBtn_result_z">
+                        <h3 id="result_z" class="button"></h3>
+                    </button>
+                    <button type="button" class="btn btn-success" id="openModalBtn_result_t">
+                        <h3 id="result_t" class="button"></h3>
+                    </button>
                 </form>
             </div>
         </div>
@@ -808,6 +800,7 @@
                     </div>
                     <div class="result">
                         <p id="resultado"></p>
+
                     </div>
                 </div>
             </div>
@@ -835,39 +828,35 @@
                 <button type="button" class="btn btn-success" id="openModalBtn_t">Calcular intervalo de confianza (t de Student)</button>
             </div>
         </div>
- <div id="myModal_t" class="modal">
-                <div class="modal-content">
-                    <span class="close" id="closeModalBtn">&times;</span>
-                    <h2>Este es un modal</h2>
-                    <form action="" onsubmit="calcular()">
-                        <input type="text" id="media" placeholder="Media" required>
-                        <input type="text" id="desviacion" placeholder="Desviación estándar" required>
-                        <input type="text" id="alfa" placeholder="Nivel de confianza" required>
-                        <input type="text" id="gradosLibertad" placeholder="Grados de libertad" required>
-                        <input type="text" id="poblacion" placeholder="Tamaño de la población" required>
-                     
-                    </form>
-                    <div class="result">
-                        <p id="resultado"></p>
-                        <div class="modal-body">
 
-</div>
-<div class="modal-footer">
-   
-    <p id="resultado"></p>
-</div>
-                    </div>
-                </div>
+
+
+
+
+        <button id="openModalBtn_t">Abrir Modal</button>
+
+        <div id="myModal_t" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn_t">&times;</span>
+                <h2>Calculadora de Intervalo de Confianza t</h2>
+                <label for="confidenceLevel_t">Nivel de confianza (%):</label>
+                <input type="number" step="0.01" id="confidenceLevel_t">
+                <br>
+                <label for="degreesOfFreedom_t">Grados de libertad:</label>
+                <input type="number" id="degreesOfFreedom_t">
+                <br>
+                <label for="sampleMean_t">Media de la muestra:</label>
+                <input type="number" step="0.01" id="sampleMean_t">
+                <br>
+                <label for="sampleStdDev_t">Desviación estándar de la muestra:</label>
+                <input type="number" step="0.01" id="sampleStdDev_t">
+                <br>
+                <label for="sampleSize_t">Tamaño de la muestra:</label>
+                <input type="number" id="sampleSize_t">
+                <br>
+                <p>El intervalo de confianza es: <span id="resultLower_t"></span> a <span id="resultUpper_t"></span></p>
             </div>
-
-
-       
-        
-
-        
-        <br>
-        <hr>
-        <br>
+        </div>
 
         <!-- Tercer metodo espacio-->
         <div>
@@ -895,6 +884,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="assets/js/all.js"></script>
     <script src="assets/js/intervalo_cal.js"></script>
+    <script src="assets/js/modales_(z).js"></script>
+    <script src="assets/js/modales_(t).js"></script>
     <!-- BackToTop Button -->
     <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
 
