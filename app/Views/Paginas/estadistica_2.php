@@ -676,8 +676,10 @@
         </div>
         </br>
 
+
+
         <div id="modal" class="modal">
-            <div class="modal-content">
+            <div class="modal-content-p">
                 <span class="close" id="closeModal">&times;</span>
                 <h2>¿Por que metodo calcular? <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBElEQVR4nJ3SSyuFURQG4KeIGOi4HAOZ+gV0TBgpM7llpiQZ+BEmMjkuITEyIJcxZ2LiiLkfpV3702fb3wlv7dr7Xetde623RTVGMIVpDPkDVtFGC0c4xhNesNhJ2Iu7KMj9OIhT3MTcH7jFesKF9hsJt4HrVLwc2y1jAm94j/cyzrBQJtqoJUmj+IinnhknePLl9qM8+tFXEWsVXk1m2g/owjku0Z2JHxT+NNDMJAT+AieYycSb0WT1ihFmsYddzGXiYTeGi8drxsROBWrR+G/bd+j3BcJYKwknJaoKbOMhFRcYw35scRzz2MEmBqLz9+ipKhCwhK3SO+zCFZ6x1kn4L3wCiS0qJ/vqw/4AAAAASUVORK5CYII=" title="Nombre de la imagen" alt="Nombre de la imagen" />
                 </h2>
@@ -686,6 +688,7 @@
                 <div>
                     <button type="button" class="btn btn-secondary" id="clean">Limpiar</button>
                 </div>
+
 
                 <form id="confidenceIntervalForm">
                     <label>¿Se distribuye normal?</label>
@@ -746,10 +749,12 @@
                     <button type="button" class="btn btn-success" id="openModalBtn_result_nulo">
                         <h3 id="result_nulo" class="button"></h3>
                     </button>
-                    <button type="button" class="btn btn-success" id="openModalBtn_result_z">
+                    <button data-toggle="modal" data-target="#myModal" type="button" class="btn btn-success" id="openModalBtn_result_z">
                         <h3 id="result_z" class="button"></h3>
                     </button>
-                    <button type="button" class="btn btn-success" id="openModalBtn_result_t">
+
+
+                    <button data-toggle="modal" data-target="#confidenceIntervalModal" type="button" class="btn btn-success" id="openModalBtn_result_t">
                         <h3 id="result_t" class="button"></h3>
                     </button>
                 </form>
@@ -773,38 +778,48 @@
         <br>
         <div data-aos="zoom-in-left" class="buttons">
             <!-- Botones para abrir los modales -->
-            <button type="button" class="btn btn-success" id="openModalBtn">Calcular intervalo de confianza (Z)</button>
+            <bbutton type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" class="btn btn-success">Calcular intervalo de confianza (Z)</bbutton>
         </div>
 
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Calculadora de Intervalo de Confianza (z)</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="confidenceIntervalzForm">
+                            <div class="form-group">
+                                <label for="muestra">Tamaño de muestra</label>
+                                <input class="form-control" type="number" id="muestra" placeholder="Ejemplo: 400" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="media">Media muestral</label>
+                                <input class="form-control" type="number" id="media" placeholder="Ejemplo: 45" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="desviacion">Desviación estándar</label>
+                                <input class="form-control" type="number" id="desviacion" placeholder="Ejemplo: 5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nivel">Nivel de confianza (%)</label>
+                                <input class="form-control" type="number" id="nivel" placeholder="Ejemplo: 95" required>
+                        </form>
+                        <div id="resultado" class="result-container mt-4"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
 
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeModalBtn">&times;</span>
-                <h2>Este es un modal</h2>
-                <div class="form-container">
-                    <div class="form-group">
-                        <label for="muestra">Tamaño de muestra</label>
-                        <input type="number" id="muestra" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="media">Media muestral</label>
-                        <input type="number" id="media" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="desviacion">Desviación estándar</label>
-                        <input type="number" id="desviacion" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="nivel">Nivel de confianza (%)</label>
-                        <input type="number" id="nivel" required>
-                    </div>
-                    <div class="result">
-                        <p id="resultado"></p>
-
-                    </div>
                 </div>
             </div>
         </div>
+        </div>
+        </div>
+
         <br>
         <hr>
         <br>
@@ -825,36 +840,40 @@
             </p>
             <br>
             <div data-aos="zoom-in-left" class="buttons">
-                <button type="button" class="btn btn-success" id="openModalBtn_t">Calcular intervalo de confianza (t de Student)</button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#confidenceIntervalModal" class="btn btn-success">Calcular intervalo de confianza (t de Student)</button>
             </div>
         </div>
-
-
-
-
-
-        <button id="openModalBtn_t">Abrir Modal</button>
-
-        <div id="myModal_t" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeModalBtn_t">&times;</span>
-                <h2>Calculadora de Intervalo de Confianza t</h2>
-                <label for="confidenceLevel_t">Nivel de confianza (%):</label>
-                <input type="number" step="0.01" id="confidenceLevel_t">
-                <br>
-                <label for="degreesOfFreedom_t">Grados de libertad:</label>
-                <input type="number" id="degreesOfFreedom_t">
-                <br>
-                <label for="sampleMean_t">Media de la muestra:</label>
-                <input type="number" step="0.01" id="sampleMean_t">
-                <br>
-                <label for="sampleStdDev_t">Desviación estándar de la muestra:</label>
-                <input type="number" step="0.01" id="sampleStdDev_t">
-                <br>
-                <label for="sampleSize_t">Tamaño de la muestra:</label>
-                <input type="number" id="sampleSize_t">
-                <br>
-                <p>El intervalo de confianza es: <span id="resultLower_t"></span> a <span id="resultUpper_t"></span></p>
+        <!-- Modal -->
+        <div class="modal fade" id="confidenceIntervalModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Calculadora de Intervalo de Confianza (t-student)</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="confidenceIntervalFormt">
+                            <div class="form-group">
+                                <label for="sampleMean">Media de la muestra (x̄):</label>
+                                <input type="number" step="0.01" class="form-control" id="sampleMean" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sampleSize">Tamaño de la muestra (n):</label>
+                                <input type="number" class="form-control" id="sampleSize" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confidenceLevel">Nivel de confianza (%):</label>
+                                <input type="number" step="0.01" class="form-control" id="confidenceLevel" required>
+                            </div>
+                        </form>
+                        <div id="result" class="result-container mt-4"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -872,11 +891,45 @@
                 <br>(Z) es el valor crítico de la distribución normal estándar, obtenido de tablas de la distribución Z o software estadístico.<br>
                 <br>(n) es el tamaño de la muestra.<br>
             </p>
-            <div data-aos="zoom-in-left" class="buttons">
-                <!-- Botones para abrir los modales -->
-                <button type="button" class="btn btn-success" onclick="CalopenModal(3)">Calcular intervalo de confianza proporciona</button>
-            </div>
             <br>
+            <div data-aos="zoom-in-left" class="buttons">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#proportionModal" class="btn btn-success">Calcular intervalo de confianza proporciona</button>
+            </div>
+        </div>
+        <div data-aos="zoom-in-left" class="buttons">
+            <>Calcular intervalo de confianza proporciona</>
+        </div>
+        <!-- Modal para Proporción -->
+        <div class="modal fade" id="proportionModal" tabindex="-1" role="dialog" aria-labelledby="proportionModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="proportionModalLabel">Calculadora de Proporción</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="proportionForm">
+                            <div class="form-group">
+                                <label for="successCount">Número de Éxitos:</label>
+                                <input type="number" class="form-control" id="successCount" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="totalCount">Tamaño de la Muestra:</label>
+                                <input type="number" class="form-control" id="totalCount" required>
+                            </div>
+                        </form>
+                        <div id="proportionResult" class="result-container mt-4"></div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
         </div>
     </section>
 
@@ -886,6 +939,11 @@
     <script src="assets/js/intervalo_cal.js"></script>
     <script src="assets/js/modales_(z).js"></script>
     <script src="assets/js/modales_(t).js"></script>
+    <script src="assets/js/modales_(p).js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <!-- BackToTop Button -->
     <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
 

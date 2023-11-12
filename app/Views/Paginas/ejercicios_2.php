@@ -1,106 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-Student Modal</title>
+    <title>Calculadora de Intervalo de Confianza</title>
     <style>
-        /* Estilos para ocultar el modal por defecto */
-        .modal_t {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            align-items: center;
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
-        /* Estilos para el contenido del modal */
-        .modal-content_t {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        #calculator {
             text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Estilos para el botón de cierre del modal */
-        .close_t {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
-
 <body>
-    <button onclick="openModal()">Abrir Calculadora</button>
 
-    <div id="myModal_t" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Calculadora de Intervalo de Confianza</h2>
-            <form oninput="calculateInterval()">
-                <label for="sampleMean_t">Media de la muestra:</label>
-                <input type="number" step="any" id="sampleMean_t" required>
+<div id="calculator">
+    <h2>Calculadora de Intervalo de Confianza</h2>
+    <label for="mean">Media de la muestra (x̄):</label>
+    <input type="number" id="mean" step="0.01" required>
 
-                <label for="sampleSize_t">Tamaño de la muestra:</label>
-                <input type="number" id="sampleSize_t" required>
+    <label for="sampleSize">Tamaño de la muestra (n):</label>
+    <input type="number" id="sampleSize" required>
 
-                <label for="confidenceLevel_t">Nivel de confianza (%):</label>
-                <input type="number" step="any" id="confidenceLevel_t" required>
+    <label for="confidenceLevel">Nivel de confianza (%):</label>
+    <input type="number" id="confidenceLevel" step="0.01" required>
 
-                <label for="result_t">Intervalo de Confianza:</label>
-                <input type="text" id="result_t" readonly>
+    <label for="degreesOfFreedom">Grados de libertad (df):</label>
+    <input type="number" id="degreesOfFreedom" readonly>
 
-                <button type="submit">Calcular</button>
-            </form>
-        </div>
-    </div>
+    <button onclick="calculateInterval()">Calcular Intervalo</button>
 
-    <script>
-        function openModal() {
-            document.getElementById("myModal_t").style.display = "block";
-        }
+    <div id="result"></div>
+</div>
 
-        function closeModal() {
-            document.getElementById("myModal_t").style.display = "none";
-        }
+<script>
+    function calculateInterval() {
+        const mean = parseFloat(document.getElementById('mean').value);
+        const sampleSize = parseInt(document.getElementById('sampleSize').value);
+        const confidenceLevel = parseFloat(document.getElementById('confidenceLevel').value);
 
-        function calculateInterval() {
-            const sampleMean = parseFloat(document.getElementById("sampleMean_t").value);
-            const sampleSize = parseInt(document.getElementById("sampleSize_t").value);
-            const confidenceLevel = parseFloat(document.getElementById("confidenceLevel_t").value);
+        const degreesOfFreedom = sampleSize - 1;
+        document.getElementById('degreesOfFreedom').value = degreesOfFreedom;
 
-            // Cálculo del valor t-student
-            const degreesOfFreedom = sampleSize - 1;
-            const tValue = getTValue(degreesOfFreedom, confidenceLevel);
+        // Consulta una tabla de t-student o utiliza una función para obtener el valor de t.
+        // En este ejemplo, usamos una función de JavaScript para obtener el valor de t.
+        const tValue = getTValue(confidenceLevel, degreesOfFreedom);
 
-            // Cálculo del intervalo de confianza
-            const marginOfError = 33 * (44 / Math.sqrt(sampleSize));
-            const lowerBound = sampleMean - marginOfError;
-            const upperBound = sampleMean + marginOfError;
+        const marginOfError = tValue * (getStandardDeviation() / Math.sqrt(sampleSize));
 
-            document.getElementById("result_t").value = lowerBound.toFixed(2) + " - " + upperBound.toFixed(2);
-        }
+        const lowerBound = mean - marginOfError;
+        const upperBound = mean + marginOfError;
 
-        function getTValue(degreesOfFreedom, confidenceLevel) {
-            // Cálculo del valor t-student utilizando una tabla o una fórmula específica
-            // Puedes implementar la lógica para obtener el valor t-student aquí
-            // y devolver el valor correspondiente
-        }
+        const resultElement = document.getElementById('result');
+        resultElement.innerHTML = `Intervalo de Confianza: (${lowerBound.toFixed(2)}, ${upperBound.toFixed(2)})`;
+    }
 
-        function getStandardDeviation() {
-            // Cálculo de la desviación estándar utilizando los datos de la muestra
-            // Puedes implementar la lógica para obtener la desviación estándar aquí
-            // y devolver el valor correspondiente
-        }
-    </script>
+    function getStandardDeviation() {
+        // Aquí puedes implementar la lógica para obtener la desviación estándar si es necesario.
+        // Por simplicidad, asumimos una desviación estándar conocida en este ejemplo.
+        return 1;
+    }
+
+    function getTValue(confidenceLevel, degreesOfFreedom) {
+        // Implementa la lógica para obtener el valor de t según el nivel de confianza y grados de libertad.
+        // Puedes consultar una tabla de t-student o utilizar una función específica para esto.
+        // En este ejemplo, estamos utilizando una función simple que puede no ser precisa en todos los casos.
+        const alpha = 1 - confidenceLevel / 100;
+        return Math.abs(tDistributionInverse(alpha / 2, degreesOfFreedom));
+    }
+
+    // Función simple para obtener el inverso de la distribución t de Student.
+    function tDistributionInverse(p, df) {
+        const q = 1 - p;
+        const t = Math.sqrt(df / (df + Math.pow(q / p, 2)));
+        return t;
+    }
+</script>
+
 </body>
-
 </html>
