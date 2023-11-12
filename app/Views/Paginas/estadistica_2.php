@@ -785,7 +785,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalLabel">Calculadora de Intervalo de Confianza (z)</h5>
+                        <h6 class="modal-title" id="modalLabel">Calculadora de Intervalo de Confianza (z)</h6>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -848,7 +848,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalLabel">Calculadora de Intervalo de Confianza (t-student)</h5>
+                        <h6 class="modal-title" id="modalLabel">Calculadora de Intervalo de Confianza (t-student)</h6>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -904,7 +904,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="proportionModalLabel">Calculadora de Proporción</h5>
+                        <h6 class="modal-title" id="proportionModalLabel">Calculadora de Proporción</h6>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
