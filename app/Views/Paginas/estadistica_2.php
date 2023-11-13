@@ -688,10 +688,8 @@
                 </h2>
                 <p>¡Hola! te ayudaremos a que conozcas el metodo por el cual calcular tu intervalo de confianza<br>para ello te realizaremos una serie de preguntas que nos permitan definir el mejor metodo para tu objetivo </p>
 
-                <div>
-                    <button type="button" class="btn btn-secondary" id="clean">Limpiar</button>
-                </div>
-
+              
+<br>
 
                 <form id="confidenceIntervalForm">
                     <label>¿Se distribuye normal?</label>
@@ -749,7 +747,7 @@
 
 
                     <!-- Botones para abrir los modales -->
-                    <button type="button" class="btn btn-success" id="openModalBtn_result_nulo">
+                    <button type="button" class="btn btn-success" id="result_nulo">
                         <h3 id="result_nulo" class="button"></h3>
                     </button>
                     <button data-toggle="modal" data-target="#myModal" type="button" class="btn btn-success" id="openModalBtn_result_z">
@@ -760,6 +758,10 @@
                     <button data-toggle="modal" data-target="#confidenceIntervalModal" type="button" class="btn btn-success" id="openModalBtn_result_t">
                         <h3 id="result_t" class="button"></h3>
                     </button>
+<br>
+                    <div>
+                    <button type="button" class="btn btn-secondary" id="clean">Limpiar</button>
+                </div>
                 </form>
             </div>
         </div>

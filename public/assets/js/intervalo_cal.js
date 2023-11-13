@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         modal_1.style.display = "none";
         openModalBtn_result_t.style.display = "none";
         openModalBtn_result_z.style.display = "none";
+        stdDeviationSelect.value = "";
 
     });
 
@@ -62,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
             result_z.innerHTML = "";
+            result_nulo.innerHTML = "";
             no_normaltamaño_n.style.display = "none";
             no_normalDesv_estandar.style.display = "none";
             Desv_estandar.style.display = "block";
@@ -100,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
             modal_1.style.display = "none";
             openModalBtn_result_t.style.display = "none";
             openModalBtn_result_z.style.display = "none";
+            
         }
     });
 
@@ -146,6 +149,8 @@ document.addEventListener("DOMContentLoaded", function () {
             result_z.innerHTML = "";
             openModalBtn_result_t.style.display = "none";
             openModalBtn_result_z.style.display = "none";
+            stdDeviationSelect.value = "";
+            Desv_estandar.style.display = "none";
         }
     });
 
@@ -198,6 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
             clean.style.display = "block";
             openModalBtn_result_t.style.display = "none";
             openModalBtn_result_z.style.display = "none";
+            option_desv_estandar.value = "";
         }
     });
 
@@ -239,8 +245,10 @@ document.addEventListener("DOMContentLoaded", function () {
             result_t.innerHTML = "";
             result_z.innerHTML = "";
             modal_1.style.display = "none";
+            no_normalDesv_estandar.style.display = "none";
             openModalBtn_result_t.style.display = "none";
             openModalBtn_result_z.style.display = "none";
+            stdDeviationSelect.value = "";
         }
     });
 
@@ -250,16 +258,17 @@ document.addEventListener("DOMContentLoaded", function () {
             result_nulo.innerHTML = "";
             result_t.innerHTML = "";
             result_z.innerHTML = "";
-            result_t.style.display = "none";
-            result_nulo.style.display = "none";
+            no_normaltamaño_n.style.display = "block";
+            no_normalDesv_estandar.style.display = "block";
             tamaño_n.style.display = "none";
-            Desv_estandar.style.display = "none";
             result_z.style.display = "block";
             clean.style.display = "block";
+            result_t.style.display = "none";
+            result_nulo.style.display = "none";
             modal_1.style.display = "none";
-            openModalBtn_result_t.style.display = "none";
             openModalBtn_result_z.style.display = "none";
-            openModalBtn_result_t.style.display = "block";
+            openModalBtn_result_t.style.display = "none";
+            openModalBtn_result_z.style.display = "block";
             result_z.innerHTML = "Te sugerimos calcular por el valor de (Z)";
         } else {
             result_z.style.display = "none";
@@ -282,17 +291,14 @@ document.addEventListener("DOMContentLoaded", function () {
             result_t.innerHTML = "";
             result_z.innerHTML = "";
             result_t.style.display = "none";
-            clean.style.display = "none";
             result_z.style.display = "none";
             result_nulo.style.display = "none";
             openModalBtn_result_z.style.display = "none";
-            openModalBtn_result_.style.display = "none";
+            openModalBtn_result_t.style.display = "none";
+            clean.style.display = "block";
+            no_normaltamaño_n.style.display = "none";
+            NO_NORMALoption_desv_estandar.value="";
         }
     });
-
-    /* CALCULADORAS */
-
-
-
 
 });
