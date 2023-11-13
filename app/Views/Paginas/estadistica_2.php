@@ -949,16 +949,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <!-- BackToTop Button -->
-    <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
-
-    <!-- Boton hacia arriba -->
-    <a class="ir-arriba" javascript:void(0) title="Volver arriba">
-        <span class="fa-stack">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
 </body>
 </main>
 

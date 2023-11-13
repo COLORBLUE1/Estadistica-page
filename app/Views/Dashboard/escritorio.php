@@ -272,7 +272,7 @@
             </div>
             <div class="bar">
                 <br><br>
-                <p>Abel Sol - Hugo Ledesma - Maria Ortiz<br><b>@Derechos reservados ¡mi papacho!</b></p>
+                <p>Abel Sol<br><b>@Derechos reservados ¡mi papacho!</b></p>
             </div>
 </footer>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

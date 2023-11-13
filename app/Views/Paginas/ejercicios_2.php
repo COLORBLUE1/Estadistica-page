@@ -1,86 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans+Condensed:300|Raleway|Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="shortcut icon" href="https://img.icons8.com/arcade/64/graph.png">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/estadistica_all.css">
-   
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            height: 100vh;
-        }
-
-        #izquierda {
-            float: left;
-            width: 20%;
-            height: 100vh;
-         
-            
-    background-color: #2c2c49;
-  
-    top: 0;
-    border-radius: 0px 5px 5px 0px;
-
-}
-        
-
-        #derecha {
-            float: left;
-            width: 80%;
-            height: 100vh;
-        }
-
-        iframe {
-            width: 100%;
-            height: calc(100% - 40px); /* Ajusta según el espacio de padding en el div */
-            border: none; /* Quita el borde del iframe si no es necesario */
-        }
-    </style>
-    <title>Página Dividida con iframes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Scroll hacia arriba</title>
+  <style>
+    #scrollBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
-    <div id="izquierda">
-        <!-- Contenido de la parte izquierda -->
-       
-            <h1 class="tabla_title">Tabla de Contenido</h1>
-            <br>
-            <ul type=none>
-                <li><a href="#titulo_pb">Probabilidad</a></li>
-                <li><a href="#titulo_cv">Clasificación de variables</a></li>
-                <li><a href="#titulo_dn">Distribución normal</a></li>
-                <li><a href="#titulo_va">Variable aleatoria</a></li>
-                <li><a href="#titulo_db">Distribución Binomial</a></li>
-                <li><a href="#titulo_ie">Inferencia estadística</a></li>
-                <li><a href="#titulo_tlc">Teorema Limite Central y Estimación</a></li>
-                <li><a href="#titulo_ic">Intervalos de confianza</a></li>
-            </ul>
-        
-    </div>
-    <div id="derecha">
-        <!-- Contenido de la parte derecha con iframe -->
-        <iframe src="estadistica_2"></iframe>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="assets/js/all.js"></script>
-    <script src="assets/js/intervalo_cal.js"></script>
-    <script src="assets/js/modales_(z).js"></script>
-    <script src="assets/js/modales_(t).js"></script>
-    <script src="assets/js/modales_(p).js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script>
-                    AOS.init();
-                </script>
- 
+
+  <!-- Contenido de la página -->
+  <div style="height: 1500px;">
+    <!-- Contenido aquí -->
+  </div>
+
+  <!-- Botón de scroll hacia arriba con flecha -->
+  <button id="scrollBtn" onclick="scrollToTop()">&#9650;</button>
+
+  <script>
+    // Función para mostrar u ocultar el botón dependiendo de la posición del scroll
+    window.onscroll = function() {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      var btn = document.getElementById("scrollBtn");
+
+      // Muestra el botón cuando el scroll está más abajo de 300 píxeles
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    }
+
+    // Función para realizar el scroll hacia arriba suavemente
+    function scrollToTop() {
+      // Obtener la posición actual del scroll
+      var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+
+      // Calcular la cantidad de píxeles para hacer el scroll suavemente
+      var scrollStep = Math.round(currentScroll / 25);
+
+      // Función recursiva para realizar el scroll suavemente
+      function smoothScroll() {
+        if (document.documentElement.scrollTop || document.body.scrollTop) {
+          window.scrollBy(0, -scrollStep);
+          setTimeout(smoothScroll, 15);
+        }
+      }
+
+      // Llamar a la función de scroll suavemente
+      smoothScroll();
+    }
+  </script>
 
 </body>
 </html>
