@@ -29,17 +29,7 @@
 
 </head>
 
-<body>
-
-    <div data-aos="fade-up" data-aos-anchor-placement="top-center" class="title" style="text-align: center;  margin-top:100px; ">
-        <h3 class='display-4 relawayStandart text-light shadow-sm'> Estadistica 2</h3>
-    </div>
-    <section class="cont_inicial">
-        <p data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400" data-aos-offset="0" class="intro">Bienvenido a nuestra plataforma de herramientas de cálculo y teoría! Aquí encontrarás una colección de herramientas útiles para realizar una amplia variedad de cálculos en diversas áreas, así como una sólida base teórica para comprender los principios subyacentes. Ya sea que seas un estudiante, un profesional, o simplemente alguien interesado en explorar
-            conceptos matemáticos y científicos, nuestra plataforma está diseñada para ayudarte a resolver
-            problemas, realizar análisis y aprender más sobre los fundamentos que respaldan estas herramientas.</p>
-        <br>
-        <div data-aos="fade-right" class="content_indice" id="content_indice">
+         <div data-aos="fade-right" class="content_indice" id="content_indice">
             <h1 class="tabla_title">Tabla de Contenido</h1>
             <br>
             <ul data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" type=none>
@@ -52,7 +42,20 @@
                 <li><a href="#titulo_tlc">Teorema Limite Central y Estimación</a></li>
                 <li><a href="#titulo_ic">Intervalos de confianza</a></li>
             </ul>
-        </div>
+        </div> 
+   
+<body>
+
+   
+    <section class="cont_inicial">
+    <div data-aos="fade-up" data-aos-anchor-placement="top-center" class="title" style="text-align: center;  margin-top:100px; ">
+        <h3 class='display-4 relawayStandart text-light shadow-sm'> Estadistica 2</h3>
+    </div>
+        <p data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400" data-aos-offset="0" class="intro">Bienvenido a nuestra plataforma de herramientas de cálculo y teoría! Aquí encontrarás una colección de herramientas útiles para realizar una amplia variedad de cálculos en diversas áreas, así como una sólida base teórica para comprender los principios subyacentes. Ya sea que seas un estudiante, un profesional, o simplemente alguien interesado en explorar
+            conceptos matemáticos y científicos, nuestra plataforma está diseñada para ayudarte a resolver
+            problemas, realizar análisis y aprender más sobre los fundamentos que respaldan estas herramientas.</p>
+        <br>
+       
         <!-- Modales -->
         <div id="myModal1" class="modal">
             <div class="modal-content">

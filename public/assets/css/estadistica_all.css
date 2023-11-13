@@ -9,6 +9,12 @@
     display: none;
 }
 
+/* Division */
+section{
+    padding-left:252px;
+   }
+   
+   
 
 .ejercicios_button {
     color: white;
