@@ -29,33 +29,33 @@
 
 </head>
 
-         <div data-aos="fade-right" class="content_indice" id="content_indice">
-            <h1 class="tabla_title">Tabla de Contenido</h1>
-            <br>
-            <ul data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" type=none>
-                <li><a href="#titulo_pb">Probabilidad</a></li>
-                <li><a href="#titulo_cv">Clasificación de variables</a></li>
-                <li><a href="#titulo_dn">Distribución normal</a></li>
-                <li><a href="#titulo_va">Variable aleatoria</a></li>
-                <li><a href="#titulo_db">Distribución Binomial</a></li>
-                <li><a href="#titulo_ie">Inferencia estadística</a></li>
-                <li><a href="#titulo_tlc">Teorema Limite Central y Estimación</a></li>
-                <li><a href="#titulo_ic">Intervalos de confianza</a></li>
-            </ul>
-        </div> 
-   
+<div data-aos="fade-right" class="content_indice" id="content_indice">
+    <h1 class="tabla_title">Tabla de Contenido</h1>
+    <br>
+    <ul data-aos="fade-down" data-aos-easing="linear" class="indice" data-aos-duration="1500" type=none>
+        <li><a href="#titulo_pb">Probabilidad</a></li>
+        <li><a href="#titulo_cv">Clasificación de variables</a></li>
+        <li><a href="#titulo_dn">Distribución normal</a></li>
+        <li><a href="#titulo_va">Variable aleatoria</a></li>
+        <li><a href="#titulo_db">Distribución Binomial</a></li>
+        <li><a href="#titulo_ie">Inferencia estadística</a></li>
+        <li><a href="#titulo_tlc">Teorema Limite Central y Estimación</a></li>
+        <li><a href="#titulo_ic">Intervalos de confianza</a></li>
+    </ul>
+</div>
+
 <body>
 
-   
+
     <section class="cont_inicial">
-    <div data-aos="fade-up" data-aos-anchor-placement="top-center" class="title" style="text-align: center;  margin-top:100px; ">
-        <h3 class='display-4 relawayStandart text-light shadow-sm'> Estadistica 2</h3>
-    </div>
+        <div data-aos="fade-up" data-aos-anchor-placement="top-center" class="title" style="text-align: center;  margin-top:100px; ">
+            <h3 class='display-4 relawayStandart text-light shadow-sm'> Estadistica 2</h3>
+        </div>
         <p data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400" data-aos-offset="0" class="intro">Bienvenido a nuestra plataforma de herramientas de cálculo y teoría! Aquí encontrarás una colección de herramientas útiles para realizar una amplia variedad de cálculos en diversas áreas, así como una sólida base teórica para comprender los principios subyacentes. Ya sea que seas un estudiante, un profesional, o simplemente alguien interesado en explorar
             conceptos matemáticos y científicos, nuestra plataforma está diseñada para ayudarte a resolver
             problemas, realizar análisis y aprender más sobre los fundamentos que respaldan estas herramientas.</p>
         <br>
-       
+
         <!-- Modales -->
         <div id="myModal1" class="modal">
             <div class="modal-content">
@@ -688,8 +688,8 @@
                 </h2>
                 <p>¡Hola! te ayudaremos a que conozcas el metodo por el cual calcular tu intervalo de confianza<br>para ello te realizaremos una serie de preguntas que nos permitan definir el mejor metodo para tu objetivo </p>
 
-              
-<br>
+
+                <br>
 
                 <form id="confidenceIntervalForm">
                     <label>¿Se distribuye normal?</label>
@@ -758,10 +758,10 @@
                     <button data-toggle="modal" data-target="#confidenceIntervalModal" type="button" class="btn btn-success" id="openModalBtn_result_t">
                         <h3 id="result_t" class="button"></h3>
                     </button>
-<br>
+                    <br>
                     <div>
-                    <button type="button" class="btn btn-secondary" id="clean">Limpiar</button>
-                </div>
+                        <button type="button" class="btn btn-secondary" id="clean">Limpiar</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -770,9 +770,49 @@
         <h3 data-aos="zoom-in">Intervalo de confianza (Z)</h3>
         <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando conoces la desviación estándar
             poblacional (σ) y tu muestra sigue una distribución normal.<br>
-            <br>Fórmula: El intervalo de confianza (Z) se calcula como:<br> <br>LI = X̄ - Z * (σ / √n)<br><br>LS = X̄ + Z * (σ / √n)<br>
+            <br>Fórmula: El intervalo de confianza (Z) se calcula como:</p><br>
+            <div class="formula">
+            <math>
+                <mrow>
+                   
+                    <mo>LI</mo>
+                    <mo>=</mo>
+                    <mo>X̅</mo>
+                    <mo>-</mo>
+                    <mi>z</mi>
+                    <mo>*</mo>
+                    <mfrac>
+                        <mi>σ</mi>
+                        <msqrt>
+                            <mi>n</mi>
+                        </msqrt>
+                    </mfrac>
+                </mrow>
+            </math>
+            </div>
             <br>
-            Cuándo usarlo: Debes usar el intervalo de confianza (Z) cuando tengas una muestra grande o conocias la desviación estándar poblacional y la distribución de la muestra es normal.
+            <br>
+            <div class="formula">
+            <math>
+                <mrow>
+                   
+                    <mo>LS</mo>
+                    <mo>=</mo>
+                    <mo>X̅</mo>
+                    <mo>+</mo>
+                    <mi>z</mi>
+                    <mo>*</mo>
+                    <mfrac>
+                        <mi>σ</mi>
+                        <msqrt>
+                            <mi>n</mi>
+                        </msqrt>
+                    </mfrac>
+                </mrow>
+            </math>
+            </div>
+            <br>
+            <P class="inter_z">Cuándo usarlo: Debes usar el intervalo de confianza (Z) cuando tengas una muestra grande o conocias la desviación estándar poblacional y la distribución de la muestra es normal.
         </p>
         <p class="inter_z"> Detalles:<br>
             <br>(X̄) es la media muestral.<br>
@@ -833,9 +873,49 @@
         <div>
             <h3 data-aos="zoom-in-right">Intervalo de confianza (t)</h3>
             <p class="inter_z">Explicación: Este tipo de intervalo de confianza se utiliza cuando no conoces la desviación estándar poblacional (σ) y tu muestra sigue una distribución normal. En su lugar, utilizas la desviación estándar de la muestra (s) para estimar la poblacional.<br>
-                <br>Fórmula: El intervalo de confianza (t) se calcula como:<br> <br>LI = X̄ - t * (s / √n)<br><br>LS = X̄ + t * (s / √n)<br>
-                <br>
-                Cuándo usarlo: Debes usar el intervalo de confianza (t) cuando no conozcas la desviación estándar poblacional y la distribución de la muestra sea normal.
+                <br>Fórmula: El intervalo de confianza (t) se calcula como:
+            </p>
+<div class="formula">
+            <math>
+                <mrow>
+                   
+                    <mo>LI</mo>
+                    <mo>=</mo>
+                    <mo>X̅</mo>
+                    <mo>-</mo>
+                    <mi>t</mi>
+                    <mo>*</mo>
+                    <mfrac>
+                        <mi>s</mi>
+                        <msqrt>
+                            <mi>n</mi>
+                        </msqrt>
+                    </mfrac>
+                </mrow>
+            </math>
+            </div>
+            <br>
+            <br>
+            <div class="formula">
+            <math>
+                <mrow>
+                   
+                    <mo>LS</mo>
+                    <mo>=</mo>
+                    <mo>X̅</mo>
+                    <mo>+</mo>
+                    <mi>t</mi>
+                    <mo>*</mo>
+                    <mfrac>
+                        <mi>s</mi>
+                        <msqrt>
+                            <mi>n</mi>
+                        </msqrt>
+                    </mfrac>
+                </mrow>
+            </math>
+            </div>
+            <p class="inter_z"> Cuándo usarlo: Debes usar el intervalo de confianza (t) cuando no conozcas la desviación estándar poblacional y la distribución de la muestra sea normal.
             </p>
             <p class="inter_z"> Detalles:<br>
                 <br>(X̄) es la media muestral.<br>
